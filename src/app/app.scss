@@ -1,0 +1,21 @@
+// ── Estilos del shell de la aplicación ───────────────────────────────────────
+// Este archivo solo contiene el ajuste de padding necesario para compensar el header fijo.
+// El header está posicionado con position: fixed, por lo que no ocupa espacio en el flujo normal del documento.
+// Sin este padding, el contenido de cada página quedaría oculto detrás del header.
+
+// .page-content: clase aplicada al <main> en app.html que envuelve el <router-outlet>
+// Los valores de padding-top corresponden a la altura total del header en cada breakpoint:
+//   Desktop: nav-row-1 (80px) + nav-row-2 (48px) + borders (~16px) = ~144px
+//   Tablet/móvil grande: mismo cálculo ≈ 130px
+//   Móvil pequeño: ≈ 128px (el header se compacta levemente)
+.page-content {
+  padding-top: 130px; // nav-row-1 (80px) + nav-row-2 (48px) + 2px borders
+
+  @media (max-width: 991px) {
+    padding-top: 130px;
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 128px;
+  }
+}

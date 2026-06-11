@@ -1,0 +1,444 @@
+// ============================================================
+//  FRANKO PALETTE STRATEGY
+//
+//  [ROJO]          → Marca, Urgencia, Acción principal
+//                    Úsalo en: Header, botón principal, WhatsApp, urgencia
+//
+//  [AZUL OSCURO]   → Fondo, Confianza, Premium
+//                    Úsalo en: Menú, Footer, secciones de fondo oscuro
+//
+//  [AZUL CLARO]    → CTA interno, Link, Interacción
+//                    Úsalo en: botones de productos, links, "Ver detalles"
+//
+//  [GRISES]        → Texto, Contenido, Legibilidad
+//                    Úsalo en: párrafos, fechas, textos secundarios
+//
+//  [VERDE/ROJO/ÁMBAR] → Sistema, Feedback
+//                    Úsalo en: éxito, error, advertencia
+//
+//  DATO CLAVE: --primary (rojo) ≠ --page-accent (azul)
+//  "Contactar por WhatsApp" (rojo) ≠ "Agregar al carrito" (azul)
+// ============================================================
+
+:root {
+
+  // ── [ROJO] — Marca · Urgencia · Acción principal ──────────────────────────
+  --primary:              #c8102e;
+  --primary-dark:         #a00d25;
+  --primary-light:        #f1476a;
+  --secondary:            #1F4E79;   // azul marino — alias del color de marca secundario
+
+  // ── [AZUL OSCURO] — Fondo · Confianza · Premium ───────────────────────────
+  --nav-bg:               #1F4E79;   // navegación, títulos corporativos
+  --nav-bg-mid:           #2E75B6;
+  --footer-bg:            #080d1a;
+  --bg-dark:              #2d3748;   // stats strip, fondos oscuros medios
+  --bg-darkest:           #0f172a;   // secciones muy oscuras
+
+  // ── [AZUL CLARO] — CTA interno · Link · Interacción ──────────────────────
+  --page-accent:          #2563eb;
+  --page-accent-mid:      #2E75B6;
+  --page-accent-light:    #60a5fa;   // sobre fondos oscuros
+  --page-accent-pale:     #e8f0fe;   // fondos suaves de iconos
+
+  // ── [GRISES] — Texto · Contenido · Legibilidad ────────────────────────────
+
+  // Escala completa — sin negro, el tono más oscuro es gris pizarra
+  --gray-900:             #2d3748;   // gris oscuro (máximo permitido)
+  --gray-800:             #374151;   // títulos principales
+  --gray-700:             #4b5563;   // texto cuerpo
+  --gray-600:             #6b7280;   // texto secundario
+  --gray-500:             #9ca3af;   // texto muted / placeholders
+  --gray-400:             #d1d5db;   // texto sutil / disabled
+  --gray-300:             #e5e7eb;   // bordes visibles
+  --gray-200:             #f3f4f6;   // bordes suaves / divisores
+  --gray-100:             #f9fafb;   // fondos de tarjetas alternas
+  --gray-50:              #ffffff;   // fondo blanco puro
+
+  // Alias semánticos (apuntan a la escala de arriba)
+  --text-heading:         var(--gray-800);   // #374151
+  --text-body:            var(--gray-700);   // #4b5563
+  --text-muted:           var(--gray-600);   // #6b7280
+  --text-subtle:          var(--gray-500);   // #9ca3af
+  --text-white:           #ffffff;
+  --text-white-muted:     rgba(255, 255, 255, 0.72);
+  --text-white-subtle:    rgba(255, 255, 255, 0.45);
+
+  // Fondos neutros
+  --bg-white:             #ffffff;
+  --bg-light:             #f4f6f9;
+  --bg-subtle:            var(--gray-50);
+
+  // Bordes
+  --border-light:         var(--gray-200);
+  --border-muted:         var(--gray-300);
+  --border-on-dark:       rgba(255, 255, 255, 0.12);
+
+  // ── [VERDE / ROJO / ÁMBAR] — Sistema · Feedback ──────────────────────────
+  --feedback-success:     #16a34a;
+  --feedback-error:       #dc2626;
+  --feedback-warning:     #d97706;
+  --feedback-info:        #0284c7;
+
+  // ── Iconos (heredan la estrategia de color) ───────────────────────────────
+  --icon-bg:              var(--page-accent-pale);  // contenedor sobre fondo claro
+  --icon-color:           var(--page-accent);       // icono sobre fondo claro
+  --icon-color-dark:      var(--page-accent-light); // icono sobre fondo oscuro
+  --icon-star:            #f59e0b;
+
+  // ── Tarjetas ──────────────────────────────────────────────────────────────
+  --card-bg:              #ffffff;
+  --card-border:          #e5e7eb;
+  --card-border-subtle:   #eeeeee;
+  --card-shadow:          0 1px 8px rgba(0, 0, 0, 0.07);
+  --card-shadow-hover:    0 8px 28px rgba(0, 0, 0, 0.12);
+
+  // ── Gradientes ────────────────────────────────────────────────────────────
+  --gradient-cta:         linear-gradient(135deg, #6B2D8B 0%, #1F4E79 100%);
+  --gradient-card-img:    linear-gradient(135deg, #fdf6ec 0%, #fef3e8 100%);
+  --gradient-hero-overlay: rgba(0, 0, 0, 0.58);
+
+  // ── Radios ────────────────────────────────────────────────────────────────
+  --radius-sm:            8px;
+  --radius-md:            12px;
+  --radius-lg:            16px;
+  --radius-pill:          999px;
+  --card-radius:          14px;
+  --card-radius-sm:       10px;
+}
+
+// ── Modal de cotización (SweetAlert2 + clases fswal) ─────────────────────
+.fswal-popup {
+  border-radius: 14px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  max-width: 480px !important;
+  width: 92vw !important;
+}
+
+// Oculta el título nativo de Swal cuando se usa título inline en el html
+.fswal-title:empty {
+  display: none !important;
+  padding: 0 !important;
+}
+
+.fswal-title-inline {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  padding: 1.25rem 1.5rem 0.4rem;
+  margin: 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #1d4ed8;
+    border-radius: 2px;
+    margin: 0.45rem auto 0;
+  }
+}
+
+.fswal-header-img {
+  width: 100%;
+  line-height: 0;
+  margin-top: 20px;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px ;
+  }
+}
+
+.fswal-title {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  padding: 1.5rem 1.5rem 0.5rem !important;
+  margin: 0 !important;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #1d4ed8;
+    border-radius: 2px;
+    margin: 0.5rem auto 0;
+  }
+}
+
+.fswal-html-container {
+  padding: 0 1.5rem 1.5rem !important;
+  margin: 0 !important;
+}
+
+.fswal-body {
+  text-align: left;
+}
+
+.fswal-product-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.fswal-nombre {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1e293b;
+  line-height: 1.35;
+}
+
+.fswal-serie {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 3px 9px;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fswal-categoria {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 0 0.35rem;
+
+  i { margin-right: 4px; }
+}
+
+.fswal-desc {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.fswal-form {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.85rem;
+}
+
+.fswal-form-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 0 0 0.85rem;
+}
+
+.fswal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 0.75rem;
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151;
+
+    .req { color: #ef4444; margin-left: 2px; }
+  }
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.fswal-row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.fswal-input {
+  width: 100%;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.88rem;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #fff;
+  color: #1e293b;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  box-sizing: border-box;
+
+  &::placeholder { color: #9ca3af; }
+
+  &:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+
+  &.fswal-input--error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+  }
+}
+
+.fswal-aviso {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  i { color: #22c55e; font-size: 0.85rem; }
+
+  a, strong { color: #1d4ed8; font-weight: 600; }
+}
+
+// Botones del modal de cotización
+.fswal-btn-confirm {
+  background-color: #4b5563 !important;
+  border-color: #4b5563 !important;
+  color: #fff !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  padding: 0.55rem 1.4rem !important;
+  border-radius: 8px !important;
+
+  &:hover, &:focus {
+    background-color: #374151 !important;
+    border-color: #374151 !important;
+  }
+}
+
+.fswal-btn-cancel {
+  background-color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+  color: #374151 !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  padding: 0.55rem 1.4rem !important;
+  border-radius: 8px !important;
+
+  &:hover, &:focus {
+    background-color: #d1d5db !important;
+    border-color: #d1d5db !important;
+  }
+}
+
+// ── Breadcrumb global ────────────────────────────────────────────────────
+.breadcrumb-item,
+.breadcrumb-item a,
+.breadcrumb-item.active {
+  font-weight: 700 !important;
+}
+
+// ── Botones globales ──────────────────────────────────────────────────────
+
+.btn-primary {
+  background-color: #1a4fba !important;
+  border-color: #1a4fba !important;
+  color: #fff !important;
+  font-weight: 600;
+
+  &:hover, &:focus, &:active {
+    background-color: #153f96 !important;
+    border-color: #153f96 !important;
+    color: #fff !important;
+  }
+}
+
+.btn-outline-dark {
+  background-color: #fff !important;
+  border-color: #9ca3af !important;
+  color: #374151 !important;
+  font-weight: 600;
+
+  &:hover, &:focus, &:active {
+    background-color: #374151 !important;
+    border-color: #374151 !important;
+    color: #fff !important;
+  }
+}
+
+// Fondo oscuro del footer — reemplaza bg-secondary de Bootstrap
+.bg-secondary-custom {
+  background-color: #1a1a2e !important;
+}
+
+// Botón flotante de WhatsApp (declarado en app.html)
+// Skip link — accesibilidad: invisible excepto al recibir foco por teclado
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 10001;
+  &:focus {
+    position: fixed;
+    left: 8px;
+    top: 8px;
+    width: auto;
+    height: auto;
+    padding: 8px 16px;
+    background: #fff;
+    color: var(--primary);
+    font-weight: 700;
+    border-radius: 4px;
+    overflow: visible;
+    text-decoration: none;
+  }
+}
+
+.whatsapp-fab {
+  position: fixed;
+  bottom: 100px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 18px 10px 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: scale(1.06) translateY(-2px);
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+    color: #fff;
+  }
+
+  @media (max-width: 576px) {
+    bottom: 30px;
+    right: 16px;
+    padding: 10px 14px 10px 12px;
+  }
+}
+
+.whatsapp-fab-label {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}

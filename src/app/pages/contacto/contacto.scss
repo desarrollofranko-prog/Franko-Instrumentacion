@@ -1,0 +1,494 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// SECCIÓN HERO — Imagen de fondo con texto superpuesto
+// ══════════════════════════════════════════════════════════════════════════════
+
+.contacto-hero {
+  position: relative;         // Contexto de posicionamiento para el overlay hijo (posición absoluta dentro del hero)
+  min-height: 340px;          // Altura mínima garantizada aunque el contenido sea poco
+  background: url('/assets/images/site/planta-franko.webp') center/cover no-repeat;
+                              // Imagen de fondo: "center" la centra, "cover" la escala para cubrir todo el contenedor sin deformarla, "no-repeat" evita que se repita en mosaico
+  display: flex;              // Activa flexbox para centrar el contenido interno fácilmente
+  align-items: center;        // Centra verticalmente el contenido dentro del hero
+  justify-content: center;    // Centra horizontalmente el contenido dentro del hero
+  padding: 4rem 1rem;         // Espaciado interno: 4rem arriba/abajo para que el texto no toque los bordes en pantallas pequeñas
+
+  // ── Overlay de degradado sobre la imagen de fondo ──
+  .contacto-hero-overlay {
+    position: absolute;       // Se posiciona relativo al .contacto-hero (que tiene position: relative)
+    inset: 0;                 // Equivale a top:0; right:0; bottom:0; left:0 — cubre todo el área del hero
+    background: linear-gradient(135deg, rgba(26,26,46,0.90) 0%, rgba(200,16,46,0.15) 100%);
+                              // Degradado diagonal: esquina superior izquierda casi negro opaco → esquina inferior derecha con toque rojo semitransparente
+                              // Crea profundidad y hace legible el texto blanco sobre la fotografía
+  }
+
+  // ── Etiqueta pequeña encima del título ──
+  .hero-eyebrow {
+    display: inline-block;    // Permite aplicar margin-bottom sin convertirlo en bloque completo
+    font-size: 0.8rem;        // Tamaño pequeño para que tenga menor jerarquía que el título
+    font-weight: 600;         // Semi-negrita para que se diferencie sin pesar demasiado
+    letter-spacing: 0.2em;    // Espaciado amplio entre letras — efecto tipográfico de "etiqueta" o "categoría"
+    text-transform: uppercase; // Convierte a mayúsculas en CSS sin cambiar el HTML
+    color: rgba(255,255,255,0.7); // Blanco con 70% de opacidad para que sea menos prominente que el título
+    margin-bottom: 0.75rem;   // Separación entre el eyebrow y el título principal
+  }
+
+  // ── Título principal del hero ──
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+                              // clamp(mínimo, preferido, máximo): en móvil usa 2rem, en pantallas medianas escala con el viewport (5vw), máximo 3.5rem en desktop
+    font-weight: 800;         // Extra-negrita para máxima jerarquía visual
+    color: #fff;              // Blanco sólido sobre el overlay oscuro
+    margin-bottom: 0.75rem;   // Separación entre el título y el subtítulo
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4); // Sombra suave detrás del texto para mejorar la legibilidad sobre la foto
+  }
+
+  // ── Subtítulo / descripción del hero ──
+  .hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.1rem); // Tipografía fluida: entre 0.95rem y 1.1rem según el ancho del viewport
+    color: rgba(255,255,255,0.82);            // Blanco al 82% de opacidad — menos prominente que el título
+    margin: 0;                                // Elimina el margin-bottom por defecto del párrafo
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// BREADCRUMB — Ruta de navegación debajo del hero
+// ══════════════════════════════════════════════════════════════════════════════
+
+.contacto-breadcrumb {
+  background: #f8f9fa;                    // Fondo gris muy claro para separar visualmente del hero
+  border-bottom: 1px solid #e9ecef;       // Línea divisoria sutil debajo del breadcrumb
+  padding: 0.6rem 0;                      // Espaciado vertical compacto
+
+  .breadcrumb { font-size: 0.85rem; margin: 0; } // Texto pequeño; margin:0 elimina el espacio por defecto de Bootstrap
+  .breadcrumb-item + .breadcrumb-item::before { color: #adb5bd; } // Color gris claro para el separador "/" entre items
+  a { color: var(--page-accent); }        // Los enlaces usan la variable CSS de color de acento definida en el tema global
+  .breadcrumb-item.active { color: #6c757d; } // El item activo (página actual) en gris — no es un enlace, solo texto
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SECCIÓN PRINCIPAL — Contenedor del formulario y la tarjeta de información
+// ══════════════════════════════════════════════════════════════════════════════
+
+.contacto-section {
+  padding: 4rem 0;      // Espaciado vertical generoso alrededor del contenido
+  background: #f8fafc;  // Fondo gris azulado muy suave para diferenciar de las tarjetas blancas internas
+}
+
+// ── Tarjeta lateral de información de contacto ──────────────────────────────
+
+.contacto-info-card {
+  background: #374151;        // Fondo gris oscuro (mismo color que el header/footer de la marca)
+  border-radius: 16px;        // Esquinas redondeadas generosas para look moderno
+  padding: 2rem 1.75rem;      // Espaciado interno cómodo para el contenido
+  color: #fff;                // Texto blanco como base para toda la tarjeta
+  position: sticky;           // La tarjeta "se pega" al viewport mientras el usuario hace scroll
+  top: 160px;                 // Distancia desde la parte superior del viewport cuando está pegada (compensa el header sticky)
+
+  .info-title {
+    font-size: 1.3rem;        // Tamaño moderado para el título de la tarjeta
+    font-weight: 700;         // Negrita para jerarquía clara
+    margin-bottom: 0.5rem;    // Pequeña separación antes del subtítulo
+  }
+
+  .info-sub {
+    font-size: 0.875rem;               // Texto un poco más pequeño que el cuerpo para que sea secundario
+    color: rgba(255,255,255,0.85);     // Blanco ligeramente transparente para diferenciarlo del título
+    margin-bottom: 1.75rem;            // Separación amplia antes de los items de contacto
+    line-height: 1.7;                  // Interlineado generoso para mejorar la legibilidad del párrafo corto
+  }
+}
+
+// ── Item individual de dato de contacto (teléfono, email, dirección, etc.) ──
+
+.info-item {
+  display: flex;              // Distribuye el icono y el texto en fila horizontal
+  gap: 1rem;                  // Espacio entre el icono y el bloque de texto
+  align-items: flex-start;    // Alinea el icono con la primera línea de texto (no centrado vertical, para evitar desalineación con textos de múltiples líneas)
+  margin-bottom: 1.25rem;     // Separación vertical entre items consecutivos
+
+  .info-icon {
+    width: 40px;                         // Ancho fijo del contenedor del icono
+    height: 40px;                        // Alto fijo — crea un cuadrado perfecto
+    background: rgba(255,255,255,0.1);   // Fondo blanco muy tenue — efecto "frosted" sobre el fondo oscuro
+    border-radius: 10px;                 // Esquinas redondeadas suaves
+    display: flex;                       // Centra el icono dentro del cuadrado
+    align-items: center;                 // Centrado vertical del icono
+    justify-content: center;             // Centrado horizontal del icono
+    font-size: 1rem;                     // Tamaño del icono Bootstrap Icons
+    flex-shrink: 0;                      // Evita que el contenedor del icono se encoja si el texto al lado es largo
+    color: rgba(255,255,255,0.9);        // Icono blanco con leve transparencia
+  }
+
+  .info-body {
+    strong {
+      display: block;                   // Muestra la etiqueta ("Teléfono", "Email", etc.) en su propia línea
+      font-size: 0.75rem;               // Tamaño muy pequeño — es una etiqueta de metadato, no el dato principal
+      text-transform: uppercase;        // Todo en mayúsculas — refuerza que es una etiqueta
+      letter-spacing: 0.1em;            // Espaciado entre letras para el look de etiqueta
+      color: rgba(255,255,255,0.78);    // Blanco al 78% — menos prominente que el dato debajo
+      margin-bottom: 0.2rem;            // Pequeña separación entre la etiqueta y el valor
+    }
+    a, span {
+      font-size: 0.9rem;                // Tamaño ligeramente más grande que la etiqueta
+      color: rgba(255,255,255,0.88);    // Blanco con leve transparencia
+      text-decoration: none;            // Quita el subrayado por defecto de los enlaces
+      line-height: 1.5;                 // Interlineado cómodo para teléfonos/emails que puedan tener dos líneas
+      transition: color 0.2s;           // Transición suave al hacer hover sobre el enlace
+    }
+    a:hover { color: #fff; }            // Al pasar el cursor, el enlace se vuelve blanco sólido (feedback visual de interactividad)
+  }
+}
+
+// ── Botón directo de WhatsApp ─────────────────────────────────────────────────
+
+.wa-direct-btn {
+  display: flex;              // Distribuye el icono y el texto en fila
+  align-items: center;        // Centra verticalmente el icono con el texto
+  justify-content: center;    // Centra horizontalmente el contenido dentro del botón
+  width: 100%;                // Ocupa todo el ancho de la tarjeta de información
+  padding: 0.75rem 1rem;      // Espaciado interno para que el botón sea cómodo de tocar en móvil
+  background: #25d366;        // Verde oficial de WhatsApp
+  color: #fff;                // Texto e icono blancos para contraste máximo
+  border-radius: 10px;        // Esquinas redondeadas que combinan con el estilo de la tarjeta
+  font-weight: 700;           // Negrita para enfatizar la llamada a la acción
+  font-size: 0.95rem;         // Tamaño legible y prominente
+  text-decoration: none;      // Elimina el subrayado del enlace <a>
+  margin-top: 1.5rem;         // Separación del último item de contacto
+  transition: background 0.2s, transform 0.2s; // Transición suave para el hover (color y movimiento)
+
+  &:hover {
+    background: #1ebe5d;      // Verde ligeramente más oscuro al hacer hover — feedback de interactividad
+    color: #fff;              // Mantiene el texto blanco al hacer hover
+    transform: translateY(-2px); // Eleva el botón 2px al hacer hover — efecto de "levitar"
+  }
+}
+
+// ── Fila de botones de redes sociales ────────────────────────────────────────
+
+.social-row {
+  display: flex;    // Dispone los botones sociales en fila horizontal
+  gap: 0.6rem;      // Espacio entre cada botón social
+
+  .social-btn {
+    width: 36px;                          // Ancho fijo del botón circular
+    height: 36px;                         // Alto fijo — junto con width crea un círculo perfecto
+    border-radius: 50%;                   // 50% de border-radius convierte el cuadrado en círculo
+    background: rgba(255,255,255,0.12);   // Fondo blanco muy tenue sobre el fondo oscuro de la tarjeta
+    display: flex;                        // Centra el icono dentro del círculo
+    align-items: center;                  // Centrado vertical
+    justify-content: center;              // Centrado horizontal
+    color: rgba(255,255,255,0.7);         // Icono blanco al 70% de opacidad
+    font-size: 0.95rem;                   // Tamaño del icono Bootstrap Icons
+    text-decoration: none;                // Elimina el subrayado del enlace
+    transition: background 0.2s, color 0.2s; // Transición suave para el hover
+
+    &:hover {
+      background: rgba(255,255,255,0.22); // Fondo más claro al hacer hover — feedback visual
+      color: #fff;                        // Icono blanco sólido al hacer hover
+    }
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// TARJETA DEL FORMULARIO DE CONTACTO
+// ══════════════════════════════════════════════════════════════════════════════
+
+.contacto-form-card {
+  background: #fff;                            // Fondo blanco puro — contrasta con el fondo gris de .contacto-section
+  border-radius: 16px;                         // Esquinas redondeadas consistentes con el estilo de la app
+  padding: 2.5rem 2rem;                        // Padding generoso para que el formulario no se sienta apretado
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);    // Sombra suave que eleva visualmente la tarjeta del fondo
+
+  .form-title {
+    font-size: 1.4rem;          // Tamaño grande para jerarquía de sección
+    font-weight: 700;           // Negrita — es el título principal de la tarjeta
+    margin-bottom: 0.5rem;      // Pequeña separación antes del subtítulo
+    color: #374151;             // Gris oscuro corporativo
+  }
+
+  .form-sub {
+    font-size: 0.875rem;        // Texto secundario más pequeño
+    color: #6c757d;             // Gris medio para que sea menos prominente que el título
+    margin-bottom: 1.75rem;     // Separación amplia antes del primer campo del formulario
+  }
+
+  .form-label {
+    font-size: 0.85rem;         // Etiquetas ligeramente más pequeñas que el body text
+    font-weight: 600;           // Semi-negrita para que se distingan de los placeholders dentro del input
+    color: #374151;             // Mismo gris oscuro del título para consistencia
+    margin-bottom: 0.35rem;     // Separación mínima entre la etiqueta y el input debajo
+  }
+
+  .req { color: #c8102e; }     // Asterisco rojo de "campo requerido" — convención universal de formularios
+
+  // ── Estilos compartidos para <input> y <select> ──
+  .form-control, .form-select {
+    border: 1px solid #d1d5db;  // Borde gris suave por defecto (sin foco)
+    border-radius: 8px;         // Esquinas ligeramente redondeadas
+    font-size: 0.9rem;          // Texto del campo ligeramente más pequeño que el body
+    padding: 0.6rem 0.9rem;     // Padding interno para que el área de texto sea cómoda de usar
+    transition: border-color 0.2s, box-shadow 0.2s; // Transición suave al enfocar el campo
+
+    &:focus {
+      border-color: var(--page-accent);       // El borde cambia al color de acento al hacer foco (azul de la app)
+      box-shadow: 0 0 0 3px var(--page-accent-ring); // Anillo de foco difuso alrededor del input — accesibilidad y UX
+    }
+
+    &::placeholder { color: #9ca3af; }        // Texto de placeholder en gris claro — diferenciado del texto real del usuario
+
+    &.campo-invalido {
+      border-color: #ef4444;                             // Borde rojo cuando el campo no pasa la validación
+      &:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.15); } // Anillo de foco rojo semitransparente en campo inválido enfocado
+    }
+  }
+
+  // ── Mensaje de error debajo de un campo inválido ──
+  .campo-error {
+    margin-top: 0.3rem;         // Separación mínima entre el input y el mensaje de error
+    font-size: 0.78rem;         // Texto muy pequeño — es un mensaje auxiliar, no contenido principal
+    color: #ef4444;             // Rojo — señal de error reconocida universalmente
+    display: flex;              // Permite alinear el icono de error con el texto en la misma línea
+    align-items: center;        // Centra verticalmente el icono y el texto de error
+  }
+
+  // ── Contador de dígitos del campo teléfono ──
+  .tel-contador {
+    margin-top: 0.25rem;        // Separación mínima entre el input y el contador
+    font-size: 0.75rem;         // Texto muy pequeño — información auxiliar
+    color: #9ca3af;             // Gris claro cuando el teléfono está incompleto
+    text-align: right;          // Alineado a la derecha debajo del input
+
+    &.tel-completo {
+      color: #22c55e;           // Verde cuando se alcanzan los 10 dígitos exactos — confirmación positiva
+      font-weight: 600;         // Semi-negrita para que el cambio sea más notorio
+    }
+  }
+
+  // ── Textarea del campo "Mensaje" ──
+  textarea.form-control {
+    resize: vertical;           // El usuario puede redimensionar el textarea solo en dirección vertical (no horizontal, para no romper el layout)
+    min-height: 130px;          // Altura mínima para que el área de texto sea usable sin tener que expandirla
+  }
+}
+
+// ── Botón principal de envío del formulario ───────────────────────────────────
+
+.btn-enviar {
+  display: inline-flex;         // Alinea el icono y el texto del botón en fila
+  align-items: center;          // Centra verticalmente el icono con el texto
+  justify-content: center;      // Centra el contenido horizontalmente dentro del botón
+  background: var(--page-accent); // Color de fondo usando la variable CSS de acento del tema
+  color: #fff;                  // Texto e icono blancos para máximo contraste
+  border: none;                 // Sin borde — el color de fondo es suficiente para definir el botón
+  border-radius: 10px;          // Esquinas generosamente redondeadas
+  padding: 0.75rem 2rem;        // Padding cómodo — botón de tamaño generoso (CTA principal)
+  font-size: 0.95rem;           // Tamaño legible y prominente
+  font-weight: 700;             // Negrita para enfatizar la acción
+  cursor: pointer;              // Cambia el cursor a manita al pasar sobre el botón
+  transition: background 0.2s, transform 0.2s; // Transición suave para hover
+  width: 100%;                  // Ocupa todo el ancho de la columna del formulario
+
+  &:hover:not(:disabled) {
+    background: var(--page-accent-dark); // Color más oscuro del acento al hacer hover — feedback visual
+    transform: translateY(-1px);         // Leve elevación del botón — efecto de "levantar"
+  }
+
+  &:disabled {
+    opacity: 0.6;              // Reduce la opacidad para indicar que el botón no es interactivo
+    cursor: not-allowed;       // Cambia el cursor a "prohibido" cuando el botón está deshabilitado (mientras se envía)
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// PANTALLA DE CONFIRMACIÓN — Se muestra cuando el email se envía correctamente
+// ══════════════════════════════════════════════════════════════════════════════
+
+.enviado-card {
+  background: #fff;                            // Fondo blanco igual que la tarjeta del formulario (misma posición en el layout)
+  border-radius: 16px;                         // Esquinas redondeadas consistentes
+  padding: 3rem 2rem;                          // Padding más generoso que el formulario — aspecto de "pantalla completa"
+  text-align: center;                          // Todo el contenido centrado horizontalmente
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);    // Misma sombra que la tarjeta del formulario para consistencia visual
+
+  .enviado-icon {
+    font-size: 4rem;            // Icono grande y prominente — es el elemento central de la pantalla de éxito
+    color: #22c55e;             // Verde de éxito — feedback positivo universalmente reconocido
+    margin-bottom: 1rem;        // Separación entre el icono y el título
+  }
+
+  .enviado-title {
+    font-size: 1.5rem;          // Título grande para que el mensaje de éxito sea claro
+    font-weight: 700;           // Negrita para jerarquía máxima
+    color: #374151;             // Gris oscuro corporativo
+    margin-bottom: 0.75rem;     // Separación entre el título y el subtítulo
+  }
+
+  .enviado-sub {
+    font-size: 0.9rem;          // Texto secundario más pequeño
+    color: #6c757d;             // Gris medio — menos prominente que el título
+    max-width: 480px;           // Limita el ancho para que la línea no sea demasiado larga y sea fácil de leer
+    margin: 0 auto 1.5rem;      // Centra el párrafo horizontalmente y añade espacio antes del botón
+    line-height: 1.7;           // Interlineado generoso para párrafos cortos de confirmación
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// PANTALLA DE ERROR — Se muestra cuando el envío del email falla
+// ══════════════════════════════════════════════════════════════════════════════
+
+.error-card {
+  background: #fff;                            // Fondo blanco — mismo estilo que .enviado-card
+  border-radius: 16px;                         // Esquinas redondeadas consistentes
+  padding: 3rem 2rem;                          // Mismo padding que la pantalla de éxito
+  text-align: center;                          // Contenido centrado
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);    // Misma sombra
+  border-left: 4px solid #ef4444;             // Borde rojo en el lado izquierdo — señal visual de error (diferencia con la tarjeta de éxito)
+
+  .error-icon {
+    font-size: 4rem;            // Icono grande prominente
+    color: #ef4444;             // Rojo de error
+    margin-bottom: 1rem;        // Separación con el título
+  }
+
+  .error-title {
+    font-size: 1.5rem;          // Tamaño igual que el título de éxito para consistencia
+    font-weight: 700;           // Negrita
+    color: #374151;             // Gris oscuro corporativo
+    margin-bottom: 0.75rem;     // Separación con el subtítulo
+  }
+
+  .error-sub {
+    font-size: 0.9rem;          // Texto secundario
+    color: #6c757d;             // Gris medio
+    max-width: 480px;           // Limita el ancho de lectura
+    margin: 0 auto 1.5rem;      // Centrado con separación inferior antes del botón
+    line-height: 1.7;           // Interlineado cómodo
+  }
+}
+
+// ── Botón para enviar otro mensaje (reinicia el formulario) ───────────────────
+
+.btn-nuevo {
+  display: inline-flex;         // Alinea el icono y el texto en fila
+  align-items: center;          // Centrado vertical del contenido
+  background: #f3f4f6;          // Fondo gris muy claro — botón secundario, menor jerarquía que .btn-enviar
+  color: #374151;               // Texto gris oscuro
+  border: none;                 // Sin borde
+  border-radius: 8px;           // Esquinas redondeadas moderadas
+  padding: 0.65rem 1.5rem;      // Padding cómodo pero menor que el botón principal
+  font-size: 0.9rem;            // Ligeramente más pequeño que el botón principal
+  font-weight: 600;             // Semi-negrita
+  cursor: pointer;              // Cursor de manita
+  transition: background 0.2s;  // Transición suave para el hover
+
+  &:hover { background: #e5e7eb; } // Gris ligeramente más oscuro al hacer hover — feedback sutil
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SECCIÓN MAPA — Google Maps embebido como iframe
+// ══════════════════════════════════════════════════════════════════════════════
+
+.mapa-section {
+  overflow: hidden;         // Corta cualquier desbordamiento del iframe — evita scrollbars no deseados
+  iframe { display: block; } // Cambia display del iframe de "inline" a "block" para eliminar el espacio vacío que los navegadores añaden debajo de los elementos inline
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// CTA INFERIOR — Llamada a la acción al pie de la página
+// ══════════════════════════════════════════════════════════════════════════════
+
+.contacto-cta {
+  padding: 4rem 1rem;       // Espaciado vertical generoso — sección de peso visual importante
+  background: #374151;      // Fondo gris oscuro corporativo — consistente con la tarjeta de info
+  color: #fff;              // Texto blanco base para toda la sección
+
+  .cta-title {
+    font-size: clamp(1.2rem, 3vw, 1.75rem); // Tipografía fluida responsive
+    font-weight: 700;                        // Negrita
+    margin-bottom: 0.75rem;                  // Separación con el subtítulo
+  }
+
+  .cta-sub {
+    font-size: 0.95rem;                      // Texto secundario
+    color: rgba(255,255,255,0.72);           // Blanco al 72% — diferenciado del título
+    margin-bottom: 0;                        // Sin margen inferior (el layout de columnas lo gestiona Bootstrap)
+  }
+
+  .cta-phone {
+    color: #fff;                             // Teléfono en blanco sólido — máxima legibilidad
+    font-weight: 700;                        // Negrita para que destaque como CTA
+    text-decoration: none;                   // Sin subrayado
+    &:hover { color: rgba(255,255,255,0.85); } // Leve fade al hacer hover — feedback de enlace interactivo
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// BADGE DE HORARIO — Indicador "Abierto / Cerrado" en tiempo real
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Contenedor del badge y la hora
+.horario-status {
+  display: flex;        // Dispone el badge y la hora en fila horizontal
+  align-items: center;  // Alinea verticalmente el badge con el texto de hora
+  gap: 8px;             // Espacio entre el badge y el texto de hora
+  flex-wrap: wrap;      // En pantallas muy pequeñas, los elementos pueden pasar a la siguiente línea
+}
+
+// El badge en sí ("ABIERTO" o "CERRADO")
+.horario-badge {
+  display: inline-flex;   // Alinea el punto y el texto en fila
+  align-items: center;    // Centra verticalmente el punto con el texto
+  gap: 5px;               // Espacio entre el punto indicador y el texto
+  font-size: 11px;        // Texto muy pequeño — el badge es un indicador secundario
+  font-weight: 700;       // Negrita para que el estado sea claro
+  padding: 3px 9px;       // Padding compacto — el badge debe ser pequeño
+  border-radius: 20px;    // Completamente redondeado — look de "pastilla" o "pill"
+  letter-spacing: 0.3px;  // Mínimo espaciado de letras
+
+  i { font-size: 7px; }   // El punto indicador (ej. bi-circle-fill) muy pequeño para que sea un punto real
+
+  // Variante: empresa abierta
+  &.abierto {
+    background: #dcfce7;  // Verde muy pálido de fondo — señal positiva sin ser agresivo
+    color: #15803d;       // Verde oscuro para el texto — contraste sobre fondo verde pálido
+    i { color: #22c55e; } // Verde brillante para el punto indicador — lo hace más llamativo
+  }
+
+  // Variante: empresa cerrada
+  &.cerrado {
+    background: #fee2e2;  // Rojo muy pálido de fondo — señal negativa suave
+    color: #b91c1c;       // Rojo oscuro para el texto
+    i { color: #ef4444; } // Rojo estándar para el punto indicador
+  }
+}
+
+// Texto que muestra la hora actual junto al badge
+.horario-hora {
+  font-size: 11px;                    // Mismo tamaño que el badge — mismo nivel de importancia
+  color: rgba(255,255,255,0.55);      // Blanco al 55% — información auxiliar muy discreta sobre el fondo oscuro de la tarjeta
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// BREAKPOINTS RESPONSIVE
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Tablets y dispositivos medianos (< 992px)
+@media (max-width: 991px) {
+  .contacto-info-card { position: static; } // En tablet/móvil desactiva el sticky: la tarjeta fluye normalmente en el documento (no se puede pegar porque ocupa ancho completo en columna apilada)
+}
+
+// Móviles medianos (< 576px)
+@media (max-width: 576px) {
+  .contacto-form-card { padding: 1.5rem 1rem; }    // Reduce el padding interno del formulario en pantallas pequeñas para aprovechar el espacio
+  .contacto-info-card { padding: 1.5rem 1.25rem; } // Reduce el padding de la tarjeta de info igualmente
+}
+
+// Móviles pequeños (< 480px)
+@media (max-width: 480px) {
+  .contacto-hero     { min-height: 180px; }  // Reduce la altura mínima del hero en móvil pequeño — la imagen ocupa menos espacio
+  .hero-title        { font-size: 1.7rem; }  // Sobreescribe el clamp para forzar un tamaño máximo en pantallas muy pequeñas
+  .form-label        { font-size: 13px; }    // Etiquetas del formulario ligeramente más pequeñas en móvil pequeño
+  .btn-enviar        { font-size: 14px; padding: 0.75rem; } // Reduce el botón de envío en pantallas pequeñas — sigue siendo táctilmente accesible
+  .cta-title         { font-size: 1.2rem; }  // Título del CTA inferior más pequeño en móvil pequeño
+  .contacto-cta      { padding: 2rem 1rem; } // Reduce el padding de la sección CTA inferior en móvil pequeño
+}

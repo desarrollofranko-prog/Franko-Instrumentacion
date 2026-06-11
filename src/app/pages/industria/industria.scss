@@ -1,0 +1,335 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// INDUSTRIA — Estilos de la página de guía de productos por industria
+// Secciones: Hero con foto, Breadcrumb, Descripción + Desafíos/Soluciones,
+//            Imagen destacada, Grid de productos, CTA
+// El componente Industria.ts usa un mismo template para 4 rutas (destilerías, petroquímicas,
+// biogás, refinerías). La variable CSS --ind-color permite theming por industria.
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Variable CSS local del componente — permite cambiar el color de acento por industria
+// sin tocar el SCSS. El componente TS la inyecta via [style.--ind-color]="industria.color"
+:host { --ind-color: #004dda; }
+
+// === HERO CON FOTOGRAFÍA DE INDUSTRIA ===
+.industria-hero {
+  position: relative;   // Contexto para la imagen y el overlay (posicionados absolutamente)
+  min-height: 420px;    // Altura mínima garantizada para que el hero sea impactante
+  display: flex;
+  align-items: center; // Centra verticalmente el contenido del hero
+  overflow: hidden;    // Evita que la imagen de fondo desborde el hero
+
+  // Imagen de fondo de la industria — cubre todo el hero
+  .ind-hero-bg {
+    position: absolute;
+    inset: 0; // Cubre todo el contenedor (top:0; right:0; bottom:0; left:0)
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      // Escala la imagen para cubrir todo el espacio sin deformarla
+    object-position: center; // Centra el punto focal de la imagen
+  }
+
+  // Degradado oscuro sobre la fotografía para garantizar la legibilidad del texto blanco
+  .ind-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,25,50,0.88) 0%, rgba(13,110,253,0.25) 100%);
+    // De azul marino muy oscuro a azul translúcido — da sensación de profundidad industrial
+  }
+
+  // Contenido del hero (eyebrow, título, subtítulo) — por encima del overlay
+  .ind-hero-content {
+    position: relative;
+    z-index: 2;           // Por encima de la imagen y el overlay
+    padding: 5rem 1rem;   // Espaciado amplio para que el texto no toque los bordes
+  }
+
+  // Etiqueta de categoría ("GUÍA DE INDUSTRIA") en forma de pastilla semitransparente
+  .ind-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+    background: rgba(255,255,255,0.08); // Fondo blanco muy tenue — efecto frosted glass
+    padding: 0.4rem 1rem;
+    border-radius: 20px; // Forma de pastilla (pill)
+  }
+
+  // Título principal del hero de la industria
+  .ind-hero-title {
+    font-size: clamp(2rem,5vw,3.5rem); // Escala entre 2rem y 3.5rem según el ancho del viewport
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.5); // Sombra para legibilidad sobre la fotografía
+  }
+
+  // Subtítulo del hero (tagline de la industria)
+  .ind-hero-sub {
+    font-size: clamp(1rem,2vw,1.2rem);
+    color: rgba(255,255,255,0.82); // Blanco al 82% — menos prominente que el título
+    margin: 0;
+    max-width: 600px; // Limita el ancho para que las líneas sean cómodas de leer
+  }
+}
+
+// === BREADCRUMB ===
+// Ruta de navegación: Inicio > Industrias > Destilerías (o la industria activa)
+.ind-breadcrumb {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.6rem 0;
+
+  .breadcrumb { font-size: 0.85rem; margin: 0; }
+  .breadcrumb-item + .breadcrumb-item::before { color: #adb5bd; } // Separador "/" en gris
+  a { color: var(--page-accent); text-decoration: none; }
+  .breadcrumb-item.active { color: #6c757d; }
+}
+
+// === SECCIÓN DE DESCRIPCIÓN ===
+// Texto introductorio de la industria + normas + desafíos/soluciones
+.ind-desc-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+// Eyebrow y título compartidos por múltiples secciones de la página
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--page-accent); // Azul de acento — contrasta visualmente con el título más grande
+}
+
+.section-title {
+  font-size: clamp(1.4rem,3vw,2rem);
+  font-weight: 700;
+  color: #374151;
+}
+
+// Párrafo de descripción de la industria
+.ind-descripcion {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.85; // Interlineado generoso para textos descriptivos largos
+  margin-bottom: 1.5rem;
+}
+
+// Fila de badges de normas y estándares que aplican a la industria (ej. "API 2000", "ISO 16852")
+.ind-normas-row {
+  display: flex;
+  flex-wrap: wrap; // Los badges se reorganizan en múltiples líneas si no caben en una
+  gap: 0.5rem;
+
+  .norma-pill {
+    display: inline-flex;
+    align-items: center;
+    background: var(--page-accent-light); // Fondo azul muy pálido para los badges de norma
+    color: var(--page-accent);
+    border: 1px solid rgba(0,77,218,.2);
+    border-radius: 20px; // Forma de pastilla redondeada
+    padding: 0.3rem 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+}
+
+// Tarjetas de Desafíos y Soluciones — estilos compartidos
+.desafios-card, .soluciones-card {
+  background: #f8fafc; // Fondo gris azulado suave para diferenciar del fondo blanco de la sección
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+
+  .card-mini-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #374151;
+  }
+}
+
+// Lista de desafíos o soluciones de la industria — con marcador "›" personalizado
+.ind-list {
+  list-style: none; // Elimina el punto/número por defecto de la lista
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: 0.875rem;
+    color: #4b5563;
+    padding: 0.3rem 0;
+    padding-left: 1rem;  // Espacio a la izquierda para el marcador personalizado
+    position: relative;  // Contexto para el ::before del marcador
+    line-height: 1.6;
+
+    // Marcador personalizado "›" en lugar del bullet point por defecto
+    &::before {
+      content: '›';      // Carácter de flecha derecha
+      position: absolute;
+      left: 0;           // Posicionado al inicio del padding-left
+      color: #9ca3af;    // Gris claro — el marcador es discreto
+      font-weight: 700;
+    }
+  }
+}
+
+// === SECCIÓN DE PRODUCTOS RECOMENDADOS ===
+.ind-productos-section {
+  padding: 3rem 0 5rem;
+  background: #f8fafc; // Fondo diferente al blanco de la sección de descripción
+}
+
+// Imagen destacada de la instalación industrial — ocupa el ancho completo antes del grid de productos
+.ind-imagen-destacada {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden; // El border-radius recorta la imagen
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  background: #fff; // Fondo blanco mientras carga la imagen
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block; // Elimina el espacio en blanco debajo del inline por defecto
+  }
+}
+
+// Tarjeta de producto individual del grid de la industria
+.ind-prod-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden; // El border-radius recorta la imagen y el overlay
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.25s, transform 0.25s;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12); // Sombra más intensa al hacer hover
+    transform: translateY(-4px);              // Se eleva 4px al hover
+
+    .ind-prod-link { color: var(--page-accent); } // El link del nombre cambia a azul al hover
+  }
+}
+
+// Envoltorio de la imagen del producto con aspect-ratio cuadrado
+.ind-prod-img-wrap {
+  position: relative;  // Contexto para el badge de número superpuesto
+  aspect-ratio: 1;     // Cuadrado perfecto — consistente con las tarjetas del catálogo
+  overflow: hidden;
+  background: #f3f4f6; // Fondo gris claro mientras carga la imagen
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s; // Transición suave para el zoom al hover
+  }
+
+  &:hover img { transform: scale(1.05); } // Zoom sutil de la imagen al hover
+}
+
+// Badge de número de producto superpuesto sobre la esquina superior izquierda de la imagen
+.ind-prod-num {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;           // Por encima de la imagen
+  width: 28px;
+  height: 28px;
+  background: #c8102e;  // Rojo de la marca Franko — contrasta sobre la imagen
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-radius: 4px;   // Ligeramente redondeado (no círculo)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+// Cuerpo de la tarjeta de producto (serie, nombre y descripción)
+.ind-prod-body {
+  padding: 0.75rem 0.9rem 0.9rem;
+
+  // Código de serie del producto (ej. "Serie 1000")
+  .ind-prod-serie {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  // Descripción corta del producto en el contexto de la industria
+  // -webkit-line-clamp limita el texto a 2 líneas con "..." al final
+  .ind-prod-desc {
+    font-size: 0.78rem;
+    color: #6c757d;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;       // Máximo 2 líneas de texto
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;            // Oculta el texto que excede las 2 líneas
+  }
+}
+
+// === SECCIÓN CTA INFERIOR ===
+// Llamada a la acción al pie de la página de industria
+.ind-cta {
+  padding: 5rem 1rem;
+  background: #374151; // Gris oscuro corporativo — consistente con el hero del footer
+  color: #fff;
+
+  .cta-title {
+    font-size: clamp(1.3rem,3vw,1.9rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.72); // Blanco atenuado para que sea menos prominente que el título
+    margin: 0;
+  }
+}
+
+// Mensaje de "Industria no encontrada" — se muestra si el slug de la URL no existe en el mapa de datos
+.not-found-wrap {
+  padding: 6rem 1rem;
+  color: #6c757d;
+  h2 { color: #374151; font-weight: 700; }
+}
+
+// === RESPONSIVE ===
+
+// Tablet (< 576px): reduce el espaciado vertical de las secciones
+@media (max-width: 576px) {
+  .industria-hero { min-height: 300px; }
+  .ind-desc-section { padding: 3rem 0; }
+  .ind-productos-section { padding: 3rem 0; }
+  .ind-cta { padding: 3rem 1rem; }
+}
+
+// Móvil pequeño (< 480px): ajustes adicionales de tamaño y densidad
+@media (max-width: 480px) {
+  .industria-hero { min-height: 200px; }
+  .ind-hero-title { font-size: 1.6rem !important; } // Sobreescribe el clamp
+  .ind-hero-content { padding: 3rem 1rem; } // Menor espaciado vertical del contenido del hero
+  .section-title { font-size: 1.2rem; }
+  .desafios-card, .soluciones-card { padding: 1rem 0.85rem; }
+  .ind-prod-card .ind-prod-name { font-size: 0.88rem; }
+  .ind-cta .cta-title { font-size: 1.2rem; }
+}

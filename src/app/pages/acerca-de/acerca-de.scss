@@ -1,0 +1,433 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// ACERCA DE — Estilos de la página institucional de Franko
+// Secciones: Hero, Breadcrumb, Misión, Valores, Hitos (línea de tiempo), Certificaciones, Proceso
+// ══════════════════════════════════════════════════════════════════════════════
+
+// === HERO DE LA PÁGINA ===
+// Imagen de fondo con overlay para que el texto sea legible sobre la fotografía
+.about-hero {
+  position: relative;   // Contexto de posicionamiento para el overlay absoluto
+  min-height: 360px;    // Altura mínima garantizada
+  background: url('/assets/images/site/planta-franko.webp') center/cover no-repeat;
+  // center: centra la imagen; cover: escala para cubrir el contenedor; no-repeat: sin mosaico
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Degradado sobre la fotografía — oscurece desde azul marino a azul translúcido
+  .about-hero-overlay {
+    position: absolute;
+    inset: 0; // Cubre todo el hero (equivale a top:0; right:0; bottom:0; left:0)
+    background: linear-gradient(135deg, rgba(10,25,50,0.88) 0%, rgba(13,110,253,0.28) 100%);
+  }
+
+  // Contenedor del contenido del hero (por encima del overlay con z-index)
+  .about-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 1rem;
+  }
+
+  // Etiqueta pequeña encima del título — en mayúsculas y con espaciado amplio
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 0.75rem;
+  }
+
+  // Título principal del hero — responsive con clamp()
+  .hero-title {
+    font-size: clamp(2rem,5vw,3.5rem); // Escala entre 2rem (móvil) y 3.5rem (desktop)
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4); // Sombra para legibilidad sobre la foto
+  }
+
+  // Subtítulo del hero
+  .hero-sub {
+    font-size: clamp(0.95rem,2vw,1.1rem);
+    color: rgba(255,255,255,0.8);
+    margin: 0;
+  }
+}
+
+// === BREADCRUMB ===
+// Ruta de navegación: Inicio > Acerca de
+.about-breadcrumb {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.6rem 0;
+  .breadcrumb { font-size: 0.85rem; margin: 0; }
+  a { color: var(--page-accent); text-decoration: none; } // Links en azul de acento
+  .breadcrumb-item.active { color: #6c757d; }            // Página actual en gris (no es un link)
+}
+
+// === EYEBROW Y TÍTULO DE SECCIÓN ===
+// Estilos compartidos por los encabezados de cada sección de la página
+
+// Etiqueta pequeña de categoría encima del título principal de cada sección
+.section-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--page-accent); // Azul de acento — contraste visual respecto al título más grande
+}
+
+// Título principal de cada sección
+.section-title {
+  font-size: clamp(1.4rem,3vw,2rem);
+  font-weight: 700;
+  color: #374151;
+}
+
+// === TEXTO DE LA SECCIÓN "MISIÓN" ===
+// Párrafos del texto descriptivo de la empresa
+.about-text {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.85; // Interlineado generoso para facilitar la lectura de párrafos largos
+  margin-bottom: 1rem;
+}
+
+// Lista de puntos clave de la empresa (certificaciones, años de experiencia, etc.)
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #374151;
+
+    i { color: var(--page-accent); font-size: 1rem; flex-shrink: 0; } // Ícono azul de verificación
+  }
+}
+
+// === IMAGEN CON BADGE ISO SUPERPUESTO ===
+// Envoltorio de la imagen principal con badge de certificación en la esquina
+.about-img-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden; // Recorta la imagen para que respete el border-radius
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+
+  .about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  // Badge "ISO 9001:2015" superpuesto sobre la esquina inferior derecha de la imagen
+  .iso-badge-abs {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #374151;
+
+    i { color: var(--page-accent); font-size: 1.4rem; } // Ícono azul grande del badge
+    small { display: block; font-size: 0.7rem; font-weight: 500; color: #6c757d; } // Texto secundario del badge
+  }
+}
+
+// === TARJETAS DE VALORES CORPORATIVOS ===
+.valor-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid #e9ecef;
+  height: 100%; // Ocupa toda la altura de la fila para alinear las tarjetas en grid
+  transition: box-shadow 0.25s, transform 0.25s;
+
+  // Al hacer hover: sombra y elevación para efecto de tarjeta interactiva
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+    transform: translateY(-4px);
+  }
+
+  // Contenedor cuadrado del ícono con fondo azul suave
+  .valor-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--page-accent-light); // Azul muy pálido de fondo
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--page-accent); // Ícono azul de acento
+    margin-bottom: 1rem;
+  }
+
+  .valor-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+
+  .valor-desc {
+    font-size: 0.875rem;
+    color: #6c757d;
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+// === SECCIÓN DE HITOS (LÍNEA DE TIEMPO VERTICAL) ===
+.hitos-section { background: #fff; }
+
+// Contenedor de la línea de tiempo — la línea central se dibuja con ::before
+.hitos-list {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 0;
+
+  // Línea vertical central de la timeline — dibujada con ::before para no necesitar elemento extra
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;           // Centrada horizontalmente
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e9ecef; // Línea gris clara
+    transform: translateX(-50%); // Compensa el ancho de 2px para centrar perfectamente
+  }
+}
+
+// Item individual de la línea de tiempo (año + tarjeta de descripción)
+.hito-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-right: 50%; // En los items izquierdos, el texto ocupa el 50% izquierdo
+
+  // Items alternos hacia la derecha (se invierten mediante flex-direction: row-reverse)
+  &.hito-right {
+    flex-direction: row-reverse; // El texto va a la derecha
+    padding-right: 0;
+    padding-left: 50%; // El texto ocupa el 50% derecho
+
+    .hito-dot {
+      left: auto;
+      right: calc(50% - 8px); // Reposiciona el punto al lado derecho de la línea central
+    }
+  }
+}
+
+// Punto circular en la línea de tiempo — indica el año del hito
+.hito-dot {
+  position: absolute;
+  left: calc(50% - 8px); // Centrado en la línea vertical (50% - la mitad del ancho del punto)
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  background: var(--page-accent); // Azul de acento — color principal del punto
+  border-radius: 50%;
+  border: 3px solid #fff;         // Borde blanco para que se vea separado de la línea
+  box-shadow: 0 0 0 2px var(--page-accent); // Anillo exterior del punto para darle más presencia visual
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+// Tarjeta de cada hito con el año y la descripción del evento
+.hito-card {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  border: 1px solid #e5e7eb;
+  max-width: 340px; // Limita el ancho para que no se extienda más allá del 50% disponible
+
+  .hito-anio {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--page-accent); // Año en azul de acento para destacarlo
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .hito-desc {
+    font-size: 0.875rem;
+    color: #4b5563;
+    line-height: 1.65;
+    margin: 0;
+  }
+}
+
+// === TARJETAS DE CERTIFICACIONES ===
+.certificaciones-section { background: #fff; }
+
+.cert-card {
+  display: flex;
+  align-items: flex-start; // El ícono se alinea con la primera línea del texto
+  gap: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e9ecef;
+  border-radius: 14px;
+  padding: 1.5rem 1.25rem;
+  height: 100%;
+  transition: box-shadow 0.25s, transform 0.25s;
+
+  &:hover {
+    box-shadow: 0 6px 28px rgba(0,0,0,0.09);
+    transform: translateY(-3px); // Elevación más sutil que las tarjetas de valores
+  }
+
+  // Contenedor cuadrado del ícono de la certificación
+  .cert-icon {
+    width: 46px;
+    height: 46px;
+    background: var(--page-accent-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--page-accent);
+    flex-shrink: 0; // El ícono no se encoge si el texto del lado es largo
+  }
+
+  .cert-nombre {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 0.3rem;
+  }
+
+  .cert-desc {
+    font-size: 0.83rem;
+    color: #6c757d;
+    line-height: 1.65;
+    margin: 0;
+  }
+}
+
+// === PROCESO DE FABRICACIÓN ===
+.proceso-section { background: #f8f9fa; }
+
+// Grid de 3 columnas para los pasos del proceso — se adapta a 2 y luego 1 columna en pantallas pequeñas
+.proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 columnas iguales en desktop
+
+  gap: 1.5rem;
+
+  @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); } // 2 columnas en tablet
+  @media (max-width: 575px) { grid-template-columns: 1fr; }            // 1 columna en móvil
+}
+
+// Tarjeta de cada paso del proceso de fabricación — centrado con número superpuesto
+.proceso-paso {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid #e9ecef;
+  text-align: center;
+  position: relative; // Contexto para el número superpuesto (.proceso-num)
+  transition: box-shadow 0.25s, transform 0.25s;
+
+  &:hover {
+    box-shadow: 0 6px 28px rgba(0,0,0,0.09);
+    transform: translateY(-3px);
+  }
+
+  // Círculo con el número del paso — superpuesto sobre el borde superior de la tarjeta
+  .proceso-num {
+    position: absolute;
+    top: -14px;        // Sale 14px por encima del borde de la tarjeta
+    left: 50%;
+    transform: translateX(-50%); // Centrado horizontalmente
+    width: 28px;
+    height: 28px;
+    background: var(--page-accent); // Azul de acento para el número
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Contenedor del ícono del paso
+  .proceso-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--page-accent-light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--page-accent);
+    margin: 0.5rem auto 1rem; // Centrado horizontalmente con margin: auto
+  }
+
+  .proceso-titulo {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+
+  .proceso-desc {
+    font-size: 0.83rem;
+    color: #6c757d;
+    line-height: 1.65;
+    margin: 0;
+  }
+}
+
+// === SECCIÓN CTA (llamada a la acción) ===
+.about-cta {
+  background: #f8fafc;
+  .cta-title {
+    font-size: clamp(1.2rem,3vw,1.75rem);
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// === RESPONSIVE ===
+
+// En tablet (< 768px): la línea de tiempo pasa a single-column (la línea va al lado izquierdo)
+@media (max-width: 768px) {
+  .hitos-list::before { left: 1rem; }    // La línea pasa a estar a 1rem del borde izquierdo
+  .hito-item { padding-right: 0; padding-left: 3rem; } // Todo el texto va a la derecha de la línea
+  .hito-item.hito-right { flex-direction: row; padding-left: 3rem; padding-right: 0; } // Mismo lado
+  .hito-dot { left: 0.5rem !important; right: auto !important; } // El punto siempre a la izquierda
+  .hito-card { max-width: 100%; } // La tarjeta ocupa el ancho completo disponible
+}
+
+// En móvil pequeño (< 480px): reduce tamaños de texto y padding para aprovechar el espacio
+@media (max-width: 480px) {
+  .about-hero { min-height: 200px; }
+  .hero-title { font-size: 1.7rem !important; } // Sobreescribe el clamp para forzar tamaño máximo
+  .section-title { font-size: 1.2rem; }
+  .about-text { font-size: 0.875rem; }
+  .valor-card { padding: 1.25rem 1rem; }
+  .cert-card { padding: 1.1rem 1rem; }
+  .proceso-paso { padding: 1.25rem 1rem; }
+  .about-img-wrap .iso-badge-abs { font-size: 0.75rem; padding: 0.4rem 0.7rem; }
+}

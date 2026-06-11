@@ -1,0 +1,237 @@
+<main>
+
+  <!-- Breadcrumb -->
+  <nav class="contacto-breadcrumb" aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="contacto-hero">
+    <div class="contacto-hero-overlay" aria-hidden="true"></div>
+    <div class="container position-relative text-center" style="z-index:2">
+      <p class="hero-eyebrow">Estamos para ayudarte</p>
+      <h1 class="hero-title">Contáctanos</h1>
+      <p class="hero-sub">Nuestros ingenieros responden en menos de 24 horas hábiles.</p>
+    </div>
+  </section>
+
+  <!-- Contenido principal -->
+  <section class="contacto-section">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <!-- Columna izquierda: Información -->
+        <div class="col-lg-4">
+          <div class="contacto-info-card">
+            <h2 class="info-title">Información de Contacto</h2>
+            <p class="info-sub">Visítanos, llámanos o escríbenos — trabajamos contigo para encontrar la solución correcta.</p>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
+              <div class="info-body">
+                <strong>Dirección</strong>
+                <a href="https://maps.app.goo.gl/PqVN1JTBZc6rKTzr9" target="_blank" rel="noopener noreferrer">
+                  Pioneros del Cooperativismo 221,<br>
+                  Cd. López Mateos, Edo. de México
+                </a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="bi bi-telephone-fill" aria-hidden="true"></i></div>
+              <div class="info-body">
+                <strong>Teléfono</strong>
+                <a href="tel:+525558165957">+52 55-5816-5957</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="bi bi-envelope-fill" aria-hidden="true"></i></div>
+              <div class="info-body">
+                <strong>Correo electrónico</strong>
+                <a href="mailto:ventas@franko.com.mx">ventas&#64;franko.com.mx</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="bi bi-clock-fill" aria-hidden="true"></i></div>
+              <div class="info-body">
+                <strong>Horario de atención</strong>
+                <span>Lun–Vie 9:00 am – 6:00 pm · Sáb 9:00 am – 2:00 pm</span>
+                <div class="horario-status mt-1">
+                  <span class="horario-badge" [class.abierto]="estaAbierto" [class.cerrado]="!estaAbierto">
+                    <i class="bi" [class.bi-circle-fill]="true" aria-hidden="true"></i>
+                    {{ estaAbierto ? 'Abierto ahora' : 'Cerrado ahora' }}
+                  </span>
+                  <span class="horario-hora">{{ horaActual }} (Tiempo CDMX)</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="https://api.whatsapp.com/send?phone=5215518120191&text=Hola%2C%20solicito%20informaci%C3%B3n%20sobre%20sus%20productos"
+               target="_blank" rel="noopener noreferrer" class="wa-direct-btn">
+              <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>Escribir por WhatsApp
+            </a>
+
+            <div class="social-row mt-4">
+              <a href="https://www.facebook.com/profile.php?id=61557598050448" target="_blank" rel="noopener" class="social-btn" aria-label="Visitar Facebook de Franko"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+              <a href="https://x.com/ferfr01" target="_blank" rel="noopener" class="social-btn" aria-label="Visitar X (Twitter) de Franko"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Formulario -->
+        <div class="col-lg-8">
+
+          <div *ngIf="!enviado" class="contacto-form-card">
+            <h2 class="form-title">Envíanos un mensaje</h2>
+            <p class="form-sub">Completa el formulario y nos pondremos en contacto contigo a la brevedad.</p>
+
+            <form (ngSubmit)="enviarFormulario()" #contactoForm="ngForm" novalidate>
+              <div class="row g-3">
+
+                <div class="col-md-6">
+                  <label for="nombre" class="form-label">Nombre completo <span class="req">*</span></label>
+                  <input type="text" id="nombre" name="nombre"
+                         class="form-control" [class.campo-invalido]="errores['nombre']"
+                         placeholder="Tu nombre" [(ngModel)]="form.nombre" autocomplete="name">
+                  <div *ngIf="errores['nombre']" class="campo-error">
+                    <i class="bi bi-exclamation-circle me-1"></i>{{ errores['nombre'] }}
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="empresa" class="form-label">Empresa</label>
+                  <input type="text" id="empresa" name="empresa" class="form-control"
+                         placeholder="Nombre de tu empresa" [(ngModel)]="form.empresa" autocomplete="organization">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Correo electrónico <span class="req">*</span></label>
+                  <input type="email" id="email" name="email"
+                         class="form-control" [class.campo-invalido]="errores['email']"
+                         placeholder="tu@correo.com" [(ngModel)]="form.email" autocomplete="email">
+                  <div *ngIf="errores['email']" class="campo-error">
+                    <i class="bi bi-exclamation-circle me-1"></i>{{ errores['email'] }}
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="telefono" class="form-label">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono"
+                         class="form-control" [class.campo-invalido]="errores['telefono']"
+                         placeholder="10 dígitos (ej. 5512345678)"
+                         [(ngModel)]="form.telefono"
+                         maxlength="10"
+                         (input)="filtrarTelefono($event)"
+                         autocomplete="tel">
+                  <div class="tel-contador" [class.tel-completo]="form.telefono.length === 10">
+                    {{ form.telefono.length }}/10
+                  </div>
+                  <div *ngIf="errores['telefono']" class="campo-error">
+                    <i class="bi bi-exclamation-circle me-1"></i>{{ errores['telefono'] }}
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="asunto" class="form-label">Asunto <span class="req">*</span></label>
+                  <select id="asunto" name="asunto"
+                          class="form-select" [class.campo-invalido]="errores['asunto']"
+                          [(ngModel)]="form.asunto">
+                    <option value="" disabled selected>Selecciona un asunto</option>
+                    <option value="Cotización de producto">Cotización de producto</option>
+                    <option value="Soporte técnico">Soporte técnico</option>
+                    <option value="Información de catálogo">Información de catálogo</option>
+                    <option value="Solicitud de ficha técnica">Solicitud de ficha técnica</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+                  <div *ngIf="errores['asunto']" class="campo-error">
+                    <i class="bi bi-exclamation-circle me-1"></i>{{ errores['asunto'] }}
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="mensaje" class="form-label">Mensaje <span class="req">*</span></label>
+                  <textarea id="mensaje" name="mensaje" rows="5"
+                            class="form-control" [class.campo-invalido]="errores['mensaje']"
+                            placeholder="Describe tu consulta, el producto de interés o el proyecto..."
+                            [(ngModel)]="form.mensaje"></textarea>
+                  <div *ngIf="errores['mensaje']" class="campo-error">
+                    <i class="bi bi-exclamation-circle me-1"></i>{{ errores['mensaje'] }}
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn-enviar" [disabled]="enviando">
+                    <span *ngIf="!enviando">
+                      <i class="bi bi-send-fill me-2" aria-hidden="true"></i>Enviar mensaje
+                    </span>
+                    <span *ngIf="enviando">
+                      <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                      Enviando...
+                    </span>
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+          <!-- Estado: enviado -->
+          <div *ngIf="enviado" class="enviado-card">
+            <div class="enviado-icon"><i class="bi bi-check-circle-fill" aria-hidden="true"></i></div>
+            <h3 class="enviado-title">¡Mensaje enviado!</h3>
+            <p class="enviado-sub">Tu consulta llegó a nuestro equipo. Te responderemos a la brevedad a <strong>{{ form.email }}</strong> en el horario de atención.</p>
+            <button type="button" class="btn-nuevo" (click)="resetForm()">
+              <i class="bi bi-arrow-counterclockwise me-2" aria-hidden="true"></i>Enviar otro mensaje
+            </button>
+          </div>
+
+          <!-- Estado: error -->
+          <div *ngIf="error" class="error-card">
+            <div class="error-icon"><i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i></div>
+            <h3 class="error-title">No se pudo enviar</h3>
+            <p class="error-sub">Ocurrió un error al enviar tu mensaje. Por favor intenta de nuevo o contáctanos directamente a <strong>ventas&#64;franko.com.mx</strong>.</p>
+            <button type="button" class="btn-nuevo" (click)="error = false">
+              <i class="bi bi-arrow-counterclockwise me-2" aria-hidden="true"></i>Intentar de nuevo
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mapa -->
+  <section class="mapa-section" aria-label="Ubicación de Franko en Google Maps">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.2!2d-99.2!3d19.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPioneros+del+Cooperativismo+221%2C+Ciudad+L%C3%B3pez+Mateos!5e0!3m2!1ses!2smx!4v1"
+      width="100%" height="380" style="border:0;display:block" allowfullscreen
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de Franko Instrumentación en Cd. López Mateos">
+    </iframe>
+  </section>
+
+  <!-- CTA -->
+  <section class="contacto-cta">
+    <div class="container text-center">
+      <h2 class="cta-title">¿Prefieres hablar con un ingeniero directamente?</h2>
+      <p class="cta-sub">Llámanos al <a href="tel:+525558165957" class="cta-phone">+52 55-5816-5957</a> en horario de atención o escríbenos por WhatsApp ahora mismo.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap mt-3">
+        <a href="tel:+525558165957" class="btn btn-outline-light px-4 py-2 fw-bold">
+          <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>Llamar ahora
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5215518120191&text=Hola%2C%20solicito%20asesor%C3%ADa%20de%20un%20ingeniero"
+           target="_blank" rel="noopener noreferrer" class="btn btn-success px-4 py-2 fw-bold">
+          <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>

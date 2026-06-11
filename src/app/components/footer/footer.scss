@@ -1,0 +1,200 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// FOOTER — Estilos del pie de página
+// El footer se muestra en todas las rutas con fondo oscuro (#1a1a2e, definido en el HTML).
+// Contiene: columnas de links, redes sociales, datos de contacto, badges ISO y copyright.
+// Elementos flotantes: botón de WhatsApp y botón "Volver al inicio" (back-to-top).
+// ══════════════════════════════════════════════════════════════════════════════
+
+// === ENCABEZADOS DE COLUMNA ===
+// Título de cada columna del footer (ej. "Productos", "Empresa", "Contacto")
+// El pseudo-elemento ::after añade una línea decorativa de 30px debajo del título
+.footer-heading {
+  position: relative;  // Contexto para ::after que está posicionado absolutamente
+  padding-bottom: 10px; // Espacio entre el texto y la línea decorativa
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;         // Línea corta de 30px — decorativa, no el ancho completo
+    height: 2px;
+    background: #9ca3af; // Gris claro que se ve sobre el fondo oscuro del footer
+  }
+}
+
+// === LINKS DEL FOOTER ===
+// Links de navegación en las columnas del footer
+.footer-links li {
+  margin-bottom: 8px; // Espacio entre links consecutivos
+
+  a {
+    font-size: 15px;
+    color: rgba(255,255,255,0.78); // Blanco al 78% — legible pero menos prominente que el texto principal
+    transition: all 0.2s;
+    text-decoration: none;
+
+    // Al hacer hover: se vuelve blanco sólido y se desplaza 4px a la derecha (efecto de selección)
+    &:hover { color: #fff; padding-left: 4px; }
+  }
+
+  i { color: rgba(255,255,255,0.78); font-size: 16px; }
+}
+
+// ============================================================
+// BOTONES DE REDES SOCIALES
+// ============================================================
+// Botones circulares para los iconos de redes sociales (LinkedIn, Facebook, etc.)
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; // Círculo perfecto
+  background: rgba(255,255,255,0.1); // Fondo blanco muy tenue sobre el oscuro
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: all 0.2s;
+
+  // Al hacer hover: fondo gris oscuro y elevación de 2px
+  &:hover { background: #495057; color: #fff; transform: translateY(-2px); }
+}
+
+// Link legal en la barra inferior del footer (ej. "Términos", "Privacidad")
+.footer-legal-link {
+  color: rgba(255,255,255,0.65); // Blanco al 65% — máxima discreción para texto legal
+  transition: color 0.2s;
+  &:hover { color: #fff; }
+}
+
+// ============================================================
+// BADGE DE CERTIFICACIÓN ISO
+// ============================================================
+// Pastilla (pill) que muestra el badge "ISO 9001:2015" en el footer
+.footer-iso-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.07); // Fondo muy sutil — apenas visible sobre el fondo oscuro
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  i { color: #4ade80; font-size: 13px; } // Icono verde de verificación — señal de certificación válida
+}
+
+// ============================================================
+// BOTÓN FLOTANTE DE WHATSAPP (del footer)
+// Este botón es diferente del FAB de styles.scss — es una versión simplificada (solo ícono)
+// ============================================================
+.whatsapp-float {
+  position: fixed;  // Fijo en el viewport — visible en todas las páginas
+  bottom: 24px;
+  right: 28px;
+  z-index: 9997;    // Debajo del back-to-top (9998) y el FAB de styles (9999)
+  width: 52px;
+  height: 52px;
+  border-radius: 50%; // Círculo perfecto
+  background: #25d366; // Verde oficial de WhatsApp
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 4px 18px rgba(37,211,102,0.45); // Sombra verde que hace al botón llamativo
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+
+  &:hover {
+    transform: scale(1.1) translateY(-2px); // Se agranda y eleva al hover
+    box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+    color: #fff;
+  }
+
+  // En móvil: más pequeño para no obstruir tanto el contenido
+  @media (max-width: 576px) {
+    bottom: 20px;
+    right: 16px;
+    width: 46px;
+    height: 46px;
+    font-size: 1.5rem;
+  }
+}
+
+// ============================================================
+// BOTÓN "VOLVER AL INICIO"
+// Aparece cuando el usuario ha scrolleado más de 400px (controlado por el componente TS)
+// ============================================================
+.back-to-top {
+  position: fixed;        // Fijo en el viewport
+  bottom: 148px;          // Por encima del botón de WhatsApp (80px + 52px altura + 16px margen)
+  right: 28px;
+  z-index: 9998;          // Por encima del botón de WhatsApp (9997)
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;     // Círculo perfecto
+  background: var(--primary); // Rojo de la marca — consistente con la identidad visual
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 4px 14px rgba(200,16,46,0.4); // Sombra rojiza que complementa el color del botón
+
+  // Estado por defecto: invisible y desplazado hacia abajo (listo para la transición de entrada)
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px); // Empezado 12px hacia abajo para la transición de entrada
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+
+  // Estado visible: el componente TS añade .visible cuando el scroll > 400px
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); // Sube a su posición normal con animación
+  }
+  &:hover { background: var(--primary-dark); transform: translateY(-3px); } // Se eleva al hover
+
+  // En móvil: posición y tamaño ajustados para no obstaculizar el WhatsApp
+  @media (max-width: 576px) {
+    bottom: 80px; // 46px WhatsApp + 14px gap + 20px base = 80px
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+// ============================================================
+// RESPONSIVE
+// ============================================================
+
+// Tablet (< 992px): centra el texto de la columna "Acerca de"
+@media (max-width: 991px) {
+  .footer-col-about { text-align: center; }
+  // Centra la línea decorativa bajo el encabezado (la línea se reposiciona al centro con translate)
+  .footer-heading::after { left: 50%; transform: translateX(-50%); }
+  .social-btn-row { justify-content: center; }
+}
+
+// Móvil (< 768px): centra todos los encabezados de columna
+@media (max-width: 767px) {
+  .footer-heading { text-align: center; }
+  .footer-heading::after { left: 50%; transform: translateX(-50%); }
+  .footer-links li a { font-size: 14.5px; } // Texto ligeramente más pequeño en móvil
+}
+
+// Móvil pequeño (< 480px): la barra inferior del footer apila el copyright y los links en columna
+@media (max-width: 480px) {
+  .footer-bottom-bar {
+    flex-direction: column; // De fila a columna — copyright arriba, links legales abajo
+    gap: 8px;
+    text-align: center;
+  }
+}

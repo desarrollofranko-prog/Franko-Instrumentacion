@@ -1,0 +1,150 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// LEGAL — Estilos para las páginas de Términos de Uso y Aviso de Privacidad
+// Secciones: Hero sólido, Breadcrumb, Tabla de contenidos (TOC), Contenido legal, CTA inferior
+// El componente Legal.ts usa este SCSS para ambas rutas (/terminos-de-uso y /aviso-de-privacidad)
+// ══════════════════════════════════════════════════════════════════════════════
+
+// === HERO DE LA PÁGINA LEGAL ===
+// A diferencia de otras páginas, el hero legal usa fondo sólido (no imagen) para dar
+// un aspecto formal y serio acorde al contenido legal
+.legal-hero {
+  background: #374151; // Gris oscuro corporativo — transmite seriedad y formalidad
+  padding: 3.5rem 1rem; // Espaciado generoso arriba y abajo
+  color: #fff;          // Todo el texto dentro del hero es blanco
+
+  // Título de la página legal (ej. "Términos de Uso")
+  .legal-title {
+    font-size: clamp(1.6rem,4vw,2.5rem); // Tipografía fluida — escala entre móvil y desktop
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  // Fecha de la última actualización del documento
+  .legal-fecha {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.85); // Blanco levemente transparente — menos prominente que el título
+    margin: 0;
+  }
+}
+
+// === BREADCRUMB ===
+// Ruta de navegación: Inicio > Términos de Uso (o Aviso de Privacidad)
+.legal-breadcrumb {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.6rem 0;
+  .breadcrumb { font-size: 0.85rem; margin: 0; }
+  a { color: var(--page-accent); text-decoration: none; } // Links en azul de acento
+  .breadcrumb-item.active { color: #6c757d; }            // Página actual en gris (no es link)
+}
+
+// === CONTENIDO LEGAL PRINCIPAL ===
+// Área de texto del documento legal con estilos tipográficos optimizados para lectura
+.legal-content {
+  padding: 3rem 1rem 4rem;
+  max-width: 820px; // Limita el ancho a ~820px para que las líneas sean cómodas de leer
+
+  // Encabezados de sección dentro del documento legal (ej. "1. Términos de Uso")
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #374151;
+    margin-top: 2rem;      // Espacio entre secciones
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #f3f4f6; // Línea divisoria muy sutil bajo cada encabezado
+  }
+
+  // Párrafos del contenido legal
+  p {
+    font-size: 0.92rem;
+    color: #4b5563;
+    line-height: 1.85; // Interlineado generoso — facilita la lectura de textos densos
+    margin-bottom: 1rem;
+  }
+
+  // Listas de condiciones, derechos, etc. dentro del documento
+  ul {
+    padding-left: 1.25rem; // Indenta la lista para distinguirla del texto normal
+
+    li {
+      font-size: 0.92rem;
+      color: #4b5563;
+      line-height: 1.7;
+      margin-bottom: 0.4rem; // Espacio entre items de la lista
+    }
+  }
+
+  // Links dentro del contenido legal (ej. email de contacto, links a otras páginas)
+  a {
+    color: var(--page-accent); // Azul de acento para distinguir los links del texto normal
+    text-decoration: underline;      // Subrayado explícito para que sean fácilmente identificables
+    text-underline-offset: 2px;      // Espacio entre el texto y el subrayado para mejor legibilidad
+    &:hover { color: var(--page-accent-dark); } // Azul más oscuro al hover
+  }
+}
+
+// === TABLA DE CONTENIDOS (TOC) ===
+// Lista numerada con los títulos de sección del documento — permite navegar directamente a cada sección
+.legal-toc {
+  background: var(--page-accent-light); // Fondo azul muy pálido — diferencia el TOC del texto regular
+  border: 1px solid rgba(0,77,218,.2);  // Borde azul suave para delimitar el bloque
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem; // Espacio entre el TOC y el inicio del contenido
+
+  // Etiqueta "Contenido" encima de la lista
+  .toc-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--page-accent); // Azul de acento para la etiqueta
+    margin-bottom: 0.6rem;
+  }
+
+  // Lista ordenada de secciones del documento
+  ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem; // Espacio entre items del TOC
+  }
+
+  li { font-size: 0.88rem; color: #374151; }
+
+  // Links del TOC — navegan a las secciones correspondientes del documento
+  a {
+    color: var(--page-accent);
+    text-decoration: none;
+    &:hover { text-decoration: underline; } // Subrayado solo al hover — más limpio
+  }
+}
+
+// === CTA INFERIOR ===
+// Sección de llamada a la acción al pie de la página legal
+// Invita al usuario a contactar si tiene preguntas sobre el documento
+.legal-cta {
+  background: #f8fafc;
+  padding: 2.5rem 1rem;
+  border-top: 1px solid #e9ecef; // Línea separadora del contenido legal y el CTA
+}
+
+// === RESPONSIVE ===
+
+// Tablet (< 768px): reduce el padding del contenido para aprovechar el espacio en pantallas medianas
+@media (max-width: 768px) {
+  .legal-content { padding: 2rem 1rem 3rem; }
+  .legal-content h2 { font-size: 1.05rem; } // Encabezados ligeramente más pequeños en tablet
+}
+
+// Móvil pequeño (< 480px): ajustes adicionales de tamaño y espaciado
+@media (max-width: 480px) {
+  .legal-hero { padding: 2rem 1rem; } // Hero más compacto en móvil
+  .legal-title { font-size: 1.4rem !important; } // Sobreescribe el clamp para limitar el tamaño
+  .legal-content { padding: 1.5rem 0.5rem 2.5rem; } // Menos padding lateral para aprovechar el ancho
+  .legal-toc { padding: 1rem; }        // TOC más compacto en móvil
+  .legal-toc ol { padding-left: 1rem; } // Menos indentación en la lista del TOC
+}

@@ -1,0 +1,94 @@
+<!-- Back to top -->
+<button class="back-to-top" [class.visible]="showBackToTop()" (click)="scrollToTop()" aria-label="Volver al inicio">
+  <i class="bi bi-chevron-up" aria-hidden="true"></i>
+</button>
+
+<footer class="bg-secondary-custom text-white pt-5" role="contentinfo">
+  <div class="container">
+    <div class="row g-4 pb-4">
+
+      <!-- Col 1: Logo + About -->
+      <div class="col-lg-4 col-md-12 footer-col-about">
+        <img src="assets/images/logos/logoWh.png" loading="lazy" alt="Logo de Franko Instrumentación" width="56" height="38" style="height:38px;width:auto" class="mb-3">
+        <p class="small" style="color:rgba(255,255,255,0.78);line-height:1.7;max-width:320px">
+          Fabricantes mexicanos de arrestadores de flama, válvulas de alivio de presión y equipos de medición para tanques de almacenamiento. Pioneros en seguridad industrial desde 1990.
+        </p>
+        <div class="d-flex gap-2 mt-3 social-btn-row">
+          <a href="https://www.facebook.com/profile.php?id=61557598050448" target="_blank" rel="noopener" class="social-btn" aria-label="Visitar Facebook de Franko"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+          <a href="https://x.com/ferfr01" target="_blank" rel="noopener" class="social-btn" aria-label="Visitar X (Twitter) de Franko"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=5215518120191&text=hola%2C%20solicito%20informacion" target="_blank" rel="noopener" class="social-btn" aria-label="Contactar por WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+        </div>
+        <div class="mt-3">
+          <span class="footer-iso-badge"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> ISO 9001 Certificados</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-4 col-6">
+        <h6 class="fw-bold mb-3 footer-heading">Ligas Rápidas</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a routerLink="/productos">Productos</a></li>
+          <li><a routerLink="/acerca-de">Acerca de</a></li>
+          <li><a routerLink="/guia-de-productos-destilerias">Destilerías</a></li>
+          <li><a href="https://franko.com.mx/pdfs/MetalCorrosion.pdf" target="_blank" rel="noopener">Tabla de Corrosión</a></li>
+          <li><a routerLink="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Categories -->
+      <div class="col-lg-2 col-md-4 col-6">
+        <h6 class="fw-bold mb-3 footer-heading">Categorías</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a [routerLink]="['/productos']" fragment="alivio-de-presion">Válvulas de Alivio</a></li>
+          <li><a [routerLink]="['/productos']" fragment="arrestadores-de-flama">Arrestadores de Flama</a></li>
+          <li><a [routerLink]="['/productos']" fragment="alivio-emergente">Ventilas de Emergencia</a></li>
+          <li><a [routerLink]="['/productos']" fragment="tank-blanketing">Tank Blanketing</a></li>
+          <li><a [routerLink]="['/productos']" fragment="control-y-medicion">Medición de Nivel</a></li>
+          <li><a [routerLink]="['/productos']" fragment="cristales-visores">Cristales y Visores</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact -->
+      <div class="col-lg-4 col-md-4 col-12">
+        <h6 class="fw-bold mb-3 footer-heading">Contacto</h6>
+        <ul class="list-unstyled footer-links">
+          <li class="d-flex gap-2 mb-2">
+            <i class="bi bi-geo-alt flex-shrink-0 mt-1" aria-hidden="true"></i>
+            <a href="https://maps.app.goo.gl/PqVN1JTBZc6rKTzr9" target="_blank" rel="noopener">Pioneros del Cooperativismo 221, Cd. López Mateos, Edo. de México</a>
+          </li>
+          <li class="d-flex gap-2 mb-2">
+            <i class="bi bi-telephone flex-shrink-0" aria-hidden="true"></i>
+            <a href="tel:+525558165957">+52 55-5816-5957</a>
+          </li>
+          <li class="d-flex gap-2 mb-2">
+            <i class="bi bi-envelope flex-shrink-0" aria-hidden="true"></i>
+            <a href="mailto:ventas@franko.com.mx">ventas&#64;franko.com.mx</a>
+          </li>
+          <li class="d-flex gap-2 mb-2">
+            <i class="bi bi-clock flex-shrink-0" aria-hidden="true"></i>
+            <span style="color:rgba(255,255,255,0.78);font-size:13px">Lun–Vie 9:00 am – 6:00 pm · Sáb 9:00 am – 2:00 pm</span>
+          </li>
+        </ul>
+        <a href="https://api.whatsapp.com/send?phone=5215518120191&text=Hola%2C%20solicito%20informaci%C3%B3n"
+           target="_blank" rel="noopener"
+           class="d-inline-flex align-items-center gap-2 mt-1"
+           style="background:#25d366;color:#fff;border-radius:6px;padding:7px 14px;font-size:13px;font-weight:600;transition:opacity 0.2s"
+           aria-label="Contactar por WhatsApp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i> Escríbenos por WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-top" style="border-color:rgba(255,255,255,0.1) !important">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center py-3 footer-bottom-bar">
+      <span class="small" style="color:rgba(255,255,255,0.7)">©2026 Franko Instrumentación S.A. de C.V. Todos los derechos reservados.</span>
+      <div class="d-flex gap-3 flex-wrap">
+        <a routerLink="/terminos-de-uso" class="small footer-legal-link">Términos de Uso</a>
+        <a routerLink="/aviso-de-privacidad" class="small footer-legal-link">Aviso de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>

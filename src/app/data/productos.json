@@ -1,0 +1,1178 @@
+[
+  {
+    "serie": "1000",
+    "slug": "valvula-alivio-presion-vacio",
+    "titulo": "Valvulas de Alivio Presion y Vacio, Conservacion de Vapores",
+    "categoriaId": "alivio-de-presion",
+    "categoriaNombre": "Válvulas de Alivio de Presión",
+    "descripcionCorta": "Es una válvula que se utiliza para aliviar la presión o el vacío generado dentro del tanque de almacenamiento derivado de carga o descarga de líquido / aspiración y expiración térmica. Los gases dentro del tanque de almacenamiento son expulsados a la atmósfera.",
+    "imagen": "1000.webp",
+    "galeria": [
+      {
+        "archivo": "1000.webp",
+        "alt": "Valvulas de Alivio Presion y Vacio, Conservacion de Vapores"
+      },
+      {
+        "archivo": "1000-1.webp",
+        "alt": "Valvulas de Alivio Presion y Vacio, Conservacion de Vapores — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca",
+      "accesorios"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Es una válvula que se utiliza para aliviar la presión o el vacío generado dentro del tanque de almacenamiento derivado de carga o descarga de líquido / aspiración y expiración térmica. Los gases dentro del tanque de almacenamiento son expulsados a la atmósfera.",
+      "descripcion": "Las válvulas de presión/vacio se utilizan para evitar que el tanque se dañe tras el exceso de presión interna o de vacío, y para reducir la evaporación del contenido del tanque hacia la atmosfera evitando el venteo libre.\nLos tanques de almacenamiento se presurizan cuando el líquido es bombeado al interior del tanque debido a que el vapor interno se comprime mientras sube el nivel, o también con temperaturas elevadas ya que los gases existentes se expanden.\nA sí mismo, las condiciones de vacio se dan cuando se extrae líquido del contenedor o cuando la temperatura disminuye. Una buena calibración en los discos de presión vacio evitará que la estructura del tanque se dañe tras el exceso de presión interna o vacio.\nEn nuestra empresa nos preocupamos por que la calidad de nuestros productos cumplan con los estándares y normas internacionales, por ello la serie Franko 1000 ha sido diseñada, fabricada y probada conforme lo establece ISO 28300 e ISO 5209 en su ultima edición.",
+      "caracteristicasEspeciales": [
+        "Mecanismo de alivio de presion Patentado (MX/f/2007/00281)",
+        "Abertura fácil para una rápida inspección y mantenimiento",
+        "Calibración especial dependiendo de la presión de su tanque",
+        "Calibradas en banco de prueba con instrumentos de medicion avalados por el CENAM. Prueba de fuga supera los parametros indicados en la norma ISO 28300",
+        "Se entrega con certificados de calidad de materiales ASME y certificado de prueba de punto de ajuste y fuga ISO 28300",
+        "Capacidad de flujo en presion y vacio certificada por laboratorios SRC bajo los estandares BIPM con trazabilidad NIST (hasta 12 pulgadas)",
+        "Asiento flotante unico en su tipo, conserva al maximo los gases. Diafragma de PTFE opera bajo las condiciones mas extremas"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "2, 3, 4, 6, 8, 10, 12 pulgadas",
+        "Materiales de fabricación": "Aluminio, ac al carbón, Ac inox 304, 316, Polipropileno(PP)",
+        "Conexión": "Brida 150# (FF, RF). Rosca NPT y Clamp para ciertos modelos",
+        "Rango de calibración": "1” H2O hasta *15 PSIG (pregunte por los modelos)"
+      },
+      "aplicaciones": "Trabajan en contenedores y tanques de almacenamiento (incluyendo los de techo flotante) que almacenan líquidos, son usadas extensamente en la industria química, petroquímica, alimenticia y farmacéutica.",
+      "funcionamiento": "Las válvulas de presión vacio cuentan con dos discos para regular la presión y el vacio del tanque. Presión: Mientras la presión en el tanque se incrementa el disco de vacio permanece cerrado. Cuando la presión calibrada es alcanzada, el disco de presión se levanta liberando los vapores a la atmosfera."
+    },
+    "ventajasMarca": "Al Comprar Con Nosotros  Al adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece, tales como:       1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.     2. Máxima Conservación de Vapores. Nuestro diseño tiene registro de  patente No. PA/F/2003/000879 en el diafragma, sello y asiento, el cual garantiza la abertura total de la válvula únicamente al 10% sobre la presión de ajuste.       3. Calidad inigualable. Nuestras válvulas en acero al carbón e inoxidable son fabricadas con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.    4. Precisión. Son calibradas en bancos de prueba digitales certificados por la acreditadora canadiense BCQ para los ensayos de flujo, calibracion y fuga mencionados en ISO 28300. Dicha certificacion cubre puntos como:  Calculo de flujo maximo para venteo normal Banco de pruebas de flujo Prueba de fuga y ajuste de presion Metodo del Coheficiente de descarga         5. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.     6. Menor número de refacciones. Su diseño está hecho para reducir las piezas de refacciones requeridas minimizando costos y facilitando su mantenimiento.",
+    "accesorios": "Filtro Para Particulas\nSi sus válvulas están expuestas a un ambiente muy contaminado (polución, polvo, polen, etc.) recomendamos adquirir el filtro de partículas para evitar la entrada de contaminantes al tanque\nArrestador De Flama\nUsualmente estas válvulas se utilizan con arrestadores de flama marca Franko Series 2000 y 2050 si el liquido contenido en el tanque es inflamable\nChaqueta Para Aislamiento Termico\nSi requiere mantener su válvula a determinada temperatura, se recomienda el uso de esta chaqueta térmica que va conectada a su línea de vapor o gas"
+  },
+  {
+    "serie": "1010",
+    "slug": "valvula-alivio-presion-dirigida",
+    "titulo": "Valvulas de Alivio de Presion Dirigida y Vacio, venteo dirigido",
+    "categoriaId": "alivio-de-presion",
+    "categoriaNombre": "Válvulas de Alivio de Presión",
+    "descripcionCorta": "Mismo funcionamiento y características técnicas que la serie 1000 con una ventaja, cuenta con una brida a la salida del gas, para poder conectarla a un proceso de tratamiento.",
+    "imagen": "1010.webp",
+    "galeria": [
+      {
+        "archivo": "1010.webp",
+        "alt": "Valvulas de Alivio de Presion Dirigida y Vacio, venteo dirigido"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca",
+      "accesorios"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Mismo funcionamiento y características técnicas que la serie 1000 con una ventaja, cuenta con una brida a la salida del gas, para poder conectarla a un proceso de tratamiento.",
+      "descripcion": "Estas válvulas funcionan y operan de la misma forma que la serie 1000 de FRANKO con la presión dirigida a una tuberia bridada, son utilizadas para aliviar la presión y el vacío en tanques de almacenamiento.",
+      "caracteristicasEspeciales": [
+        "Mecanismo de alivio de presion Patentado (MX/f/2007/00281)",
+        "Abertuar fácil para una rápida inspección y mantenimiento",
+        "Calibración especial dependiendo de la presión de su tanque",
+        "Calibradas en banco de prueba con instrumentos de medicion avalados por el CENAM. Prueba de fuga supera los parametros indicados en la norma ISO 28300",
+        "Se entrega con certificados de calidad de materiales ASME y certificado de prueba de punto de ajuste y fuga ISO 28300",
+        "Capacidad de flujo en presion y vacio certificada por laboratorios SRC bajo los estandares BIPM con trazabilidad NIST (hasta 12 pulgadas)",
+        "Asiento flotante unico en su tipo, conserva al maximo los gases. Diafragma de FEP, no tiene memoria y opera bajo las condiciones mas extremas"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "2x3, 3x4, 4x6, 6x8, 8x10, 10x12, 12x14 pulgadas",
+        "Materiales de fabricación": "Aluminio, ac al carbón, Ac inox 304, 316, Polipropileno(PP)",
+        "Conexión": "Brida 150# (FF, RF). Rosca NPT y Clamp para ciertos modelos",
+        "Rango de calibración": "1” H2O hasta *15 PSIG (pregunte por los modelos)"
+      },
+      "aplicaciones": "Trabajan en contenedores y tanques de almacenamiento que almacenan líquidos.\nSon usadas extensamente en la industria química petroquímica, alimenticia y farmacéutica.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "Al Comprar Con Nosotros  Al adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece, tales como:       1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.     2. Máxima Conservación de Vapores. Nuestro diseño tiene registro de  patente No. PA/F/2003/000879 en el diafragma, sello y asiento, el cual garantiza la abertura total de la válvula únicamente al 10% sobre la presión de ajuste.       3. Calidad inigualable. Nuestras válvulas en acero al carbón e inoxidable son fabricadas con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.    4. Precisión. Son calibradas en bancos de prueba digitales certificados por la acreditadora canadiense BCQ para los ensayos de flujo, calibracion y fuga mencionados en ISO 28300. Dicha certificacion cubre puntos como:  Calculo de flujo maximo para venteo normal Banco de pruebas de flujo Prueba de fuga y ajuste de presion Metodo del Coheficiente de descarga         5. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.     6. Menor número de refacciones. Su diseño está hecho para reducir las piezas de refacciones requeridas minimizando costos y facilitando su mantenimiento.",
+    "accesorios": "Filtro Para Particulas\nSi sus válvulas están expuestas a un ambiente muy contaminado (polución, polvo, polen, etc.) recomendamos adquirir el filtro de partículas para evitar la entrada de contaminantes al tanque\nArrestador De Flama\nUsualmente estas válvulas se utilizan con arrestadores de flama marca Franko Series 2000 y 2050 si el liquido contenido en el tanque es inflamable\nChaqueta Para Aislamiento Termico\nSi requiere mantener su válvula a determinada temperatura, se recomienda el uso de esta chaqueta térmica que va conectada a su línea de vapor o gas"
+  },
+  {
+    "serie": "1030",
+    "slug": "valvula-alivio-de-vacio",
+    "titulo": "Valvulas de Alivio de Vacio o Relevo de Vacio para Tanques",
+    "categoriaId": "alivio-de-presion",
+    "categoriaNombre": "Válvulas de Alivio de Presión",
+    "descripcionCorta": "Válvula para aliviar únicamente el vacío, el funcionamiento y las características técnicas son las mismas que la SERIE 1000 en su mecanismo de vacÍo.",
+    "imagen": "1030.webp",
+    "galeria": [
+      {
+        "archivo": "1030.webp",
+        "alt": "Valvulas de Alivio de Vacio o Relevo de Vacio para Tanques"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Válvula para aliviar únicamente el vacío, el funcionamiento y las características técnicas son las mismas que la SERIE 1000 en su mecanismo de vacÍo.",
+      "descripcion": "Estas válvulas funcionan y operan de la misma forma que la serie 1000 de FRANKO, son utilizadas para aliviar en este caso el vacío en tanques de almacenamiento.",
+      "caracteristicasEspeciales": [
+        "Mecanismo de alivio de presion Patentado (MX/f/2007/00281)",
+        "Abertuar fácil para una rápida inspección y mantenimiento",
+        "Calibración especial dependiendo de la presión de su tanque",
+        "Calibradas en banco de prueba con instrumentos de medicion avalados por el CENAM. Prueba de fuga supera los parametros indicados en la norma ISO 28300",
+        "Se entrega con certificados de calidad de materiales ASME y certificado de prueba de punto de ajuste y fuga ISO 28300",
+        "Capacidad de flujo en presion y vacio certificada por laboratorios SRC bajo los estandares BIPM con trazabilidad NIST (hasta 12 pulgadas)",
+        "Asiento flotante unico en su tipo, conserva al maximo los gases. Diafragma de PTFE, no tiene memoria y opera bajo las condiciones mas extremas"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "2, 3, 4, 6, 8, 10, 12 pulgadas",
+        "Materiales de fabricación": "Aluminio, ac al carbón, Ac inox 304, 316, Polipropileno(PP)",
+        "Conexión": "Brida 150# (FF, RF). Rosca NPT y Clamp para ciertos modelos",
+        "Rango de calibración": "1” H2O hasta *15 PSIG (pregunte por los modelos)"
+      },
+      "aplicaciones": "Trabajan en contenedores y tanques de almacenamiento que almacenan líquidos.\nSon usadas extensamente en la industria química petroquímica, alimenticia y farmacéutica.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "Al Comprar Con Nosotros  Al adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece, tales como:       1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.     2. Máxima Conservación de Vapores. Nuestro diseño tiene registro de  patente No. PA/F/2003/000879 en el diafragma, sello y asiento, el cual garantiza la abertura total de la válvula únicamente al 10% sobre la presión de ajuste.       3. Calidad inigualable. Nuestras válvulas en acero al carbón e inoxidable son fabricadas con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.    4. Precisión. Son calibradas en bancos de prueba digitales certificados por la acreditadora canadiense BCQ para los ensayos de flujo, calibracion y fuga mencionados en ISO 28300. Dicha certificacion cubre puntos como:  Calculo de flujo maximo para venteo normal Banco de pruebas de flujo Prueba de fuga y ajuste de presion Metodo del Coheficiente de descarga         5. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.     6. Menor número de refacciones. Su diseño está hecho para reducir las piezas de refacciones requeridas minimizando costos y facilitando su mantenimiento.",
+    "accesorios": ""
+  },
+  {
+    "serie": "1040",
+    "slug": "valvula-alivio-de-presion",
+    "titulo": "Valvulas de Alivio de Presion para la conservacion de vapores",
+    "categoriaId": "alivio-de-presion",
+    "categoriaNombre": "Válvulas de Alivio de Presión",
+    "descripcionCorta": "Válvula para aliviar únicamente la presión, el funciona- miento y las características técnicas son las mismas que la SERIE 1000 en su mecanismo de alivio.",
+    "imagen": "1040.webp",
+    "galeria": [
+      {
+        "archivo": "1040.webp",
+        "alt": "Valvulas de Alivio de Presion para la conservacion de vapores"
+      },
+      {
+        "archivo": "1040-1.webp",
+        "alt": "Valvulas de Alivio de Presion para la conservacion de vapores — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Válvula para aliviar únicamente la presión, el funciona- miento y las características técnicas son las mismas que la SERIE 1000 en su mecanismo de alivio.",
+      "descripcion": "La Serie 1040 de Franko, válvula rompedora de presión se utiliza cuando sólo el relevo de presión es requerido.\nEn el momento en que la presión calibrada en el plato es alcanzada, este disco se levanta, liberando los vapores a la atmosfera..",
+      "caracteristicasEspeciales": [
+        "Mecanismo de alivio de presion Patentado (MX/f/2007/00281)",
+        "Abertuar fácil para una rápida inspección y mantenimiento",
+        "Calibración especial dependiendo de la presión de su tanque",
+        "Calibradas en banco de prueba con instrumentos de medicion avalados por el CENAM. Prueba de fuga supera los parametros indicados en la norma ISO 28300",
+        "Se entrega con certificados de calidad de materiales ASME y certificado de prueba de punto de ajuste y fuga ISO 28300",
+        "Capacidad de flujo en presion y vacio certificada por laboratorios SRC bajo los estandares BIPM con trazabilidad NIST (hasta 12 pulgadas)",
+        "Asiento flotante unico en su tipo, conserva al maximo los gases. Diafragma de PTFE, no tiene memoria y opera bajo las condiciones mas extremas"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "2, 3, 4, 6, 8, 10, 12 pulgadas",
+        "Materiales de fabricación": "Aluminio, ac al carbón, Ac inox 304, 316, Polipropileno(PP)",
+        "Conexión": "Brida 150# (FF, RF). Rosca NPT y Clamp para ciertos modelos",
+        "Rango de calibración": "1” H2O hasta *15 PSIG (pregunte por los modelos)"
+      },
+      "aplicaciones": "Trabajan en contenedores y tanques de almacenamiento que almacenan líquidos.\nSon usadas extensamente en la industria química petroquímica, alimenticia y farmacéutica.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "Al Comprar Con Nosotros  Al adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece, tales como:       1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.     2. Máxima Conservación de Vapores. Nuestro diseño tiene registro de  patente No. PA/F/2003/000879 en el diafragma, sello y asiento, el cual garantiza la abertura total de la válvula únicamente al 10% sobre la presión de ajuste.       3. Calidad inigualable. Nuestras válvulas en acero al carbón e inoxidable son fabricadas con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.    4. Precisión. Son calibradas en bancos de prueba digitales certificados por la acreditadora canadiense BCQ para los ensayos de flujo, calibracion y fuga mencionados en ISO 28300. Dicha certificacion cubre puntos como:  Calculo de flujo maximo para venteo normal Banco de pruebas de flujo Prueba de fuga y ajuste de presion Metodo del Coheficiente de descarga         5. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.     6. Menor número de refacciones. Su diseño está hecho para reducir las piezas de refacciones requeridas minimizando costos y facilitando su mantenimiento.",
+    "accesorios": ""
+  },
+  {
+    "serie": "1080",
+    "slug": "valvula-de-tank-blanketing",
+    "titulo": "Válvula Tank Blanketing, sistema de inertizacion con nitrogeno",
+    "categoriaId": "tank-blanketing",
+    "categoriaNombre": "Válvulas Tank Blanketing",
+    "descripcionCorta": "Se utiliza para regular el llenado del espacio vacío de un tanque de almacenamiento (espacio de aire) con un gas inerte, comúnmente se emplea el Nitrógeno. El uso de una manta de gas inerte es efectiva para evitar tener una atmosfera inflamable y de esta forma, prevenir explosiones",
+    "imagen": "1080.webp",
+    "galeria": [
+      {
+        "archivo": "1080.webp",
+        "alt": "Válvula Tank Blanketing, sistema de inertizacion con nitrogeno"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Se utiliza para regular el llenado del espacio vacío de un tanque de almacenamiento (espacio de aire) con un gas inerte, comúnmente se emplea el Nitrógeno. El uso de una manta de gas inerte es efectiva para evitar tener una atmosfera inflamable y de esta forma, prevenir explosiones",
+      "descripcion": "Las válvulas de tank blanketing marca FRANKO® serie 1080, garantizan que la presión de un gas en el tanque de almacenamiento se mantenga baja y constante. Estas válvulas regulan la entrada de un gas inerte para evitar la formación de vacío al momento de extraer líquido del tanque, manteniendo la presión de ajuste bajo control.Cuando la temperatura baja, y la presión interna del tanque se reduce, previene la contaminación por aire externo al interior del tanque.Una presión de gas mínima de 25 mm de columna de agua impide que el aire exterior y la humedad entre en el depósito de almacenamiento reduciendo la evaporación del producto almacenado a una cantidad mínima, el resultado es disminuir considerablemente las emisiones y proteger el depósito ante un posible fuego externo ó la descomposición ú oxidación de productos cuando hay oxigeno presente.el diseño simple de la válvula de tank blanketing Franko® elimina la necesidad de un complicado sistema regulador múltiple.Estos dispositivos ofrecen alta precisión y fiabilidad, y garantizan un excelente desempeño a prueba de fugas, reduciendo tiempo y ahorrando costos de mantenimiento.",
+      "caracteristicasEspeciales": [
+        "Montaje vertical",
+        "Flujo variable",
+        "El cuerpo de acero inoxidable, de tal modo que resiste el ambiente marino y atmosferas corrosivas.",
+        "por la sencillez de su diseño, es de fácil mantenimiento."
+      ],
+      "caracteristicasTecnicas": {
+        "P. Entrada": "2 - 3 Bar",
+        "Ajuste de Salida": "1 -5 inH2o",
+        "Conexión": "1\" en Rosca NPT, Brida ó Clamp",
+        "Material de Construccion": "Ac. inox 316",
+        "Flujo Total": "260 - 18,000 SCFH"
+      },
+      "aplicaciones": "Se utilizan en la industria química, petroquímica, alimenticia, farmacéutica, de cosméticos entre otras",
+      "funcionamiento": "La válvula reguladora de tank blanketing marca FRANKO ® mantiene un rango de baja presión en el tanque abriendo la válvula de suministro de gas. Este inicialmente sale con alta presión, y cuando la presión del tanque se aproxima a la presión de ajuste (detectada a través de la línea sensora) la válvula se va cerrando poco a poco, disminuyendo el flujo de gas hasta llegar a “cero”.La válvula de blanketing serie 1080 de FRANKO ® consiste en la acción directa de un pivote móvil, cuya abertura y cierre es controlado por el movimiento del diafragma sensor. Se requieren tres conexiones para la operación de esta válvula: la línea sensora que abarca desde el tanque hasta la entrada del diafragma (proporcionando la presión de control a la cámara), una conexión de suministro de gas y una conexión de salida."
+    },
+    "ventajasMarca": "Caracteristicas EspecialesMontaje verticalFlujo variableEl cuerpo de acero inoxidable, de tal modo que resiste el ambiente marino y atmosferas corrosivas.por la sencillez de su diseño, es de fácil mantenimiento.P. Entrada2 - 3 BarAjuste de Salida1 -5 inH2oConexión1\" en Rosca NPT, Brida ó ClampMaterial de ConstruccionAc. inox 316Flujo Total260 - 18,000 SCFHAplicacionesSe utilizan en la industria química, petroquímica, alimenticia, farmacéutica, de cosméticos entre otrasDescripciónLas válvulas de tank blanketing marca FRANKO® serie 1080, garantizan que la presión de un gas en el tanque de almacenamiento se mantenga baja y constante. Estas válvulas regulan la entrada de un gas inerte para evitar la formación de vacío al momento de extraer líquido del tanque, manteniendo la presión de ajuste bajo control.Cuando la temperatura baja, y la presión interna del tanque se reduce, previene la contaminación por aire externo al interior del tanque.Una presión de gas mínima de 25 mm de columna de agua impide que el aire exterior y la humedad entre en el depósito de almacenamiento reduciendo la evaporación del producto almacenado a una cantidad mínima, el resultado es disminuir considerablemente las emisiones y proteger el depósito ante un posible fuego externo ó la descomposición ú oxidación de productos cuando hay oxigeno presente.el diseño simple de la válvula de tank blanketing Franko® elimina la necesidad de un complicado sistema regulador múltiple.Estos dispositivos ofrecen alta precisión y fiabilidad, y garantizan un excelente desempeño a prueba de fugas, reduciendo tiempo y ahorrando costos de mantenimiento.FuncionamientoLa válvula reguladora de tank blanketing marca FRANKO ® mantiene un rango de baja presión en el tanque abriendo la válvula de suministro de gas. Este inicialmente sale con alta presión, y cuando la presión del tanque se aproxima a la presión de ajuste (detectada a través de la línea sensora) la válvula se va cerrando poco a poco, disminuyendo el flujo de gas hasta llegar a “cero”.La válvula de blanketing serie 1080 de FRANKO ® consiste en la acción directa de un pivote móvil, cuya abertura y cierre es controlado por el movimiento del diafragma sensor. Se requieren tres conexiones para la operación de esta válvula: la línea sensora que abarca desde el tanque hasta la entrada del diafragma (proporcionando la presión de control a la cámara), una conexión de suministro de gas y una conexión de salida.",
+    "accesorios": ""
+  },
+  {
+    "serie": "1085",
+    "slug": "tank-blanketing-alta-presion",
+    "titulo": "Válvula Tank Blanketing alta presion, inertizacion con nitrogeno",
+    "categoriaId": "tank-blanketing",
+    "categoriaNombre": "Válvulas Tank Blanketing",
+    "descripcionCorta": "this wow blank",
+    "imagen": "1085.webp",
+    "galeria": [
+      {
+        "archivo": "1085.webp",
+        "alt": "Válvula Tank Blanketing alta presion, inertizacion con nitrogeno"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "this wow blank",
+      "descripcion": "Las válvulas de tank blanketing marca FRANKO® serie 1085, garantizan que la presión de un gas en el tanque de almacenamiento se mantenga baja y constante. Estas válvulas regulan la entrada de un gas inerte para evitar la formación de vacío al momento de extraer líquido del tanque, manteniendo la presión de ajuste bajo control.Cuando la temperatura baja, y la presión interna del tanque se reduce, previene la contaminación por aire externo al interior del tanque.el diseño simple de la válvula de tank blanketing Franko® elimina la necesidad de un complicado sistema regulador múltiple.Estos dispositivos ofrecen alta precisión y fiabilidad, y garantizan un excelente desempeño a prueba de fugas, reduciendo tiempo y ahorrando costos de mantenimiento.",
+      "caracteristicasEspeciales": [
+        "Montaje vertical",
+        "Flujo variable",
+        "El cuerpo de acero inoxidable, de tal modo que resiste el ambiente marino y atmosferas corrosivas.",
+        "Fácil mantenimiento."
+      ],
+      "caracteristicasTecnicas": {
+        "P. Entrada": "2 - 3 Bar",
+        "Ajuste de Salida": "5 -100 inH2o",
+        "Conexión": "1\" en Rosca NPT, Brida ó Clamp",
+        "Material de Construccion": "Ac. inox 316",
+        "Flujo Total": "1400 - 70,000 SCFH"
+      },
+      "aplicaciones": "Se utilizan en la industria química, petroquímica, alimenticia, farmacéutica, de cosméticos entre otras",
+      "funcionamiento": "La válvula reguladora de tank blanketing marca FRANKO ® mantiene un rango de presión media en el tanque abriendo la válvula de suministro de gas. Este inicialmente sale con alta presión, y cuando la presión del tanque se aproxima a la presión de ajuste (detectada a través de la línea sensora) la válvula se va cerrando poco a poco, disminuyendo el flujo de gas hasta llegar a “cero”."
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "2000",
+    "slug": "arrestador-de-flama-para-deflagracion",
+    "titulo": "Arrestadores de Flama, Apagallamas, Arrestallamas para Tanques",
+    "categoriaId": "arrestadores-de-flama",
+    "categoriaNombre": "Arrestadores de Flama",
+    "descripcionCorta": "Un arrestador de flamas para deflagración absorbe el calor de un frente de llama que se desplaza a velocidades subsónicas, dejando caer la mezcla ardiente de gas / aire por debajo de su temperatura de ignición, por consiguiente, la llama no puede sobrevivir. El calor se absorbe a través de los canales contenidos en el elemento arrestador los cuales se miden como MESG (Maximum Experimental Safe Gap) y se seleccionan dependiendo del gas con el que se van a operar.",
+    "imagen": "2000.webp",
+    "galeria": [
+      {
+        "archivo": "2000.webp",
+        "alt": "Arrestadores de Flama, Apagallamas, Arrestallamas para Tanques"
+      },
+      {
+        "archivo": "2000-1.webp",
+        "alt": "Arrestadores de Flama, Apagallamas, Arrestallamas para Tanques — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca",
+      "accesorios"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Un arrestador de flamas para deflagración absorbe el calor de un frente de llama que se desplaza a velocidades subsónicas, dejando caer la mezcla ardiente de gas / aire por debajo de su temperatura de ignición, por consiguiente, la llama no puede sobrevivir. El calor se absorbe a través de los canales contenidos en el elemento arrestador los cuales se miden como MESG (Maximum Experimental Safe Gap) y se seleccionan dependiendo del gas con el que se van a operar.",
+      "descripcion": "Los Arrestadores de Flama se utilizan en tanques que almacenan productos volátiles tales como solventes, alcoholes, combustibles, etc. Su función es evitar que una chispa, o un siniestro exterior pase al interior del tanque y provoque un incendio.El panal de lámina corrugada tipo WAFER, forma un numeroso arreglo de pequeños tubos capilares los cuales causan el enfriamiento del fuego y su extinción evitando la propagación y deflagración de la flama en caso de accidente.",
+      "caracteristicasEspeciales": [
+        "Caída de presión minima",
+        "Área de extinción de flama maximizada",
+        "Única empresa en México en contar con laboratorios einfraetructura para prueba de deflagración y detonación acorde con ISO 16852.",
+        "Se entrega con certificados de materiales ASTM A105M, 304 0 316",
+        "Certificado de pruebas de produccion ISO 16852"
+      ],
+      "caracteristicasTecnicas": {},
+      "aplicaciones": "Para tanques de almacenamiento y contenedores que almacenan líquidos in- flamables. En aplicaciones fin de línea, es una práctica muy común acoplar una válvula de alivio de presión y vacío serie 1000 junto con un arrestador de flama para ofrecer protección contra flama y evitar la emanación innecesaria de gases a la atmósfera al mismo tiempo.",
+      "funcionamiento": "El panal de lámina corrugada tipo WAFER, forma un numeroso arreglo de pequeños tubos capilares los cuales causan el enfriamiento del fuego y su extinción evitando la propagación y deflagración de la flama en caso de accidente"
+    },
+    "ventajasMarca": "Al Comprar Con Nosotros  Al adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece::    1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.   2. Pruebas ISO 16852. Unica empresa en Mexico que cuenta con la infraestructura para realizar las pruebas de retroceso de flama y quemado continuo con preciso apego a la estricta norma europea 16852. Otras marcas mencionan haber realizado estas pruebas en el extranjero y no cuentan con evidencia para ello    3. Calidad inigualable.Los cuerpos de los arrestadores en acero al carbón y acero inoxidable son elaborados con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.  4. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.",
+    "accesorios": "Válvula de alivio\nSi se va a utilizar este dispositivo como fin de línea para tanques de almacenamiento, se recomienda el uso de válvulas de alivio ensambladas a los arrestadores de flama para conservar el vapor del producto dentro del tanque y liberarlo únicamente a la carga del tanque o a la inspiración térmica, evitando emanaciones innecesarias a la atmósfera y evaporación del producto.\nCampana Protectora\nSe recomienda utilizar este accesorio en sus arrestadores de flama fin-de-linea cuando no están trabajan- do con una válvula de venteo, para protegerlo de partículas externas"
+  },
+  {
+    "serie": "2010",
+    "slug": "arrestador-de-flama-para-detonacion",
+    "titulo": "Arrestadores de Detonacion, Apagallamas en Linea de Detonacion",
+    "categoriaId": "arrestadores-de-flama",
+    "categoriaNombre": "Arrestadores de Flama",
+    "descripcionCorta": "Está diseñado para brindar protección contra la propagación de la llama en sistemas de tuberías que tienen largos recorridos. Sirven para detener la mezcla inflamable de vapor que se desplaza a velocidades subsónicas o supersónicas dentro del conducto de gas",
+    "imagen": "2010.webp",
+    "galeria": [
+      {
+        "archivo": "2010.webp",
+        "alt": "Arrestadores de Detonacion, Apagallamas en Linea de Detonacion"
+      },
+      {
+        "archivo": "2010-1.webp",
+        "alt": "Arrestadores de Detonacion, Apagallamas en Linea de Detonacion — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca",
+      "accesorios"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Está diseñado para brindar protección contra la propagación de la llama en sistemas de tuberías que tienen largos recorridos. Sirven para detener la mezcla inflamable de vapor que se desplaza a velocidades subsónicas o supersónicas dentro del conducto de gas",
+      "descripcion": "La serie 2010 de Franko, detonador en línea bidireccional se utiliza para soportar y detener las flamas, que viajan a gran velocidad y presión (velocidades supersónicas) en sistemas de tubería extensos o complejos.Estos sistemas se pueden encontrar en recuperadoras de gases o tanques entrelazados.Diseñado para interrumpir la deflagración (velocidad subsónica), deflagración estable (sónicas) y detonaciones inestables (supersónicas)",
+      "caracteristicasEspeciales": [
+        "Caída de presión minima",
+        "Área de extinción de flama maximizada",
+        "Única empresa en México en contar con laboratorios einfraetructura para prueba de deflagración y detonación acorde con ISO 16852.",
+        "Se entrega con certificados de materiales ASTM A105M, 304 0 316",
+        "Certificado de pruebas de produccion ISO 16852"
+      ],
+      "caracteristicasTecnicas": {},
+      "aplicaciones": "Son usados para aplicaciones en-línea y se utilizan en sistemas de tubería que trabajan con gases",
+      "funcionamiento": "El panal de lámina corrugada tipo WAFER, forma un numeroso arreglo de pequeños tubos capilares los cuales causan el enfriamiento del fuego y su extinción evitando la propagación y deflagración de la flama en caso de accidenteEl elemento del arrestador esta reforzado por ambos lados para soportar la presión a la que viaja la flama en ambas direcciones."
+    },
+    "ventajasMarca": "Al Comprar Con NosotrosAl adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece::1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.2. Pruebas ISO 16852. Unica empresa en Mexico que cuenta con la infraestructura para realizar las pruebas de retroceso de flama y que- mado continuo con preciso apego a la estricta norma europea 16852. Otras marcas mencionan que realizan estas pruebas en el extranjero y no cuentan con las instalaciones para ello3. Calidad inigualable.Los cuerpos de los arrestadores en acero al carbón y acero inoxidable son elaborados con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.4. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.",
+    "accesorios": "Sensor de Presion\nSensor de Temperatura"
+  },
+  {
+    "serie": "2020",
+    "slug": "arrestador-flame-check",
+    "titulo": "Flame Check, Arrestadores de Flama Fraccionarios para Lineas",
+    "categoriaId": "arrestadores-de-flama",
+    "categoriaNombre": "Arrestadores de Flama",
+    "descripcionCorta": "Este arrestador de flama tipo flame check cuenta con un elemento interno, poroso, el cual absorbe el calor del fuego y proporciona el un área de flujo amplia para no obstaculizar el flujo normal del gas a través de la línea.",
+    "imagen": "2020.webp",
+    "galeria": [
+      {
+        "archivo": "2020.webp",
+        "alt": "Flame Check, Arrestadores de Flama Fraccionarios para Lineas"
+      },
+      {
+        "archivo": "2020-1.webp",
+        "alt": "Flame Check, Arrestadores de Flama Fraccionarios para Lineas — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Este arrestador de flama tipo flame check cuenta con un elemento interno, poroso, el cual absorbe el calor del fuego y proporciona el un área de flujo amplia para no obstaculizar el flujo normal del gas a través de la línea.",
+      "descripcion": "El arrestador de flama fraccionario marca Franko Serie 2020 está diseñado para prevenir el retroceso de flama en pequeñas líneas o tuberías que transportan gas. Pueden ser utilizados como uniones NPT.Dentro del arrestador se encuentra el elemento de lámina corrugada tipo WAFER, el cual forma un numeroso arreglo de pequeños tubos capilares los cuales causan el enfriamiento del fuego y su extinción evitando la propagación y deflagración de la flama en caso de accidente.",
+      "caracteristicasEspeciales": [],
+      "caracteristicasTecnicas": {},
+      "aplicaciones": "Se utiliza en tuberías y líneas de gas",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "2030",
+    "slug": "arrestador-de-flama-compacto",
+    "titulo": "Arrestador de Flama Compacto fin de linea para Tanques",
+    "categoriaId": "arrestadores-de-flama",
+    "categoriaNombre": "Arrestadores de Flama",
+    "descripcionCorta": "Estos arrestadores están diseñados para brindar protección deteniendo las llamas para el especio de vapor de un tanque, cuando este esté montado en el extremo de la boquilla que conduce directamente a la atmósfera. Están indicados para el uso con vapores equivalente al Grupo IEC IIA",
+    "imagen": "2030.webp",
+    "galeria": [
+      {
+        "archivo": "2030.webp",
+        "alt": "Arrestador de Flama Compacto fin de linea para Tanques"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Estos arrestadores están diseñados para brindar protección deteniendo las llamas para el especio de vapor de un tanque, cuando este esté montado en el extremo de la boquilla que conduce directamente a la atmósfera. Están indicados para el uso con vapores equivalente al Grupo IEC IIA",
+      "descripcion": "Los Arrestadores de flama Tipo Hongo Serie 2030, han sido diseñados para evitar la propagacion de la flama.es utilizado en aplicaciones fin de linea, donde el vapor contenido en un tanque se libera a la atmosfera.Estos arrestadores se deben utilizar con vapores q esten dentro del grupo de gas correspondiente.Una caracteristica especial de estos equipos, es que pueden ser utilizados en tanques donde el espacio juega un rol importante ya que son pequeños y de tamaño compacto.",
+      "caracteristicasEspeciales": [
+        "Montaje vertical, elemento de arrestador formado por platos paralelos",
+        "Caida minima de presión",
+        "Facil Inspeccion y mantenimiento"
+      ],
+      "caracteristicasTecnicas": {},
+      "aplicaciones": "Para tanques y contenedores de almacenamiento de liquidos.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "Al Comprar Con Nosotros  Al adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece::    1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.   2. Pruebas ISO 16852. Unica empresa en Mexico que cuenta con la infraestructura para realizar las pruebas de retroceso de flama y que- mado continuo con preciso apego a la estricta norma europea 16852. Otras marcas mencionan que realizan estas pruebas en el extranjero y no cuentan con las instalaciones para ello    3. Calidad inigualable.Los cuerpos de los arrestadores en acero al carbón y acero inoxidable son elaborados con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.  4. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.",
+    "accesorios": ""
+  },
+  {
+    "serie": "2035",
+    "slug": "arrestador-de-flama-con-valvula-de-alivio",
+    "titulo": "Arrestadores de Flama con válvula de Alivio de Presion/Vacio",
+    "categoriaId": "arrestadores-de-flama",
+    "categoriaNombre": "Arrestadores de Flama",
+    "descripcionCorta": "Arrestador de flama compacto con valvula de alivio de presion y vacio integrada",
+    "imagen": "2035.webp",
+    "galeria": [
+      {
+        "archivo": "2035.webp",
+        "alt": "Arrestadores de Flama con válvula de Alivio de Presion/Vacio"
+      },
+      {
+        "archivo": "2035-1.webp",
+        "alt": "Arrestadores de Flama con válvula de Alivio de Presion/Vacio — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Arrestador de flama compacto con valvula de alivio de presion y vacio integrada",
+      "descripcion": "Los Serie 2035 han sido diseñados para evitar la propagacion de la flama.es utilizado en aplicaciones fin de linea, donde el vapor contenido en un tanque se libera a la atmosfera.Cuentan con una válvula de alivio de presión vacio en su interior cuya función es conservar vapores y aliviar presión o vacío del tanque de almacenamiento como lo indica la norma API 2000 / ISO 28300",
+      "caracteristicasEspeciales": [
+        "Montaje vertical, elemento de arrestador formado por platos paralelos",
+        "Caida minima de presión",
+        "Facil Inspeccion y mantenimiento"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "2, 3, 4, 6, 8, 10, pulgadas",
+        "Cuerpo": "Acero al carbón, Acero inoxidable 304 y 316",
+        "Conexión": "Brida 150# (RF o FF), Rosca NPTH, Clamp",
+        "Presion de Op": "desde 3inH2o para presión y vacío",
+        "Grupos de Gas": "IEC IIA, IIB"
+      },
+      "aplicaciones": "Para tanques y contenedores de almacenamiento de liquidos",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "Ventajas de Nuestro Equipo Existen varios diseños de válvulas con arrestador de flama integrado en el mercado, acontinuación, se muestra un comparativo que especifica las ventajas de nuestro diseño patentadocontra el de otro fabricante     Este diseño acumula fluidos en su cuerpo por vapores condensados, requiriendo purgarse constantemente y mantenimientos frecuentes por la corrosión derivada de estos    Nuestro diseño tiene un sistema llamado self-drip o auto-drenable, en el cual no es necesario una purga ya que todos los fluidos regresan al tanque sin acumularse en ninguna parte del cuerpo     Por otro lado, existe un ESCENARIO DE RIESGO MAYOR en aquellos casos donde la válvula no se purgó a tiempo, y el nivel del fluido rebasa al plato de presión, deshabilitándolo por la presión que ejerce el peso del líquido sobre este. Las consecuencias por exceso de presión en el tanque de almacenamiento por tener la válvula de alivio bloqueada son muy graves.      Elemento arrestador de flama formado por cinta de lámina corrugada. Área de flujo no medible    Estos diseños utilizan un elemento arrestador formado por una cinta de lámina corrugada, cuya desventaja es que, el área de flujo no es medible. Por otro lado al taparse (obstrucción derivada de polución o proceso), en la mayoría de los casos es necesario reemplazar le pieza completa incrementando costos en refacciones y mantenimiento     Elemento arrestador de flama formado por halos de acero inoxidable 316    Nuestro elemento arrestador está formado por halos de acero inoxidable INDEPENDIENTES que se pueden limpiar de manera individual y su área es MEDIBLE, la norma ISO 16875 define: MEASURABLE TYPE is a flame arrester where the quenching gaps of the flame arrester element can be technically drawn, measured and controlled *garantizado por 50 años       Este diseño cuenta con dos elementos arrestadores, generando mas desventajas como: mayor número de refacciones, más trabajo en limpieza y mayor costo. Por otro lado, como se observa, el flujo del elemento arrestador de vacío está restringido por ser de menor tamaño, lo cual reduce el flujo y aumenta el riesgo de colapso      Nuestro diseño cuenta con un solo elemento arrestador formado por halos de acero inoxidable los cuales se pueden desensamblar fácilmente para su limpieza     En estos diseños, el flujo corre por todo el cuerpo de la válvula chocando en las paredes que generan contraflujos generando perdidas de presión    En nuestro sistema, el flujo se distribuye únicamente hacia la salida, evitando choques",
+    "accesorios": ""
+  },
+  {
+    "serie": "2200",
+    "slug": "camara-de-espuma",
+    "titulo": "Camara de Espuma, forma espuma sobre la superficie del tanque",
+    "categoriaId": "formadores-de-espuma",
+    "categoriaNombre": "Formadores de Espuma",
+    "descripcionCorta": "Diseñadas para introducir y formar espuma directamente sobre la superficie líquida en el interior del tanque de almacenamiento, eliminando el oxígeno de la combustión y extinguir el fuego",
+    "imagen": "2200.webp",
+    "galeria": [
+      {
+        "archivo": "2200.webp",
+        "alt": "Camara de Espuma, forma espuma sobre la superficie del tanque"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Diseñadas para introducir y formar espuma directamente sobre la superficie líquida en el interior del tanque de almacenamiento, eliminando el oxígeno de la combustión y extinguir el fuego",
+      "descripcion": "La forma en que operan estos equipos, representa el procedimiento de control más eficaz para la extinción de incendios, con innumerables casos de éxito.Las cámaras de espuma marca Franko ®, son amigables y trabajan a la perfección con todas las soluciones y concentrados disponibles en el mercado como FFF, AFFF,AR-AFFF, proteínicos concentrados, flúor proteínicos, orgánicos, entre otros.La cámara generadora de espuma contraincendio, está diseñada para introducir unasolución de espuma expandida directamentesobre la superficie liquida del interior del tanque de almacenamiento y así, poder formar una capa capaz de extinguir el incendio por eliminación de ox&ampiaciacute;geno.Se instala en el tanque dealmacenamiento del líquido inflamable justo debajo de la unión del techo.Su diseñoaumenta la eficacia en la formación delmanto de aislamiento entre líquido, oxigeno /combustible y reduce al máximo el rompimiento de la espuma. El deflector es complementario para obtener una irrigación correcta de espuma, mejorando las propiedades de sofocación de la misma.",
+      "caracteristicasEspeciales": [
+        "4 medidas para cubrir todas las características de flujo",
+        "Cumplen con estricto apego a las especificaciones de NFPA 11, ISO 7076",
+        "Certificado ISO 9001 con la acreditadora inglesa UKAS quien certifica la Gestión de la Calidad en las areas de diseno y fabricacion de estos equipos"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "2½X4, 3X6, 4X8, 6x10 pulgadas",
+        "Cuerpo": "acero al carbon o Acero Inoxidable 304 y 316",
+        "Partes": "Tornilleria, Venturi, filtro y placa de orificio en Acero Inoxidable 316.",
+        "Conexión": "Bridas ANSI 150# FF o RF",
+        "Presion de Operacion": "de 2 a 10 bars",
+        "Prueba Hidrostatica": "Certificada, 300 PSI",
+        "Espumas Compatibles": "FFF, AFFF, AR-AFFF, proteicos concentrados, fluor proteinicos y organicos",
+        "Recubrimiento": "Sistema ISO 12944-5, para zonas C4"
+      },
+      "aplicaciones": "Se instalan generalmente a un costado de los tanques de almacenamiento verticales de baja presión por encima del nivel máximo de líquido, y se conecta directamente a la línea de suministro de mezcla agua espuma",
+      "funcionamiento": "Estos dispositivos cuentan en su parte interna con una cámara de expansión y un formador de espuma integral la cual es generada por medio de una serie de orificios localizados en el formador de espuma el cual introduce aire en el flujo de la solución.Al entrar el suministro de agua y concentrado de espuma, baja su velocidad y toma el aire necesario para expandirse. Operan a través de la entrada aire a la corriente de mezcla agua y concentrado, en conjunto con un apropiado generador de espuma, pueden operar desde 2 bar hasta 10 bares.Cuenta con un sello que actúa como barrera para evitar el escape de vapores a la atmósfera localizado en el interior de la cámara para evitar derrames en caso de llenado abrupto.La espuma choca contra el deflector el cual la escurre directamente a la pared del tanque, dispersando una capa que eficientemente va creando una cobertura de extinción. Estos dispositivos cuentan con un filtro de acero inoxidable 316 junto a los orificios de la entrada de aire con la finalidad de evitar la contaminación de la espuma y la obstrucción del conducto."
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "2210",
+    "slug": "formador-de-espuma",
+    "titulo": "formador de espuma, subproporcionador de espuma",
+    "categoriaId": "formadores-de-espuma",
+    "categoriaNombre": "Formadores de Espuma",
+    "descripcionCorta": "El formador de espuma contra incendio, de alta contrapresión esta diseñado para suministrar una solución de espuma aspirada sobre la superficie de un líquido combustible a través del mismo, minimizando el arrastre del producto y la saturación de la burbuja de espuma. Como ventaja adicional el uso de estos formadores, permite dirigir el flujo completamente hacia el área de riesgo, sin importar las condiciones del clima.",
+    "imagen": "2210.webp",
+    "galeria": [
+      {
+        "archivo": "2210.webp",
+        "alt": "formador de espuma, subproporcionador de espuma"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "El formador de espuma contra incendio, de alta contrapresión esta diseñado para suministrar una solución de espuma aspirada sobre la superficie de un líquido combustible a través del mismo, minimizando el arrastre del producto y la saturación de la burbuja de espuma. Como ventaja adicional el uso de estos formadores, permite dirigir el flujo completamente hacia el área de riesgo, sin importar las condiciones del clima.",
+      "descripcion": "",
+      "caracteristicasEspeciales": [],
+      "caracteristicasTecnicas": {
+        "Conexión": "Entrada 4, salida 6 pulgadas",
+        "Cuerpo": "Aluminio 356, interiores de bronce",
+        "Recubrimiento": "Epoxico para de altos solidos",
+        "Flujo": "300 a 550 GPM",
+        "Espumas": "Compatible con concentrados adecuados parainyección subsuperficial"
+      },
+      "aplicaciones": "Los formadores de espuma marca Franko están diseñados para generar espuma expandida con el propósito de inyectarla en la sub superficie de un tanque de hidrocarburo de techo cónico.La inyección a contra presión, está destinada a formar una capa en la superficie del líquido, proveniente desde el fondo del tanque. En caso de un incendio, si las cámaras de espuma tradicionales llegaran a dañarse o fallaran, se puede fácilmente sustituir con la inyección sub superficial. El generador de espuma típicamente se encuentra fuera del dique que rodea el tanque de almacenamiento. La espuma expandida se inyecta a través de una línea de espuma dedicada o en una línea de producto al tanque de almacenamiento (consulte Esquemas típicos).El generador de espuma con alta contrapresión, es capaz de generar espuma expandida dentro del rango óptimo de relación de expansión de 2: 1 a 4: 1 para la inyección sub superficial y puede descargar contra una contrapresión de hasta 40% de la presión de operación de entrada. Una presión mínima de entrada de espuma de 100 psi (9.6 bar) es requerida para una operación satisfactoria.Estos formadores de espuma de contrapresión se pueden utilizar con varios tipos de equipos de dosificación, como tanques de vejiga, sistemas de dosificación de bomba de presión equilibrada, sistemas de dosificación de presión en línea y camiones de espuma.El líquido inflamable a proteger debe ser un hidrocarburo. Los líquidos inflamables con disolventes o los hidrocarburos que contienen más del 10% de alcohol son destructivos para las espumas inyectadas sub superficiales. Consultar NFPA 11. El tanque de almacenamiento a proteger debe ser con techo cónico sin ningún tipo de flotador interno. NFPA 11 no recomienda sistemas de inyección subterránea para tanques de techo flotante abierto o superior debido a la posibilidad de una distribución inadecuada de espuma a la superficie del combustible.",
+      "funcionamiento": "Estos dispositivos cuentan en su parte interna con una cámara de expansión y un formador de espuma integral la cual es generada por medio de una serie de orificios localizados en el formador de espuma el cual introduce aire en el flujo de la solución.Al entrar el suministro de agua y concentrado de espuma, baja su velocidad y toma el aire necesario para expandirse.Operan a través de la entrada aire a la corriente de mezcla agua y concentrado, en conjunto con un apropiado generador de espuma, pueden operar desde 2 bar hasta 10 bares.Cuenta con un sello que actúa como barrera para evitar el escape de vapores a la atmósfera localizado en el interior de la cámara para evitar derrames en caso de llenado abrupto.La espuma choca contra el deflector el cual la escurre directamente a la pared del tanque, dispersando una capa que eficientemente va creando una cobertura de extinción. Estos dispositivos cuentan con un filtro de acero inoxidable 316 junto a los orificios de la entrada de aire con la finalidad de evitar la contaminación de la espuma y la obstrucción del conducto."
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "3000",
+    "slug": "escotilla-de-medicion",
+    "titulo": "Escotillas de Medicion para Tanques de Almacenamiento",
+    "categoriaId": "accesorios",
+    "categoriaNombre": "Accesorios para Tanques",
+    "descripcionCorta": "Es un accesorio para tanques de almacenamiento que se emplea para obtener acceso sencillo al interior de tanques y facilitar la medición manual de nivel, toma de muestras y carga o descarga emergente, entre otras",
+    "imagen": "3000.webp",
+    "galeria": [
+      {
+        "archivo": "3000.webp",
+        "alt": "Escotillas de Medicion para Tanques de Almacenamiento"
+      },
+      {
+        "archivo": "3000-1.webp",
+        "alt": "Escotillas de Medicion para Tanques de Almacenamiento — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Es un accesorio para tanques de almacenamiento que se emplea para obtener acceso sencillo al interior de tanques y facilitar la medición manual de nivel, toma de muestras y carga o descarga emergente, entre otras",
+      "descripcion": "La escotilla de medición es un dispositivo que se utiliza cuando se requiere medir líquidos en el interior del tanque de manera manual o para tomar muestras del contenido o de temperatura. La serie 3000 de Franko cuenta con un sistema de sellado hermético para evitar fugas y perdidas de vapor. Cuando está cerrada, evita que los vapores que se encuentran en el interior del tanque salgan a la atmosfera. Su diseño facilita la instalación, evita problemas con la operación y de mantenimiento.",
+      "caracteristicasEspeciales": [
+        "Sistema de cerrado manual para evitar la apertura accidental",
+        "Diafragma de teflón para un sellado firme, confiable y seguro",
+        "Construcción robusta para soportar ambientes rudimentarios y prolongar su periodo de vida",
+        "Amplia variedad de materiales y tamaños para adecuarse a cada necesidad"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "2, 3, 4, 6, 8, 10, 12 pulgadas",
+        "Cuerpo": "Aluminio, ac al cabon, ac inox 304 o 316",
+        "Sello": "Nitrilo. Viton y Nopreno disponibles",
+        "Conexión": "ANSI #150 FF",
+        "Presión de Operación": "Atmosferica"
+      },
+      "aplicaciones": "Para tanques y contenedores de almacenamiento. Empleados en la industria petroquímica, refinerías, plantas químicas, farmacéuticas, tratadoras de agua, de alimentos, entre otras.",
+      "funcionamiento": "Su funcionamiento es simple, la escotilla cuanta con un sistema de cerrado manual por medio de una manija, cuando esta se gira, se genera presión sobre la cubierta creando un cerrado hermético, esto es posible ya que la cubierta tiene un sello de teflón en su interior."
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "3010",
+    "slug": "ventila-de-emergencia",
+    "titulo": "Venteos, Ventilas de Emergencia para Tanques de Almacenamiento",
+    "categoriaId": "alivio-de-presion-emergente",
+    "categoriaNombre": "Alivio de Presión Emergente",
+    "descripcionCorta": "Esta ventila opera como válvula de seguridad aliviando el exceso de presión dentro de un tanque de almacenamiento y anulando la contingencia de explosión en caso de incendio fuera del tanque",
+    "imagen": "3010.webp",
+    "galeria": [
+      {
+        "archivo": "3010.webp",
+        "alt": "Venteos, Ventilas de Emergencia para Tanques de Almacenamiento"
+      },
+      {
+        "archivo": "3010-1.webp",
+        "alt": "Venteos, Ventilas de Emergencia para Tanques de Almacenamiento — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Esta ventila opera como válvula de seguridad aliviando el exceso de presión dentro de un tanque de almacenamiento y anulando la contingencia de explosión en caso de incendio fuera del tanque",
+      "descripcion": "",
+      "caracteristicasEspeciales": [],
+      "caracteristicasTecnicas": {},
+      "aplicaciones": "",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "Al Comprar Con NosotrosAl adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece, tales como:1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.2. La mejor solución. Brinda protección y acceso al tanque de almacenamiento.  Puede emplearse para acceder al tan que de almacenamiento como Manhole y cumplir con los requerimientos actuales de ventilación de emergente. Está diseñada para aliviar la presión interna excesiva en los tanques de almacenamiento de líquidos. Proporciona una excelente protección contra la costosa reparación de la rotura del techo del tanque.3. Calidad inigualable. Nuestras ventilas en acero al carbón e inoxidable son fabricadas con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.4. Precisión. Son calibradas en bancos de prueba digitales certificados por la acreditadora canadiense BCQ para los ensayos de flujo, calibracion y fuga mencionados en ISO 28300. Dicha certificacion cubre puntos como:Calculo de flujo maximo para venteo normalBanco de pruebas de flujoPrueba de fuga y ajuste de presionMetodo del Coheficiente de descarga5. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.6. Menor número de refacciones. Su diseño está hecho para reducir las piezas de refacciones requeridas minimizando costos y facilitando su mantenimiento.",
+    "accesorios": ""
+  },
+  {
+    "serie": "3015",
+    "slug": "ventila-brazo",
+    "titulo": "Ventilas de Emergencia de brazo para Tanques de Almacenamiento",
+    "categoriaId": "alivio-de-presion-emergente",
+    "categoriaNombre": "Alivio de Presión Emergente",
+    "descripcionCorta": "Esta ventila opera de manera similar a la serie 3015, aliviando la presión dentro de un tanque de almacenamiento en caso de incendio fuera del tanque",
+    "imagen": "3015.webp",
+    "galeria": [
+      {
+        "archivo": "3015.webp",
+        "alt": "Ventilas de Emergencia de brazo para Tanques de Almacenamiento"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Esta ventila opera de manera similar a la serie 3015, aliviando la presión dentro de un tanque de almacenamiento en caso de incendio fuera del tanque",
+      "descripcion": "Las ventilas de emergencia FRANKO Serie 3015 han sido diseñadas acorde con la norma API 2000, este instrumento actúa como válvula de seguridad aliviando el exceso de presión dentro del tanque y anulando la posibilidad de explosión en caso de incendio. Otra función que ofrecen, es facilitar el acceso rápido al tanque para inspección y mantenimiento.",
+      "caracteristicasEspeciales": [
+        "Ventilación eficiente directamente a la atmósfera.",
+        "Ajustes de presión logrados mediante un mecanismo de carga de peso.",
+        "El diseño con bisagras y contrapeso permite ajustes de presión más altos.",
+        "Los puntos de ajuste tienen una precisión de +/- 3 % en todo el rango de alivio de presión.",
+        "El diseño de la tapa proporciona un acceso conveniente al tanque.",
+        "El diafragma plano y liso con película de PTFE crea un sello de aire flotante.",
+        "Unidad ligera para un fácil manejo durante la inspección y el mantenimiento.",
+        "La tapa con bisagra permite un fácil acceso al tanque a través del área del asiento."
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "16, 18, 20, 24 pulgadas",
+        "Cuerpo": "Aluminio, acero al carbón, Ac inox 304 o 316",
+        "Conexión": "Brida API 650 (20 y 24) o acompla brida ANSI en todas las medidas",
+        "Calibración": "de 1 a 6 oz/in2 dependiendo del tamaño"
+      },
+      "aplicaciones": "Utilizadas en tanques y contenedores que almacenan solventes inflamables y volátiles.",
+      "funcionamiento": "En situaciones de emergencia (incendio del tanque), la unidad está diseñada para abrirse sobre su bisagra y proporcionar un alivio de presión superior al de los respiraderos convencionales.El diseño abisagrado permite el uso de un contrapeso principal de palanca, lo que permite alcanzar ajustes de presión superiores a los disponibles en otros respiraderos de peso muerto de tamaño similar. El diseño también facilita el acceso a través de la boca de acceso para la inspección y el mantenimiento del tanque."
+    },
+    "ventajasMarca": "Al Comprar Con Nosotros  Al adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece, tales como:    1. Precio más bajo garantizado. Invertimos el 30% de nuestras utilidades en tecnología de última generación como máquinas de corte por chorro de agua, soldadura robotizada, maquinaria CNC, etc. para agilizar nuestros procesos, aumentar la calidad y reducir precios.   2. Solucion Economica. Es una solución económica para los requerimientos actuales de ventilación de emergencia  Es una solución económica para los requerimientos actuales de ventilación de emergencia. Está diseñada para aliviar la presión interna excesiva en los tanques de almacenamiento de líquidos. Su precio económico proporciona una excelente protección contra la costosa reparación de la rotura del techo del tanque.    3. Calidad inigualable. Nuestras ventilas en acero al carbón e inoxidable son fabricadas con aceros certificados ASTM y bajo procesos de forja.  Este proceso es incomparablemente superior al antiguo método artesanal de fundición en arena que utilizan otros fabricantes, el cual tiene porosidad, riesgo de fugas y un acabado dispar e imperfecto . Por ello, no pueden darle al acero inoxidable el terminado brilloso tan característico de dicho material.  4. Precisión. Son calibradas en bancos de prueba digitales certificados por la acreditadora canadiense BCQ para los ensayos de flujo, calibracion y fuga mencionados en ISO 28300. Dicha certificacion cubre puntos como:  Calculo de flujo maximo para venteo normalBanco de pruebas de flujoPrueba de fuga y ajuste de presionMetodo del Coheficiente de descarga     5. Larga vida.Empleamos materiales de alta resistencia como tornillería en acero inoxidable, diafragmas de FEP, recubrimientos basados en poliuretanos Dupont ®, para garantizar su por mucho tiempo.   6. Menor número de refacciones. Su diseño está hecho para reducir las piezas de refacciones requeridas minimizando costos y facilitando su mantenimiento.",
+    "accesorios": ""
+  },
+  {
+    "serie": "3020",
+    "slug": "venteo-emergente-alta-presion",
+    "titulo": "Venteos y Ventilas de Emergencia en Alta Presion para Tanques",
+    "categoriaId": "alivio-de-presion-emergente",
+    "categoriaNombre": "Alivio de Presión Emergente",
+    "descripcionCorta": "Similar a la serie 3010 que Alivia la presión emergente de un tanque de almacenamiento, esta se utiliza cuando la presión es alta, (arriba de 15 PSI o 1gk/cm2), su calibración es con resortes y se puede ajustar a la calibración deseada",
+    "imagen": "3020.webp",
+    "galeria": [
+      {
+        "archivo": "3020.webp",
+        "alt": "Venteos y Ventilas de Emergencia en Alta Presion para Tanques"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Similar a la serie 3010 que Alivia la presión emergente de un tanque de almacenamiento, esta se utiliza cuando la presión es alta, (arriba de 15 PSI o 1gk/cm2), su calibración es con resortes y se puede ajustar a la calibración deseada",
+      "descripcion": "Las ventilas de emergencia FRANKO Serie 3020 Proporcionan alivio de presión de emergencia para tanques de almacenamiento, así como acceso para su limpieza, inspección y reparación. Están diseñados para instalarse en las bocas de acceso de los tanques y permiten aliviar grandes volúmenes de vapor, superiores a la capacidad de un venteo operativo normal, en caso de incendio.",
+      "caracteristicasEspeciales": [
+        "Fácil instalación y manejo",
+        "Materiales anti-corrosivos disponibles",
+        "Probados e inspeccionados apegados estrictamente a la norma ISO 28300",
+        "Palet con resorte para uso en tanques con mayor presión de trabajo"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "16, 18, 20, 24 pulgadas",
+        "Cuerpo": "Aluminio, acero al carbón, Ac inox 304 o 316",
+        "Conexión": "Brida API 650 (20 y 24) o acompla brida ANSI en todas las medidas",
+        "Calibración": "de 1 a 4 PSI dependiendo del tamaño"
+      },
+      "aplicaciones": "Utilizadas en tanques y contenedores que almacenan solventes inflamables y volátiles.Incluso los tanques con altos ratings de diseño requieren protección contra la acumulación excesiva de presión en su espacio de vapor. Gracias a las presiones de ajuste permitidas por un diseño con resorte, el venteo puede permanecer cerrado a presiones más altas y solo abrir cuando la estructura del tanque pueda estar en peligro.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "3030",
+    "slug": "venteo-emergente-presion-y-vacio",
+    "titulo": "Ventilas de Emergencia, Operan con Presion y Vacio en Tanques",
+    "categoriaId": "alivio-de-presion-emergente",
+    "categoriaNombre": "Alivio de Presión Emergente",
+    "descripcionCorta": "Similar a la serie 3010 que Alivia la presión emergente de un tanque de almacenamiento, con la diferencia que tiene un dispositivo para aliviar tambien vacio",
+    "imagen": "3030.webp",
+    "galeria": [
+      {
+        "archivo": "3030.webp",
+        "alt": "Ventilas de Emergencia, Operan con Presion y Vacio en Tanques"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Similar a la serie 3010 que Alivia la presión emergente de un tanque de almacenamiento, con la diferencia que tiene un dispositivo para aliviar tambien vacio",
+      "descripcion": "Las ventilas de emergencia FRANKO Serie 3020 para alivio de presión y vacío proporcionan alivio de emergencia al instalarse en la boca de acceso de un tanque de almacenamiento. En situaciones de emergencia (incendio externo que afecte al tanque), los dispositivos de ventilación normales pueden ser demasiado pequeños para evitar la sobrepresurización del tanque.",
+      "caracteristicasEspeciales": [
+        "Fácil instalación y manejo",
+        "Materiales anti-corrosivos disponibles",
+        "Probados e inspeccionados apegados estrictamente a la norma ISO 28300",
+        "Puede ser utilizada como registro pasa hombres"
+      ],
+      "caracteristicasTecnicas": {
+        "Medidas": "16, 18, 20, 24 pulgadas",
+        "Cuerpo": "Aluminio, acero al carbón, Ac inox 304 o 316",
+        "Conexión": "Brida API 650 (20 y 24) o acompla brida ANSI en todas las medidas",
+        "Calibración": "Presión: de 1 a 6 oz/in2. Vacío: 0.5 a 0.75 oz/in2 dependiendo del tamaño"
+      },
+      "aplicaciones": "Utilizadas en tanques y contenedores que almacenan solventes inflamables y volátiles.El dispositivo proporciona la capacidad de alivio de presión necesaria para mantener el tanque en un rango de operación seguro. El conjunto de paletas de vacío accionadas por resorte permite el flujo de aire de reposición al espacio de vapor del tanque para aliviar la presión negativa.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "4000",
+    "slug": "indicador-tubular-acorazado",
+    "titulo": "Indicadores de Nivel Acorazados para Tanques Atmosfericos",
+    "categoriaId": "medicion-y-control-de-nivel",
+    "categoriaNombre": "Medición y Control de Nivel",
+    "descripcionCorta": "Los medidores de nivel de líquido son dispositivos industriales se utilizan para determinar el nivel en un tanque de proceso a través de un tubo de cristal de borosilicato. Son fáciles de leer a distancia y se pueden emplear además con un interruptor o un sistema de alarma",
+    "imagen": "4000.webp",
+    "galeria": [
+      {
+        "archivo": "4000.webp",
+        "alt": "Indicadores de Nivel Acorazados para Tanques Atmosfericos"
+      },
+      {
+        "archivo": "4000-1.webp",
+        "alt": "Indicadores de Nivel Acorazados para Tanques Atmosfericos — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "accesorios"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Los medidores de nivel de líquido son dispositivos industriales se utilizan para determinar el nivel en un tanque de proceso a través de un tubo de cristal de borosilicato. Son fáciles de leer a distancia y se pueden emplear además con un interruptor o un sistema de alarma",
+      "descripcion": "Uno de los métodos que existen para medir el nivel del liquido contenido en un tanque de almacenamiento, es utilizando un tubo de vidrio instalado de forma vertical, el cual utiliza el principio de vasos comunicantes para indicar la altura del producto. La gran desventaja de este método, es que el tubo de vidrio es muy frágil y queda expuesto a cualquier factor externo que lo pudiera dañar. Una de las alternativas existentes que utilizan este mismo procedimiento de medición, son los indicadores de nivel tipo REFLEX, cuya gran desventaja es su elevado costo.Por estas razones, creamos el indicador de nivel Acorazado Serie 4000, el cual tiene una coraza de metal para proteger el tubo de vidrio, cuenta con una escala graduada en centímetros y metros y está preparado para recibir controladores de alto y bajo nivel. Siendo los pioneros en la fabricación de este tipo de indicadores de nivel, estamos a la vanguardia en su diseño y tecnología, ofreciendo características que lo hacen único en el mercado.",
+      "caracteristicasEspeciales": [
+        "Diseño patentado, su estructura es más resistente que el perfil de aluminio convencional y el área de visión es más amplia",
+        "Longitud máxima 6 metros. Superior a la de nuestros competidores",
+        "Instalación simple y sencilla. Solo requiere de una conexión superior y otra inferior en el tanque",
+        "En la mayoría de los casos, no requiere de mantenimiento",
+        "Graduación de la escala en litros, porcentajes, galones, pulgadas, u otra disponible bajo pedido"
+      ],
+      "caracteristicasTecnicas": {
+        "Temperatura máxima": "150 C",
+        "Coraza": "aluminio anodizado natural para hambiente marino",
+        "Presión máxima": "7 bars",
+        "Tubo de cristal": "Borosilicato"
+      },
+      "aplicaciones": "Utilizados para medir el nivel de líquidos en tanques y contenedores. Se utilizan en todo tipo de industrias y puede trabajar con casi todos los líquidos siempre y cuando no contengan sólidos.",
+      "funcionamiento": "Este indicador opera bajo el principio de vasos Comunicantes (una de las leyes de Stevin) el cual dice: “Al tener un conducto comunicado a otro que contiene el líquido, se observa que cuando el fluido está en reposo, alcanza el mismo nivel en los recipientes sin influir la forma y volumen de estos” En base a este principio, al no interferir con ninguna acción mecánica o algún tipo de maniobra, se garantiza una operación segura."
+    },
+    "ventajasMarca": "",
+    "accesorios": "Válvulas Excéntricas\nEstas válvulas descentradas permiten el paso de una varilla a lo largo del tubo de cristal para llevar a cabo la limpieza interna, SOLO DISPONIBLES EN INOX 304 o 316\nSensores de Nivel\nCon estos sensores es posible enviar una señal para alto, medio, o bajo nivel. Cuenta con Salida 20mA y se alimenta de 24 Volts VCD.\nIluminacion\nAlimentación de 12 A 24 VCD, es una línea de leds IP 68 de alta resistencia que corre a lo largo de la coraza del indicador para dar visión nocturna. SWITCH Of/Off para activar el encendido automático fotosensible."
+  },
+  {
+    "serie": "4005",
+    "slug": "indicador-tubular",
+    "titulo": "Valvulas, indicadores y mirillas de nivel cristal tubular",
+    "categoriaId": "medicion-y-control-de-nivel",
+    "categoriaNombre": "Medición y Control de Nivel",
+    "descripcionCorta": "Dispositivo simple y confiable para lectura directa de nivel de tanques de almacenamiento en aplicaciones atmosféricas o presurizadas a través de un tubo de cristal. Son el método más simple y menos costoso en el mercado",
+    "imagen": "4005.webp",
+    "galeria": [
+      {
+        "archivo": "4005.webp",
+        "alt": "Valvulas, indicadores y mirillas de nivel cristal tubular"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Dispositivo simple y confiable para lectura directa de nivel de tanques de almacenamiento en aplicaciones atmosféricas o presurizadas a través de un tubo de cristal. Son el método más simple y menos costoso en el mercado",
+      "descripcion": "Uno de los métodos que existen para medir el nivel del liquido contenido en un tanque de almacenamiento, es utilizando un tubo de vidrio instalado de forma vertical, el cual utiliza el principio de vasos comunicantes para indicar la altura del producto. La gran desventaja de este método, es que el tubo de vidrio es muy frágil y queda expuesto a cualquier factor externo que lo pudiera dañar. Una de las alternativas existentes que utilizan este mismo procedimiento de medición, son los indicadores de nivel tipo REFLEX, cuya gran desventaja es su elevado costo.Por estas razones, creamos el indicador de nivel Acorazado Serie 4000, el cual tiene una coraza de metal para proteger el tubo de vidrio, cuenta con una escala graduada en centímetros y metros y está preparado para recibir controladores de alto y bajo nivel. Siendo los pioneros en la fabricación de este tipo de indicadores de nivel, estamos a la vanguardia en su diseño y tecnología, ofreciendo características que lo hacen único en el mercado.",
+      "caracteristicasEspeciales": [
+        "Estos indicadores llevan unas varillas de protección a lo largo del tubo visor",
+        "Es una solución muy económica para sus necesidades de medición y visualización de líquido",
+        "Gran variedad de materiales para trabajar con distintos líquidos y procesos",
+        "En la mayoría de los casos, no requiere de mantenimiento"
+      ],
+      "caracteristicasTecnicas": {
+        "Valvulas": "Acero Inox SS 316, laton, acero al carbon y PVC",
+        "Conexion": "Rosca NTPM, brida ANSI 1, 1 1/2, 2 pulgadas",
+        "Temperatura": "se recomienda hasta 60C",
+        "Presion": "se recomienda unicamente para presión atmosferica"
+      },
+      "aplicaciones": "Utilizados para medir el nivel de líquidos en tanques y contenedores. Se utilizan en todo tipo de industrias y puede trabajar con casi todos los líquidos siempre y cuando no contengan sólidos.",
+      "funcionamiento": "Funciona bajo el principio de vasos Comunicantes (una de las leyes de Stevin) el cual dice: “Al tener un conducto comunicado a otro que contiene el líquido, se observa que cuando el fluido está en reposo, alcanza el mismo nivel en los recipientes sin influir la forma y volumen de estos” En base a este principio, al no interferir con ninguna acción mecánica o algún tipo de maniobra, se garantiza una operación segura."
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "4010",
+    "slug": "nivel-liquido-regleta",
+    "titulo": "Indicadores de Nivel Regleta, indicador de nivel liquido",
+    "categoriaId": "medicion-y-control-de-nivel",
+    "categoriaNombre": "Medición y Control de Nivel",
+    "descripcionCorta": "El Indicador de Nivel de Líquido Serie 4010 de FRANKO es un sistema de medición de nivel operado con un flotador. Está diseñado para proporcionar el nivel de líquido que no requiere precisiones superiores a +/- 1 pulgada.",
+    "imagen": "4010.webp",
+    "galeria": [
+      {
+        "archivo": "4010.webp",
+        "alt": "Indicadores de Nivel Regleta, indicador de nivel liquido"
+      },
+      {
+        "archivo": "4010-1.webp",
+        "alt": "Indicadores de Nivel Regleta, indicador de nivel liquido — imagen 2"
+      },
+      {
+        "archivo": "4010-2.webp",
+        "alt": "Indicadores de Nivel Regleta, indicador de nivel liquido — imagen 3"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "accesorios"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "El Indicador de Nivel de Líquido Serie 4010 de FRANKO es un sistema de medición de nivel operado con un flotador. Está diseñado para proporcionar el nivel de líquido que no requiere precisiones superiores a +/- 1 pulgada.",
+      "descripcion": "Los indicadores de nivel Franko serie 4010 son la alternativa más simple y más sencilla en el mercado para conocer el nivel de sus tanques de manera continua. Gracias a su diseño y construcción, la instalación de estos indicadores se efectúa de manera más sencilla que como la realizan nuestros competidores, utilizando menos soportes en el tanque sin necesidad de realizar maniobras complicadas.",
+      "caracteristicasEspeciales": [
+        "Area de Visibilidad Maximizada",
+        "Regleta fabricada en aluminio anodizado contra ambiente marino",
+        "Preparado para controles de alto y bajo nivel",
+        "Diseño patentado, facilita la instalación",
+        "Disponible para servicios corrosivos"
+      ],
+      "caracteristicasTecnicas": {
+        "Longitud Max.": "20 metros",
+        "Flotador": "Ac inox 316, PVC, PPL",
+        "Control de nivel": "Hasta 4 puntos"
+      },
+      "aplicaciones": "Estos indicadores de nivel se utilizan para la medición de nivel en tanques que almacenan líquidos como aceites, agua, solventes, entre otros.",
+      "funcionamiento": "Este indicador funciona por medio de un flotador que se encuentra en el interior del tanque, entrelazado por medio de un cable de acero inoxidable a un cursor el cual corre a lo largo de una regleta graduada.El cursor indica el nivel en donde se encuentra el fluido, cuando el tanque este lleno, el cursor estará en la parte baja de la regleta, y cuando este vacío, el cursor se localizará en la parte superior."
+    },
+    "ventajasMarca": "",
+    "accesorios": "Sensor de Nivel Alimentación: 12 0 24V Salida: 4-20 mA. Este sensor se utiliza para controlar distintos puntos de nivel como alto y bajo, se sitúa a lo largo de la regleta y se activa al paso del cursor. \nTransmisor de Nivel Alimentación: 12 0 24V Salida: 4-20 mA. Funcionamiento: Magnético Este transmisor es instalado a espaldas de la regleta/escala de aluminio, envía una señal de 4-20 mA al paso del cursor. \nSello Hermético Se instala en la parte superior de la regleta y sirve para evitar la salida de gases a la atmósfera desde el interior del tanque, con el fin de evitar pérdida de producto por evaporación e impedir la fuga, la cual anularía el funcionamiento de equipos de seguridad como arrestaflamas"
+  },
+  {
+    "serie": "4040",
+    "slug": "indicador-cristal-plano-reflex",
+    "titulo": "Indicadores de Nivel con Cristal Reflex y planos",
+    "categoriaId": "medicion-y-control-de-nivel",
+    "categoriaNombre": "Medición y Control de Nivel",
+    "descripcionCorta": "Estos medidores están diseñados para las condiciones de proceso más comunes y pueden utilizarse para aplicaciones de vapor / agua. La serie 4040 puede utilizar cristales tipo Reflex y transparentes. Iluminación y accesorios para indicar nivel están disponibles como accesorios",
+    "imagen": "4040.webp",
+    "galeria": [
+      {
+        "archivo": "4040.webp",
+        "alt": "Indicadores de Nivel con Cristal Reflex y planos"
+      },
+      {
+        "archivo": "4040-1.webp",
+        "alt": "Indicadores de Nivel con Cristal Reflex y planos — imagen 2"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Estos medidores están diseñados para las condiciones de proceso más comunes y pueden utilizarse para aplicaciones de vapor / agua. La serie 4040 puede utilizar cristales tipo Reflex y transparentes. Iluminación y accesorios para indicar nivel están disponibles como accesorios",
+      "descripcion": "Estos indicadores de nivel de cristal plano son muy versátiles ya que pueden trabajar con alta o baja presión, temperaturas elevadas, temperaturas bajas, fluidos corrosivos, inflamables y aplicaciones agresivas.\nHan sido diseñados y fabricados para cumplir con los estándares internacionales PED 97/23/EC, ASME B31.1 y B31.3. Esta serie ofrece gran variedad de montajes, materiales, flotadores, y modelos para satisfacer los distintos escenarios en que se encuentran sus tanques.\nEstos indicadores están pre-configurados para recibir los controladores de alto y bajo nivel y transmisores de nivel. Existen dos tipos de cristal plano, el transparente y el rayado o Reflex para cumplir con cada una de sus necesidades",
+      "caracteristicasEspeciales": [
+        "No necesita calibración",
+        "Muy seguro para zonas de alto riesgo, funciona sin electricidad",
+        "Adecuado para servicio de gases sulfurosos (NACE)",
+        "No depende de las características del líquido",
+        "Proporciona una medición precisa del nivel de líquido directo",
+        "Adecuado para aplicaciones de vacío",
+        "Una clasificación de presión, independientemente del tamaño"
+      ],
+      "caracteristicasTecnicas": {
+        "Temp Máx": "400 C",
+        "PO Máx": "350 bar",
+        "Materiales": "Ac inox 304,316, ac carbon",
+        "Cristales": "Borosilicato DIN 7081",
+        "Conexión": "Rosca NPT, Brida ANSI"
+      },
+      "aplicaciones": "Utilizados para la medición de tanques y contenedores que almacenan líquidos. Empleados en todo tipo de industrias como petroquímicas, refinerías, plantas químicas, farmacéuticas, tratadoras de agua, alimenticias, entre otras.",
+      "funcionamiento": "Gracias al principio de vasos comunicantes, es posible ver el líquido a través de los cristales planos e indicar la altura del producto. Tiene una coraza de metal para proteger los cristales. Para solicitar una cotización, es importante tener la distancia entre centros del indicador de nivel. Esta es la distancia que existe entre la conexión inferior y la conexión superior del proceso"
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "4200",
+    "slug": "indicador-magnetico",
+    "titulo": "Indicadores de Nivel Magneticos para Tanques de Almacenamiento",
+    "categoriaId": "medicion-y-control-de-nivel",
+    "categoriaNombre": "Medición y Control de Nivel",
+    "descripcionCorta": "El indicador de nivel magnético Serie 4200 es una alternativa de bajo mantenimiento para indicar el nivel. Proporciona medición no invasiva mientras reduce los puntos de fuga y emisiones. Brinda visualización hasta 100 pies (30 m) de distancia.",
+    "imagen": "4200.webp",
+    "galeria": [
+      {
+        "archivo": "4200.webp",
+        "alt": "Indicadores de Nivel Magneticos para Tanques de Almacenamiento"
+      },
+      {
+        "archivo": "4200-1.webp",
+        "alt": "Indicadores de Nivel Magneticos para Tanques de Almacenamiento — imagen 2"
+      },
+      {
+        "archivo": "4200-2.webp",
+        "alt": "Indicadores de Nivel Magneticos para Tanques de Almacenamiento — imagen 3"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "ventajas-de-nuestra-marca",
+      "accesorios"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "El indicador de nivel magnético Serie 4200 es una alternativa de bajo mantenimiento para indicar el nivel. Proporciona medición no invasiva mientras reduce los puntos de fuga y emisiones. Brinda visualización hasta 100 pies (30 m) de distancia.",
+      "descripcion": "Estos indicadores de nivel magnéticos son muy versátiles ya que pueden trabajar con alta o baja presión, temperaturas elevadas, temperaturas bajas, fluidos corrosivos, inflamables y aplicaciones agresivas.\nSe puede tomar lectura del nivel a 30 metros de distancia. Han sido diseñados y fabricados para cumplir con los estándares internacionales PED 97/23/EC, ASME B31.1 y B31.3 Esta serie ofrece gran variedad de montajes, materiales, flotadores, y modelos para satisfacer los distintos escenarios en que se encuentran sus tanques.\nEstos indicadores están pre-configurados para recibir los controladores de alto y bajo nivel y transmisores de nivel.",
+      "caracteristicasEspeciales": [
+        "Banderitas fluorescentes",
+        "Lectura de nivel a mas de 30 metros",
+        "Graduación personalizada en litros, centímetros, porcentajes, o a su elección",
+        "Contenedor de banderitas sellado con N2 para evitar la penetración de contaminantes",
+        "Gracias a nuestro sistema es posible tener varios puntos de anclaje sin la necesidad de soldar elementos al indicador, facilitando considerablemente su instalación (muy útil para instalaciones elevadas distancias)"
+      ],
+      "caracteristicasTecnicas": {
+        "Camara": "ac inox 304, ac inox 316, PVC, PPL",
+        "Escala": "ac inox 304 grabada en pelicula de PVC en mts. y cms",
+        "Flotador": "Titanio, ac inox 316 PVC, PPL",
+        "Banderitas": "plasticas o ceramicas",
+        "Housing": "Aluminio Anodizado para ambiente marino",
+        "Conexión": "NPT o Brida"
+      },
+      "aplicaciones": "Utilizados para la medición de tanques y contenedores que almacenan líquidos. Empleados principalmente en industrias petroquímicas, refinerías, plantas químicas, farmacéuticas, tratadoras de agua, alimenticias, entre otras.",
+      "funcionamiento": "Dentro de la cámara principal del indicador de nivel se encuentra un flotador el cual contiene en su interior un aro de magnetos, las variaciones de nivel en el interior del tanque hacen que el líquido que se encuentra dentro de la cámara también varié, causando que el flotador se mueva con relación al fluido. En el exterior del tubo, totalmente aislada del líquido, se encuentra una columna con banderas la cual indica el nivel del tanque. Cada bandera contiene en su interior un imán el cual la hace girar al paso del flotador por a la fuerza magnética que se genera, mostrando su parte posterior (la que contiene el color contrastante)"
+    },
+    "ventajasMarca": "Al Comprar Con NosotrosAl adquirir nuestros productos usted se beneficia de las ventajas de seguridad y tecnología de última generación que FRANCO INSTRUMENTACIÓN ofrece::Excelente Precio Nuestros sistemas de medición y control están fabricados con maquinaria y tecnología de última generación como sistemas automatizados que hacen posible ofrecer un precio competitivo y gran eficiencia en su funcionamiento.Innovacion Estos equipos cuentan con accesorios únicos que extienden su funcionalidad, como lo es la iluminación por leds, escalas luminiscentes, sensores para alto y bajo nivel, transmisores de nivel, limpiadores, entre otros.Calidad inigualable Los materiales que utilizamos para la fabricación de nuestros productos son de la más alta calidad, parte de nuestro Sistema de Gestión de Calidad ISO 9001 es procurar que nuestros proveedores estén certificados bajo normas específicas a su producto y que se apeguen a los estándares internacionales que les correspondan. Así mismo, nuestros procesos de producción son examinados cuidadosamente y para cumplir estrictamente con los estándares internacionales.Ensayos y Pruebas Empleamos bancos de pruebas y terminales de verificación en los cuales realizamos ensayos de fuga, calibración, pruebas hidrostáticas, y de líquidos penetrantes. De este modo, GARANTIZAMOS larga vida a nuestros productos y un correcto en nuestros productos.",
+    "accesorios": "Interruptor de Nivel Se utiliza con el indicador de nivel serie 4200 y sirve para enviar una señal el alto nivel al paso del flotador. Este control de nivel tiene la característica especial de mantener la señal aún después que el flotador magnético lo haya rebasado. En la alimentación eléctrica se puede seleccionar: 220 VCA,110 VCA o 24 VCD. La salida son contactos “secos” D.P.D.T. 10 Amp. \nTransmisor de Nivel Este transmisor ha sido diseñado para trabajar con la serie 4200 de Franko, el transmisor se monta externamente en la cámara del flotador y está formado por un sensor tubular hecho de cadenas de resistencias y operado magnéticamente por switches. Hay un intercambiador cada 8 mm a lo largo del tubo el cual se activa al paso del flotador y envía la señal de salida. \nIluminacion LED Con este sistema de iluminacion se puede realizar una lectura de nivel en ausencia de luz, utiliza una conexión eléctrica de 12 VCD o mediante celdas solares. \nChaqueta Termica Este es un accesorio que se utiliza para medición de fluidos criogénicos como lo son el nitrógeno líquido, helio, oxigeno, metano, entre otros. Protege la pierna de nivel y la canal de banderolas evitando su congelamiento"
+  },
+  {
+    "serie": "5010",
+    "slug": "transmisor-ultrasonico",
+    "titulo": "Transmisor de nivel utrasonico medicion de liquidos solidos",
+    "categoriaId": "medicion-y-control-de-nivel",
+    "categoriaNombre": "Medición y Control de Nivel",
+    "descripcionCorta": "El transmisor de nivel ultrasónico es una opción muy versátil para conocer el nivel de un proceso ya que se puede utilizar en líquidos, solidos, a distancias de hasta 50m, y puede trabajar prácticamente con cualquier liquido ya que no tiene contacto con el",
+    "imagen": "5010.webp",
+    "galeria": [
+      {
+        "archivo": "5010.webp",
+        "alt": "Transmisor de nivel utrasonico medicion de liquidos solidos"
+      },
+      {
+        "archivo": "5010-FR2000.webp",
+        "alt": "Transmisor de nivel utrasonico medicion de liquidos solidos — imagen 2"
+      },
+      {
+        "archivo": "5010-FR8000.webp",
+        "alt": "Transmisor de nivel utrasonico medicion de liquidos solidos — imagen 3"
+      },
+      {
+        "archivo": "5010-FR9000.webp",
+        "alt": "Transmisor de nivel utrasonico medicion de liquidos solidos — imagen 4"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "El transmisor de nivel ultrasónico es una opción muy versátil para conocer el nivel de un proceso ya que se puede utilizar en líquidos, solidos, a distancias de hasta 50m, y puede trabajar prácticamente con cualquier liquido ya que no tiene contacto con el",
+      "descripcion": "La serie 5010 de Franko requiere un montaje adecuado del transductor para garantizar la mejor respuesta al sonido reflejado. Además, el contenedor o tanque debe estar relativamente libre de obstáculos como escuadras o escaleras para minimizar el rango de error de detección y la respuesta errónea.\nEl circuito de procesamiento de señales electrónicas se usa para hacer que el sensor ultrasónico sea un dispositivo inteligente. Los sensores ultrasónicos se pueden diseñar para proporcionar control de nivel de punto, monitoreo continuo o ambos. Debido a la presencia de un microprocesador y un consumo de energía relativamente bajo, también existe la capacidad de comunicación serial a otros dispositivos informáticos, lo que hace que esta sea una buena técnica para ajustar la calibración y filtrado de la señal del sensor, monitoreo inalámbrico remoto o comunicaciones de red de la planta. El sensor ultrasónico goza de gran popularidad debido a la poderosa combinación de bajo precio y alta funcionalidad",
+      "caracteristicasEspeciales": [
+        "No necesita calibración",
+        "Muy seguro para zonas de alto riesgo, funciona sin electricidad",
+        "Medición de líquidos de alta viscosidad y solidos",
+        "No depende de las características del líquido",
+        "Proporciona una medición precisa del nivel"
+      ],
+      "caracteristicasTecnicas": {
+        "Rango de nivel": "5M, 10M, 15M, 20M, 30M, 50M, 70M.",
+        "Precisión": "0,25%-0,5%",
+        "Zona ciega": "0,25-1,2m",
+        "Presión de trabajo": "2 Bar",
+        "Resolución": "3 mm o 0,1% fondo de escala (máximo)",
+        "Pantalla": "Medición de nivel, medición de distancia, valor de transmisión, temperatura ambiente, estado del eco, visualización de alarmas",
+        "Salida analógica": "4 a 20 mA, 1 a 5 V, 0 a 5 V, 0 a 10 V",
+        "Salida de relé/alarma": "AC 250V/ 8A, DC 30V/ 5A, 24VDC 120mA",
+        "Alimentación": "220VAC+15% 50Hz, 24VDC 120mA, 12VDC",
+        "Temperatura ambiente": "Medidor -20 ～ +60 ℃, Sensor -20 ～ +80 ℃",
+        "Comunicación": "RS485 (opcional)",
+        "Resistencia al agua": "IP 65, IP66, IP68"
+      },
+      "aplicaciones": "Los sensores de nivel ultrasónicos se utilizan para la detección de nivel sin contacto de líquidos altamente viscosos, así como sólidos a granel. También se usan ampliamente en aplicaciones de tratamiento de agua para control de bombas y medición de flujo de canal abierto. Los sensores emiten ondas acústicas de alta frecuencia (20 kHz a 200 kHz) que se reflejan hacia atrás y son detectadas por el transductor emisor. Los sensores de nivel ultrasónicos se usan para detectar niveles sin contacto de líquidos altamente viscosos, así como de sólidos a granel. También se usan ampliamente en aplicaciones de tratamiento de agua para control de bombas y medición de flujo de canal abierto. Los sensores emiten ondas acústicas de alta frecuencia (20 kHz a 200 kHz) que son reflejadas y detectadas por el transductor emisor.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "5020",
+    "slug": "control-de-nivel-magnetico",
+    "titulo": "Switch de Nivel Magnetico con Puntos de Control para Tanques",
+    "categoriaId": "medicion-y-control-de-nivel",
+    "categoriaNombre": "Medición y Control de Nivel",
+    "descripcionCorta": "Este dispositivo envia una senal electronica cuando el flotador pasa por los puntos de nivel seleccionados. Dependiendo de la longitud de la varilla, se pueden tener de 2 y hasta 5 puntos",
+    "imagen": "5020.webp",
+    "galeria": [
+      {
+        "archivo": "5020.webp",
+        "alt": "Switch de Nivel Magnetico con Puntos de Control para Tanques"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Este dispositivo envia una senal electronica cuando el flotador pasa por los puntos de nivel seleccionados. Dependiendo de la longitud de la varilla, se pueden tener de 2 y hasta 5 puntos",
+      "descripcion": "El control de nivel magnético por puntos puede ser utilizado para activar alarmas de alto o bajo nivel en un tanque.también puede controlar el funcionamiento de una bomba, encendiendola cuando el nivel del tanque es bajo y deteniendo su funcionamiento cuando llega a su nivel máximo.",
+      "caracteristicasEspeciales": [
+        "Instalación a lo largo de un tanque",
+        "Instalación en alguna sección del tanque",
+        "Control eficiente de los niveles alto y bajo a lo largo del sensor"
+      ],
+      "caracteristicasTecnicas": {
+        "Temp Max": "5 º C - 125 °C",
+        "PO Max": "300PSIG",
+        "Salida": "10 Amp",
+        "Alimentación": "24 VCD, 125, 250 VCA",
+        "Conexión": "3/4” ó 1” NPTM bridado ANSI 150# de ½”a 2”",
+        "Longitud": "6m"
+      },
+      "aplicaciones": "Se utilizan para controlar el nivel en tanques y recipientes que almacenan cualquier líquido y cuya densidad no sea menor a 0.550kg/L.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "6000",
+    "slug": "indicador-de-flujo",
+    "titulo": "Mirillas / Visores de Flujo para Tuberias y Paso de Fluidos",
+    "categoriaId": "visores-y-mirillas",
+    "categoriaNombre": "Visores y Mirillas",
+    "descripcionCorta": "Son un componente vital en cualquier sistema de circulación de fluidos. Por medio de ellos se puede monitorear el flujo adecuado de líquidos y gases de forma que los procesos productivos sean más eficientes.La serie 6000 cuenta con varios accesorios para cubrir distintas necesidades",
+    "imagen": "6000.webp",
+    "galeria": [
+      {
+        "archivo": "6000.webp",
+        "alt": "Mirillas / Visores de Flujo para Tuberias y Paso de Fluidos"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Son un componente vital en cualquier sistema de circulación de fluidos. Por medio de ellos se puede monitorear el flujo adecuado de líquidos y gases de forma que los procesos productivos sean más eficientes.La serie 6000 cuenta con varios accesorios para cubrir distintas necesidades",
+      "descripcion": "Las mirillas de flujo Franko Serie 6000 son empleadas para supervisar la presencia de fluidos en la tubería, donde se puede observar el color, la temperatura y consistencia del material.",
+      "caracteristicasEspeciales": [
+        "Área de visibilidad más grande del mercado, patentada",
+        "Acabado interno y externo pulido semi-sanitario en acero inoxidable"
+      ],
+      "caracteristicasTecnicas": {},
+      "aplicaciones": "En Tuberías donde exista fluido de líquidos, polvos, o materiales granulares.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "6010",
+    "slug": "mirilla-de-flujo-cilindrica",
+    "titulo": "Mirillas / Visores de Flujo 360 para Tuberias y Procesos",
+    "categoriaId": "visores-y-mirillas",
+    "categoriaNombre": "Visores y Mirillas",
+    "descripcionCorta": "Está compuesta de una estructura de inoxidable y un tubo de cristal de borosilicato conectado a tubería. Permite la visualización del caudal del producto de forma clara",
+    "imagen": "6010.webp",
+    "galeria": [
+      {
+        "archivo": "6010.webp",
+        "alt": "Mirillas / Visores de Flujo 360 para Tuberias y Procesos"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Está compuesta de una estructura de inoxidable y un tubo de cristal de borosilicato conectado a tubería. Permite la visualización del caudal del producto de forma clara",
+      "descripcion": "La función principal de la mirilla Franko Serie 6010 es proporciona visibilidad de 360°. Puede ser utilizada de manera horizontal o vertical y es ideal para observar fluidos en proceso, color, consistencia y condición del mismo. Existen diferentes materiales para alcanzar hasta los 150°C de temperatura y 10 bar de presión.",
+      "caracteristicasEspeciales": [
+        "Amplia área de visibilidad, 360° Visión completa",
+        "Certificado de materiales",
+        "Probadas al 150% de su capacidad para garantizar su desempeño"
+      ],
+      "caracteristicasTecnicas": {
+        "Temperatura": "200 °C",
+        "PO Max": "10bar",
+        "Tamaños": "1\", 2”, 3”, 4”, 6”",
+        "Cuerpo": "ac al carbón 216 GrWCB, ac inox 304 y 316, PVC y PPL",
+        "Empaques": "Teflón, neopreno, nitrilo",
+        "Conexion": "Bridada ANSI 150#, roscada NPT, CLAMP"
+      },
+      "aplicaciones": "En Tuberías a baja presión donde exista fluido de líquidos, polvos, o materiales granulares.",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "",
+    "accesorios": ""
+  },
+  {
+    "serie": "6020",
+    "slug": "mirilla-circular-ventana",
+    "titulo": "Mirillas / Visores tipo ventana para Tanques y Contenedores",
+    "categoriaId": "visores-y-mirillas",
+    "categoriaNombre": "Visores y Mirillas",
+    "descripcionCorta": "Diseñadas para montarse en tanques y reactores con el fin de visualizar el proceso interno. A solicitud del cliente se pueden ofrecer diseños especiales, como formas elípticas, u otro tipo de ventanas. Cuenta con accesorios como lámparas y limpiacristales",
+    "imagen": "6020.webp",
+    "galeria": [
+      {
+        "archivo": "6020.webp",
+        "alt": "Mirillas / Visores tipo ventana para Tanques y Contenedores"
+      }
+    ],
+    "activo": true,
+    "tabs": [
+      "informacion-general",
+      "accesorios"
+    ],
+    "informacionGeneral": {
+      "descripcionIntro": "Diseñadas para montarse en tanques y reactores con el fin de visualizar el proceso interno. A solicitud del cliente se pueden ofrecer diseños especiales, como formas elípticas, u otro tipo de ventanas. Cuenta con accesorios como lámparas y limpiacristales",
+      "descripcion": "Las mirillas tipo parche consisten en un juego de bridas circulares (una inferior soldada al contenedor y una superior que sirve de sujeción) que cuentan con un disco visor de vidrio entre las bridas que permite observar el interior del contenedor. Esta mirilla puede trabajar con diversos productos como materiales corrosivos, alcalinos a temperaturas elevadas o presiones altas.",
+      "caracteristicasEspeciales": [
+        "Area de visibilidad Maximizada",
+        "Certificado de materiales",
+        "Probadas al 150% de su capacidad para garantizar su desempeño"
+      ],
+      "caracteristicasTecnicas": {
+        "Temperatura": "300 °C",
+        "PO Max": "40bar (Segun el Tamaño)",
+        "Tamaños": "2”, 3”, 4”, 6”, 8\", 10\"",
+        "Cuerpo": "ac al carbón 216 GrWCB, ac inox 304 y 316, PVC y PPL",
+        "Empaques": "Teflón, neopreno, nitrilo"
+      },
+      "aplicaciones": "Equipo auxiliar utilizado para observar el interior de contenedores, tanques de almacenamiento, reactores, silos, etc .",
+      "funcionamiento": ""
+    },
+    "ventajasMarca": "",
+    "accesorios": "Limpiador de cristal para baja presion. \nSe coloca al centro del cristal, se utiliza en visores de hasta 1 bar o 15 PSI. \nLimpiador de cristal para Alta presion. \nSe usa para procesos de hasta 50 bars, este dispositivo se instala en la brida siendo muy resistente. \nProteccion de Acrilico \nSe coloca en la brida y sirve para proteger el cristal contra posibles golpes."
+  }
+]

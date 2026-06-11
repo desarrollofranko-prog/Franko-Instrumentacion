@@ -1,0 +1,1265 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// HOME — Estilos de la página principal
+// Secciones: Hero, Features Bar, Stats, Mosaico de categorías, Productos destacados,
+//            Carrusel de marcas, Industrias, Acerca de, CTA, Documentos técnicos,
+//            Reveal animations, Testimonios, FAQ
+// ══════════════════════════════════════════════════════════════════════════════
+
+// === HERO BANNER ===
+// Sección hero a pantalla completa con imagen de fondo, overlay y animaciones de entrada
+.hero-banner {
+  min-height: 600px;
+  height: 90vh;       // Ocupa el 90% del alto del viewport — impactante sin ocultar completamente el contenido siguiente
+  overflow: hidden;   // Evita que la imagen de fondo o los elementos animados desborden el contenedor
+  contain: layout style paint; // Optimización CSS: el navegador puede renderizar esta sección aislada del resto
+} // Cierre de .hero-banner
+
+// Imagen de fondo del hero — cubre todo el banner sin deformarse
+.hero-bg-img {
+  position: absolute; // Fuera del flujo del documento — posicionada relativa al .hero-banner
+  inset: 0;           // Equivale a top:0; right:0; bottom:0; left:0 — cubre todo el contenedor
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       // Escala la imagen para cubrir todo el espacio sin deformarla
+  object-position: center; // El centro de la imagen es el punto focal
+  z-index: 0;              // Detrás del overlay y el contenido (que tienen z-index positivo)
+}
+
+@media (max-width: 768px) {
+  .hero-banner { min-height: 400px; }
+}
+
+.hero-overlay {
+  // Se oscureció ligeramente el gradiente para garantizar el contraste de los textos blancos superiores
+  background: linear-gradient(
+    160deg,
+    rgba(0,0,0,0.80) 0%,
+    rgba(0,0,0,0.65) 60%,
+    rgba(0,0,0,0.55) 100%
+  );
+  z-index: 1;
+  will-change: auto;
+}
+
+@keyframes heroEntry {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow { animation: heroEntry 1s cubic-bezier(0.22,1,0.36,1) 0.15s both; }
+.hero-slogan  { animation: heroEntry 1s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+.hero-sub     { animation: heroEntry 1s cubic-bezier(0.22,1,0.36,1) 0.55s both; }
+.hero-cta     { animation: heroEntry 1s cubic-bezier(0.22,1,0.36,1) 0.75s both; }
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.90); // WCAG AA contrast ratio
+  border-bottom: 1.5px solid rgba(255,255,255,0.35);
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.hero-slogan {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
+.hero-slogan-accent {
+  color: rgba(255,255,255,0.92); // WCAG AA contrast
+  font-weight: 300;
+}
+
+.hero-sub {
+  font-size: 15.5px;
+  max-width: 540px;
+  line-height: 1.75;
+  margin-inline: auto;
+  color: rgba(255,255,255,0.92); // WCAG AA contrast
+}
+
+.hero-iso-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.4s ease, background 0.4s ease, color 0.4s ease;
+
+  i { color: #004dda; font-size: 16px; } // Ajustado a un verde más accesible
+
+  &:hover, &:focus-visible {
+    border-color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    outline: none;
+  }
+}
+
+.btn-accent {
+  background: #ffffff;
+  color: #1f2937;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+
+  &:hover, &:focus-visible {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+    outline: none;
+  }
+}
+
+// === FEATURES BAR ===
+.features-bar {
+  background: #fff;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0;
+}
+
+.features-row {
+  display: flex;
+  align-items: stretch;
+}
+
+.feature-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 28px;
+  border-right: 1px solid #e9ecef;
+
+  &:last-child { border-right: none; }
+}
+
+.feature-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid var(--page-accent);
+  color: var(--page-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.feature-text { min-width: 0; }
+
+.feature-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #555555;
+  margin-bottom: 2px;
+}
+
+.feature-desc {
+  font-size: 14px;
+  color: #888990;
+  line-height: 1.4;
+}
+
+// === STATS COUNTERS ===
+// === STATS / MÉTRICAS ===
+// Banda de estadísticas de 4 números clave (años, clientes, productos, países)
+// Fondo oscuro (#0f1117) para contrastar con las secciones blancas adyacentes
+.stats-section {
+  background: #374151;
+}
+
+.stats-row {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.stat-item {
+  padding: 40px 16px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.07);
+
+  &:last-child { border-right: none; }
+}
+
+.stat-number {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9); // Contraste mejorado sobre fondo oscuro
+  margin-bottom: 4px;
+}
+
+.stat-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.75); // WCAG AA minimum contrast
+  letter-spacing: 0.3px;
+}
+
+// === CATEGORIES MOSAIC ===
+.mosaic-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 20px auto 0;
+  overflow: hidden;
+}
+
+.categories-mosaic {
+  background: #fff;
+
+  > .col-md-6,
+  .col-6,
+  .col-12 { padding: 1px; }
+
+  .cat-mosaic-card {
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    background: #555555;
+    display: block;
+    position: relative;
+
+    &:hover .cat-mosaic-bg-img, &:focus-visible .cat-mosaic-bg-img { transform: scale(1.07); }
+    &:hover .cat-mosaic-overlay, &:focus-visible .cat-mosaic-overlay { background: rgba(0,0,0,0.55); }
+    &:focus-visible { outline: 3px solid var(--page-accent); outline-offset: -3px; }
+  }
+
+  .cat-mosaic-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    z-index: 0;
+  }
+
+  .cat-large { aspect-ratio: 4 / 3; }
+  .cat-small { aspect-ratio: 4 / 3; }
+  .cat-wide  { aspect-ratio: 8 / 3; }
+
+  .cat-mosaic-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 28px 24px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1;
+    transition: background 0.5s ease;
+  }
+
+  .cat-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.6);
+  }
+
+  .cat-count {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8); // Subido de 0.65 a 0.8 para contraste óptimo sobre el overlay oscuro
+  }
+}
+
+// === POPULAR PRODUCTS SECTION ===
+// === PRODUCTOS MÁS POPULARES ===
+// Grid de 4×2 tarjetas de productos destacados del catálogo
+// Cada tarjeta muestra imagen, nombre, serie con color y estrellas de valoración
+.popular-products-section {
+  background: #f8fafc;
+}
+
+.section-eyebrow {
+  display: none;
+}
+
+// === ENCABEZADO DE SECCIÓN CON TEXTO DE FONDO ===
+.section-heading {
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: attr(data-bg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.045);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1;
+    z-index: 0;
+  }
+
+  &--dark::before {
+    color: rgba(255, 255, 255, 0.06);
+  }
+
+  &--left::before {
+    left: 0;
+    transform: translate(0, -50%);
+  }
+
+  .section-title,
+  .section-sub,
+  > p,
+  > h2 {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.section-sub {
+  color: #6b7280;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.section-title {
+  font-size: clamp(1.65rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: #555555;
+  line-height: 1.2;
+}
+
+.title-divider {
+  display: none;
+}
+
+// === PRODUCT CARDS ===
+// Tarjeta individual de producto — cuadrada con imagen, nombre, serie y rating
+.product-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.45s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.45s cubic-bezier(0.22,1,0.36,1);
+
+  &:hover, &:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.11) !important;
+    border-color: var(--page-accent) !important; // Muestra el color de la marca en foco
+    outline: none;
+  }
+}
+
+.product-img-box {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background: #f8f9fc;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  .product-card:hover &, .product-card:focus-visible & { transform: scale(1.07); }
+}
+
+.product-watermark {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 900;
+  color: rgba(0,0,0,0.14);
+  pointer-events: none;
+  user-select: none;
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #555555;
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.product-stars {
+  i { font-size: 12px; }
+  .star-filled { color: #f59e0b; }
+  .star-empty  { color: #d1d5db; }
+}
+
+.product-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #555555;
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+
+.product-serie {
+  font-size: 13px;
+  font-weight: 700;
+  color: #004dda;
+  letter-spacing: 0.3px;
+}
+
+.product-card-footer {
+  padding: 0 12px 12px;
+}
+
+.product-ver-detalles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 7px 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #555555;
+  background: #f3f4f6;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+  .product-card:hover & {
+    background: #555555;
+    color: #fff;
+    border-color: #555555;
+  }
+}
+
+.btn-see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1.5px solid #d1d5db; // Control de bordes claros
+  color: #555555;
+  background: #fff;
+  text-decoration: none;
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+
+  &:hover, &:focus-visible {
+    background: #555555;
+    color: #fff;
+    border-color: #555555;
+    outline: none;
+  }
+}
+
+// === BRANDS CAROUSEL ===
+.brands-section {
+  background: #f8fafc;
+  padding: 52px 0 44px;
+}
+
+
+.brands-carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.brands-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  &::before { left: 0;  background: linear-gradient(to right, #f8fafc, transparent); }
+  &::after  { right: 0; background: linear-gradient(to left,  #f8fafc, transparent); }
+}
+
+// Scroll infinito: el array de logos está duplicado (brandLogosLoop),
+// así que translateX(-50%) desplaza exactamente un juego completo de logos
+// y la animación hace loop invisible al volver al inicio.
+@keyframes brandMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.brands-carousel-track {
+  display: flex;
+  width: max-content;
+  animation: brandMarquee 18s linear infinite;
+  will-change: transform;
+
+  // Pausa al hacer hover para que el usuario pueda leer los logos
+  &:hover { animation-play-state: paused; }
+}
+
+.brands-carousel-slide {
+  min-width: 180px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+}
+
+.brand-logo-img {
+  height: 46px;
+  max-width: 150px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+
+  .brands-carousel-slide:hover & {
+    transform: scale(1.06);
+  }
+}
+
+.brands-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 28px;
+}
+
+.brands-carousel-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: none;
+  background: #cbd5e1;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, width 0.3s cubic-bezier(0.22,1,0.36,1);
+
+  &:hover, &:focus-visible {
+    background: #94a3b8;
+    outline: none;
+  }
+
+  &.active {
+    background: #555f6e;
+    width: 22px;
+    border-radius: 3px;
+  }
+}
+
+// === INDUSTRY CARDS — EXPANDING PANELS ===
+.industry-section {
+  background: #f8fafc;
+}
+
+.section-eyebrow-dark {
+  display: none;
+}
+
+.industry-section-sub {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 540px;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+// Flex row con altura fija — base del efecto expand/collapse
+.industry-row {
+  display: flex;
+  gap: 12px;
+  height: 490px;
+  overflow: hidden;
+
+  // Al entrar al row, comprimir todos los paneles
+  &:hover .industry-panel {
+    flex-grow: 0.45;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+  }
+
+  // El panel activo se expande con sombra pronunciada
+  &:hover .industry-panel:hover {
+    flex-grow: 2.8;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.26);
+  }
+}
+
+.industry-panel {
+  // flex-grow explícito: es el único valor numérico animable por CSS
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  // ease-out-cubic: arranque fluido con frenado natural, sin rebote
+  transition: flex-grow     0.55s cubic-bezier(0.33, 1, 0.68, 1),
+              box-shadow    0.55s cubic-bezier(0.33, 1, 0.68, 1),
+              border-radius 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+
+  &:hover { border-radius: 18px; }
+}
+
+// El enlace cubre el panel completo
+.industry-card-link {
+  display: block;
+  position: absolute;
+  inset: 0;
+  text-decoration: none;
+}
+
+// Imagen de fondo con zoom suave
+.industry-panel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  // ease-out-quart: zoom muy suave y controlado
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  .industry-panel:hover & { transform: scale(1.04); }
+}
+
+// Overlay degradado — se refuerza al expandir
+.industry-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.86) 0%,
+    rgba(0, 0, 0, 0.30) 52%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  transition: background 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+
+  .industry-panel:hover & {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.94) 0%,
+      rgba(0, 0, 0, 0.58) 58%,
+      rgba(0, 0, 0, 0.16) 100%
+    );
+  }
+}
+
+// Contenedor del texto (anclado al fondo del panel)
+.industry-panel-content {
+  padding: 24px 20px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.industry-card-tag {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.60);
+  margin-bottom: 6px;
+}
+
+.industry-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  margin: 0;
+  transition: font-size 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+
+  .industry-panel:hover & { font-size: 15.5px; }
+}
+
+// Wrapper único con max-height — una sola transición de espacio, sin layout shifts
+.industry-panel-extra {
+  max-height: 0;
+  overflow: hidden;
+  // Ligero delay para que el panel termine de expandirse antes de revelar el texto
+  transition: max-height 0.55s cubic-bezier(0.33, 1, 0.68, 1) 0.05s;
+
+  .industry-panel:hover & { max-height: 240px; }
+}
+
+// Los hijos animan solo opacity + transform: operaciones GPU, sin afectar el layout
+.industry-card-tagline {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.45;
+  margin: 10px 0 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: opacity, transform;
+  transition: opacity   0.38s cubic-bezier(0.33, 1, 0.68, 1) 0.2s,
+              transform 0.38s cubic-bezier(0.33, 1, 0.68, 1) 0.2s;
+
+  .industry-panel:hover & { opacity: 1; transform: translateY(0); }
+}
+
+.industry-card-desc {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.65;
+  margin: 0 0 14px;
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: opacity, transform;
+  transition: opacity   0.38s cubic-bezier(0.33, 1, 0.68, 1) 0.28s,
+              transform 0.38s cubic-bezier(0.33, 1, 0.68, 1) 0.28s;
+
+  .industry-panel:hover & { opacity: 1; transform: translateY(0); }
+}
+
+.industry-card-cta {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.80);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: opacity, transform;
+  transition: opacity      0.38s cubic-bezier(0.33, 1, 0.68, 1) 0.35s,
+              transform    0.38s cubic-bezier(0.33, 1, 0.68, 1) 0.35s,
+              color        0.25s ease,
+              border-color 0.25s ease,
+              gap          0.25s ease;
+
+  .industry-panel:hover & {
+    opacity: 1;
+    transform: translateY(0);
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.50);
+    gap: 10px;
+  }
+}
+
+// === ACERCA DE ===
+// === SECCIÓN ACERCA DE (PIONEROS) ===
+// Sección bipartita: imagen a la izquierda, texto + highlights a la derecha
+// Incluye badge ISO 9001 y lista de 3 características clave de la empresa
+.about-section {
+  background: #fff;
+}
+
+.about-img-wrap {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.13);
+}
+
+.about-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-iso-badge {
+  position: absolute;
+  bottom: 22px;
+  right: 22px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+  font-size: 13px;
+  font-weight: 700;
+  color: #555555;
+  line-height: 1.3;
+
+  i { font-size: 26px; color: #004dda; }
+  small { font-weight: 400; color: #6c757d; font-size: 11px; display: block; }
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.about-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #555555;
+  line-height: 1.5;
+
+  i {
+    font-size: 15px;
+    color: var(--page-accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+}
+
+// === CTA SECTION ===
+// === CTA CONTACTO ===
+// Banda de llamada a la acción con fondo gris oscuro
+// Incluye botón de contacto y botón de WhatsApp
+.cta-section {
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+.cta-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cta-title {
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+
+.cta-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7); // Ajustado de 0.5 a 0.7 para legibilidad sobre el degradado oscuro
+}
+
+.cta-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.cta-wa-btn {
+  background: #16a34a; // Un verde más profundo para cumplir el ratio de contraste sobre fondo oscuro
+  color: #fff !important;
+  border: none;
+  text-decoration: none;
+  &:hover, &:focus-visible { background: #15803d; outline: none; }
+}
+
+// === DOCUMENTOS TÉCNICOS ===
+// === DOCUMENTOS TÉCNICOS ===
+// Grid de tarjetas descargables (fichas técnicas, normas, certificados)
+// Cada tarjeta es un enlace <a> a un PDF externo
+.docs-section {
+  background: #f5f7fa;
+}
+
+.doc-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #555555;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+
+  &:hover, &:focus-visible {
+    box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+    border-color: var(--page-accent);
+    transform: translateY(-3px);
+    color: #555555;
+    outline: none;
+
+    .doc-dl { color: #555555; }
+  }
+}
+
+.doc-icon {
+  font-size: 34px;
+  color: var(--page-accent);
+  flex-shrink: 0;
+}
+
+.doc-info { flex: 1; }
+
+.doc-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #7f7c7c;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.doc-type {
+  font-size: 12px;
+  color: #7f7c7c;
+  font-weight: 500;
+}
+
+.doc-dl {
+  font-size: 16px;
+  color: #9ca3af; // Ajustado para contraste accesible
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+// === SCROLL REVEAL — ANIMACIONES DE ENTRADA AL HACER SCROLL ===
+// Estas clases definen el estado INICIAL (invisible, desplazado) de los elementos
+// que se animan al entrar al viewport. El IntersectionObserver en home.ts
+// añade la clase .revealed para disparar la transición al estado FINAL (visible).
+
+// Revelación desde abajo (fade-in + slide up) — clase más común
+.reveal {
+  opacity: 0;                    // Estado inicial: invisible
+  transform: translateY(36px);   // Estado inicial: desplazado 36px hacia abajo
+  will-change: opacity, transform; // Pista al navegador para crear una capa GPU (optimización)
+  transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
+              transform 0.85s cubic-bezier(0.22,1,0.36,1);
+  // Estado final: cuando el IntersectionObserver añade .revealed
+  &.revealed { opacity: 1; transform: none; will-change: auto; } // will-change: auto libera la capa GPU
+}
+
+// Revelación desde la izquierda (fade-in + slide right)
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px); // Estado inicial: desplazado 40px hacia la izquierda
+  will-change: opacity, transform;
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+              transform 0.9s cubic-bezier(0.22,1,0.36,1);
+  &.revealed { opacity: 1; transform: none; will-change: auto; }
+}
+
+// Revelación desde la derecha (fade-in + slide left)
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);  // Estado inicial: desplazado 40px hacia la derecha
+  will-change: opacity, transform;
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+              transform 0.9s cubic-bezier(0.22,1,0.36,1);
+  &.revealed { opacity: 1; transform: none; will-change: auto; }
+}
+
+// Respeta la preferencia del usuario de reducir movimiento (accesibilidad)
+// Si el usuario tiene activado "Reducir movimiento" en su sistema operativo,
+// desactiva todas las animaciones y transiciones de esta sección
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1; transform: none; transition: none; // Muestra inmediatamente sin animación
+  }
+  .hero-eyebrow, .hero-slogan, .hero-sub, .hero-cta { animation: none; } // Desactiva animaciones del hero
+}
+
+// === FIX: transición de paneles de industria ===
+// .reveal (línea ~954) aparece después de .industry-panel en este archivo y
+// sobreescribe su propiedad "transition" con solo "opacity, transform".
+// La regla con selector de mayor especificidad (.industry-row .industry-panel)
+// gana sin importar el orden, y combina las transiciones de hover + reveal.
+.industry-row .industry-panel {
+  transition: flex-grow     0.55s cubic-bezier(0.33, 1, 0.68, 1),
+              box-shadow    0.55s cubic-bezier(0.33, 1, 0.68, 1),
+              border-radius 0.35s cubic-bezier(0.33, 1, 0.68, 1),
+              opacity       0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform     0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+// Angular añade transition-delay inline (stagger de entrada) en cada panel.
+// Los inline styles tienen especificidad 1000; !important es la única forma
+// de resetear ese delay para que el hover responda sin retardo.
+.industry-panel.revealed {
+  transition-delay: 0s !important;
+}
+
+// === RESPONSIVE ===
+@media (max-width: 991px) {
+  .features-row { flex-direction: column; }
+  .feature-item { border-right: none; border-bottom: 1px solid #e9ecef; &:last-child { border-bottom: none; } }
+}
+
+@media (max-width: 767.98px) {
+  // Industrias: apilar verticalmente en móvil
+  .industry-row {
+    flex-direction: column;
+    height: auto;
+    gap: 8px;
+
+    &:hover .industry-panel      { flex-grow: 1; box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+    &:hover .industry-panel:hover { flex-grow: 1; box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+  }
+
+  .industry-panel {
+    flex: none !important;
+    height: 240px;
+    border-radius: 12px;
+
+    // En móvil mostrar el contenido extra siempre visible (sin hover)
+    .industry-panel-extra { max-height: 120px; }
+    .industry-card-tagline { opacity: 1; transform: none; }
+    .industry-card-desc    { display: none; }
+    .industry-card-cta     { opacity: 1; transform: none; }
+  }
+
+  .categories-mosaic {
+    .cat-large { aspect-ratio: 16 / 9; }
+    .cat-small { aspect-ratio: 4 / 3; }
+    .cat-wide  { aspect-ratio: 16 / 7; }
+    .cat-label { font-size: 12.5px; }
+  }
+
+.stat-item {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    &:nth-child(even) { border-right: none; }
+    &:nth-child(n+3) { border-bottom: none; }
+  }
+
+  .brands-carousel-viewport { width: 100%; }
+  .brands-carousel-slide    { min-width: 120px; }
+
+.cta-inner  { flex-direction: column; text-align: center; }
+  .cta-actions { justify-content: center; }
+
+  .about-img { height: 280px; }
+}
+
+@media (max-width: 480px) {
+  .hero-banner { min-height: 320px; }
+  .hero-slogan { font-size: 1.7rem; }
+  .hero-sub    { font-size: 13px; }
+  .stat-number { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+  .stat-label  { font-size: 11px; }
+  .product-name { font-size: 12px; }
+  .section-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+}
+
+// ============================================================
+// TESTIMONIOS
+// ============================================================
+// === TESTIMONIOS ===
+// Grid de tarjetas de testimonios de clientes
+// Incluye nombre, empresa, estrellas y texto del testimonio
+.testimonios-section { background: #fff; }
+
+.testimonio-card {
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 28px 24px 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.25s, box-shadow 0.25s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  }
+}
+
+.testimonio-quote-icon {
+  font-size: 2rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1;
+}
+
+.testimonio-texto {
+  font-size: 14px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.75;
+  flex: 1;
+  margin: 0;
+}
+
+.testimonio-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.testimonio-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.testimonio-autor {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #ffffff;
+}
+.testimonio-cargo {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.6);
+}
+
+.testimonio-stars {
+  display: flex;
+  gap: 2px;
+  i { color: #f59e0b; font-size: 12px; }
+}
+
+// ============================================================
+// FAQ
+// ============================================================
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+  &:last-child { border-bottom: none; }
+}
+
+.faq-btn {
+  width: 100%;
+  background: #fff;
+  border: none;
+  padding: 18px 20px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #555555;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  i { font-size: 14px; flex-shrink: 0; color: #6b7280; transition: transform 0.25s; }
+  &:hover { background: #f9fafb; }
+}
+
+.faq-item.faq-open .faq-btn {
+  background: #fff8f8;
+  color: #374151;
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s;
+  padding: 0 20px;
+
+  p { font-size: 14px; color: #6b7280; line-height: 1.75; margin: 0; }
+}
+
+.faq-body.faq-body-open {
+  max-height: 280px;
+  padding: 0 20px 18px;
+}
+
+@media (max-width: 480px) {
+  .faq-btn { font-size: 13.5px; padding: 15px 16px; }
+  .testimonio-card { padding: 20px 18px; }
+}
+
+// === OPTIMIZACIÓN DE RENDIMIENTO: content-visibility para secciones debajo del pliegue ===
+// content-visibility: auto — permite al navegador omitir el renderizado de secciones fuera del viewport,
+// mejorando significativamente el tiempo de carga inicial (LCP).
+// contain-intrinsic-size: auto 620px — reserva 620px de altura estimada para cada sección no renderizada,
+// previniendo saltos bruscos del scroll (CLS) cuando el navegador renderiza las secciones al hacer scroll.
+// Este valor fue ajustado de un número genérico para evitar el problema de CLS que tenía la versión anterior.
+.popular-products-section,
+.industry-section,
+.about-section,
+.cta-section,
+.docs-section,
+.testimonios-section,
+// === PREGUNTAS FRECUENTES (FAQ) ===
+// Acordeón de preguntas y respuestas
+// El estado abierto/cerrado se controla con la clase .faq-body-open en home.ts
+.faq-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 620px;
+}

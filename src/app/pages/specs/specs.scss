@@ -1,0 +1,2646 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// SPECS — Estilos de la ficha técnica (detalle de producto)
+// URL: /productos/:id  (ej. /productos/1000)
+// Secciones: Hero del producto (galería + info), Breadcrumb, Tabs de contenido
+//   (General, Especificaciones, Aplicaciones, Deflagración, Marca, Accesorios, MESG),
+//   CTA de cotización, Productos relacionados, CTA Sticky (visible al hacer scroll)
+// ══════════════════════════════════════════════════════════════════════════════
+
+// ── Variables SCSS locales ────────────────────────────────────────────────────
+// Alias de la paleta global para mayor legibilidad del código en este archivo
+// (evita escribir los valores hex directamente en los selectores)
+// ══════════════════════════════════════════════════════════════════════════════
+$brand-dark:   #374151;   // navy
+$brand-red:    #004dda;   // acento azul de página
+$brand-light:  #eff6ff;   // fondo suave azul
+$blue-dark:    $brand-dark;
+$blue-mid:     $brand-red;
+$blue-light:   $brand-light;
+$gray-text:    #6c757d;
+$gray-border:  #e9ecef;
+$text-dark:    #374151;
+
+// ══════════════════════════════════════════════════════════════
+// NOT FOUND
+// ══════════════════════════════════════════════════════════════
+// === ESTADO PRODUCTO NO ENCONTRADO ===
+// Se muestra cuando el :id de la URL no coincide con ningún producto del catálogo
+// notFound = true se establece en ngOnInit cuando ProductService retorna undefined
+.not-found-section {
+  padding: 6rem 0;
+  background: #f8f9fa;
+
+  .not-found-icon {
+    font-size: 4rem;
+    color: #9ca3af;
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .not-found-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: $text-dark;
+    margin-bottom: 0.75rem;
+  }
+
+  .not-found-sub {
+    color: $gray-text;
+    margin-bottom: 1.75rem;
+  }
+}
+
+.btn-back-catalog {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  background: #555555;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.25s ease;
+
+  &:hover { background: #1f2937; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// HERO DEL PRODUCTO
+// ══════════════════════════════════════════════════════════════
+// === HERO DEL PRODUCTO ===
+// Sección principal con imagen + galería a la izquierda e información a la derecha
+// Layout de dos columnas en desktop, una columna en móvil
+.specs-hero {
+  position: relative;
+  background: #eeeff1;
+  border-bottom: none;
+  padding: 0;
+}
+
+.specs-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+// Columna imagen — full width, full viewport height
+.specs-img-col {
+  flex: none;
+  width: 100%;
+  max-width: 100%;
+}
+
+// === CONTENEDOR DE IMAGEN PRINCIPAL — full width, altura controlada ===
+// Sección más baja; imagen con padding para que se vea más pequeña dentro del área
+.specs-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: min(58vh, 520px);
+  padding: 2rem 5rem;
+  background: #eeeff1;
+  border-bottom: 2px solid #c9cdd4;
+
+  .specs-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.22s ease;
+
+    &.specs-img--fading { opacity: 0; }
+  }
+}
+
+// ── Flechas del carrusel ────────────────────────────────────────────────────
+// Aparecen al hacer hover sobre specs-img-wrapper; ocultas por defecto
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease, background 0.2s ease,
+              transform 0.2s ease, box-shadow 0.2s ease;
+
+  i { font-size: 0.95rem; color: #374151; }
+
+  &--prev { left: 12px; }
+  &--next { right: 12px; }
+
+  &:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #555555;
+    outline-offset: 2px;
+    opacity: 1;
+  }
+}
+
+.specs-img-wrapper:hover .carousel-arrow { opacity: 1; }
+
+// ── Dots de navegación — superpuestos sobre la imagen full-screen ──────────
+.specs-img-dots {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  z-index: 6;
+}
+
+.img-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid #9ca3af;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, border-color 0.25s ease,
+              width 0.25s ease, border-radius 0.25s ease;
+
+  &.active {
+    background: #374151;
+    border-color: #374151;
+    width: 22px;
+    border-radius: 5px;
+  }
+
+  &:hover:not(.active) {
+    background: #d1d5db;
+    border-color: #9ca3af;
+  }
+}
+
+// === GALERÍA DE MINIATURAS ===
+// Fila de miniaturas clicables debajo de la imagen principal
+// El botón activo tiene borde de color para indicar la imagen seleccionada
+.specs-gallery-thumbs {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 991px) { justify-content: center; }
+}
+
+.gallery-thumb-btn {
+  width: 76px;
+  height: 76px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid $gray-border;
+  background: #f5f5f5;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 5px;
+  }
+
+  &.active, &:hover { border-color: #6b7280; }
+}
+
+
+.serie-badge-over {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+
+  &.serie-morado { background: rgba(85,85,85,0.92);   color: #fff; }
+  &.serie-ambar  { background: rgba(85,85,85,0.92);   color: #fff; }
+  &.serie-verde  { background: rgba(85,85,85,0.92);   color: #fff; }
+  &.serie-azul   { background: rgba(0,77,218,0.92);   color: #fff; }
+  &.serie-rojo   { background: rgba(75,85,99,0.92);    color: #fff; }
+  &.serie-teal   { background: rgba(85,85,85,0.92);   color: #fff; }
+}
+
+// Bloque contenedor de info debajo de la imagen full-screen
+.specs-info-wrapper {
+  background: #f9fbff;
+  padding: 2.5rem 0 3.5rem;
+  border-bottom: 1px solid $gray-border;
+}
+
+// Info col — grid de 2 columnas: texto | card cotización
+.specs-info-col {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+  padding-top: 0;
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+.specs-info-left  { min-width: 0; }
+.specs-info-right { min-width: 0; }
+
+// Card de cotización (columna derecha)
+.specs-cta-card {
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+
+  .cta-card-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: $gray-text;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 1.1rem 0;
+  }
+
+  .specs-ctas {
+    flex-direction: column;
+    gap: 0.6rem;
+
+    .btn-cotizar-hero,
+    .btn-wa-hero {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+.cta-card-trust {
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid $gray-border;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    color: $gray-text;
+    line-height: 1.4;
+
+    i { font-size: 0.88rem; color: #555555; flex-shrink: 0; }
+  }
+
+  @media (max-width: 991px) { align-items: center; }
+}
+
+.specs-categoria-label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.6rem;
+
+  &.serie-morado, &.serie-ambar, &.serie-verde, &.serie-azul { color: #6b7280; }
+}
+
+.specs-titulo {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  color: #555555;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+
+  &.serie-morado, &.serie-ambar, &.serie-verde, &.serie-azul { color: #555555; }
+}
+
+// Estrellas de rating
+// === RATING DE PRODUCTO ===
+// Fila de 5 estrellas doradas + puntuación numérica + "Producto Certificado"
+.specs-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.55rem;
+  flex-wrap: wrap;
+
+  .rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    i {
+      font-size: 0.95rem;
+      color: #f59e0b;
+    }
+  }
+
+  .rating-score {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: $text-dark;
+  }
+
+  .rating-divider {
+    color: $gray-text;
+    font-size: 0.88rem;
+  }
+
+  .rating-label {
+    font-size: 0.82rem;
+    color: $gray-text;
+    text-decoration: none;
+  }
+
+  @media (max-width: 991px) { justify-content: center; }
+}
+
+// Tamaños en hero
+// === TAMAÑOS DISPONIBLES ===
+// Chips/badges con las pulgadas disponibles para el producto
+// Fondo gris claro con borde neutro para no competir con el color de la categoría
+.specs-tamanos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+
+  .specs-tamanos-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: $gray-text;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .tamanos-grid { gap: 0.35rem; }
+
+  @media (max-width: 991px) { justify-content: center; }
+}
+
+// SKU
+.specs-sku {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.82rem;
+
+  .sku-label {
+    color: $gray-text;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .sku-value {
+    color: $text-dark;
+    font-weight: 600;
+  }
+
+  @media (max-width: 991px) { justify-content: center; }
+}
+
+.specs-desc-corta {
+  font-size: 0.95rem;
+  color: $gray-text;
+  line-height: 1.75;
+  margin-bottom: 0;
+  max-width: 100%;
+}
+
+// Normas badges en el hero
+.normas-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid $gray-border;
+
+  @media (max-width: 991px) { justify-content: center; }
+}
+
+.norma-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #555555;
+  background: #f3f4f6;
+  border: 1px solid #9ca3af;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+// Quick stats
+// === ESTADÍSTICAS RÁPIDAS ===
+// Banda de 3 columnas: Tamaños disponibles | Materiales | Industrias
+// Borde separador entre columnas con flex-grow igual para cada stat
+.quick-stats {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.8rem;
+  background: #f8fafc;
+  border: 1px solid $gray-border;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @media (max-width: 991px) { justify-content: center; }
+  @media (max-width: 380px) { font-size: 0.9rem; }
+}
+
+.quick-stat {
+  flex: 1 1 0;
+  text-align: center;
+  padding: 0.9rem 0.5rem;
+  border-right: 1px solid $gray-border;
+
+  &:last-child { border-right: none; }
+
+  .qs-value {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #555555;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .qs-label {
+    font-size: 0.7rem;
+    color: $gray-text;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+// CTA buttons en el hero
+// === BOTONES CTA DEL HERO ===
+// Fila de 3 botones: Solicitar Cotización | WhatsApp | Ficha PDF
+// Se envuelven en mobile con flex-wrap
+.specs-ctas {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 991px) { justify-content: center; }
+}
+
+.btn-cotizar-hero {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  background: #7f7c7c;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: #1f2937;
+    transform: translateY(-2px);
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #555555;
+    outline-offset: 2px;
+  }
+}
+
+.btn-wa-hero {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// BREADCRUMB
+// ══════════════════════════════════════════════════════════════
+// === MIGAS DE PAN ===
+// Navegación contextual: Inicio > Productos > Categoría > Nombre del Producto
+// Permite al usuario regresar a cualquier nivel de la jerarquía con un clic
+.breadcrumb-nav {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid $gray-border;
+  padding: 0.6rem 0;
+
+  ol.breadcrumb {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.82rem;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    a {
+      color: #555555;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+
+    &.active { color: $gray-text; font-weight: 500; }
+
+    & + .breadcrumb-item::before {
+      content: '/';
+      padding: 0 0.45rem;
+      color: #6b7280;
+    }
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// TABS
+// ══════════════════════════════════════════════════════════════
+.specs-tabs-section {
+  background: #fff;
+}
+
+// === BARRA DE TABS / NAVEGACIÓN DE SECCIONES ===
+// Barra sticky con botones para saltar a cada sección del producto
+// El tab activo tiene subrayado azul y texto más oscuro
+.tabs-header-bar {
+  background: #fff;
+  border-bottom: 2px solid $gray-border;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.tabs-header-inner {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: $gray-text;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+  i { font-size: 0.9rem; }
+
+  &:hover {
+    color: #555555;
+    background: #f3f4f6;
+  }
+
+  &.tab-active {
+    color: #555555;
+    border-bottom-color: #6b7280;
+    background: #f3f4f6;
+    font-weight: 700;
+  }
+}
+
+.tab-pane {
+  min-height: 420px;
+  background: #f1f5f9;
+}
+
+// ── Colores de tab según serie del producto ─────────
+// Cada familia de series tiene su propio color de acento para el tab activo
+// Esto refuerza visualmente a qué categoría pertenece el producto
+.tabs-serie-morado {
+  .tab-btn:hover    { color: #004dda; background: #eff6ff; }
+  .tab-btn.tab-active { color: #004dda; border-bottom-color: #004dda; background: #eff6ff; font-weight: 700; }
+}
+.tabs-serie-ambar {
+  .tab-btn:hover    { color: #555555; background: #f3f4f6; }
+  .tab-btn.tab-active { color: #555555; border-bottom-color: #555555; background: #f3f4f6; font-weight: 700; }
+}
+.tabs-serie-verde {
+  .tab-btn:hover    { color: #555555; background: #f3f4f6; }
+  .tab-btn.tab-active { color: #555555; border-bottom-color: #555555; background: #f3f4f6; font-weight: 700; }
+}
+.tabs-serie-azul {
+  .tab-btn:hover    { color: #004dda; background: #eff6ff; }
+  .tab-btn.tab-active { color: #004dda; border-bottom-color: #004dda; background: #eff6ff; font-weight: 700; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// ENCABEZADO COMPARTIDO DE TABS
+// ══════════════════════════════════════════════════════════════
+// === ENCABEZADO DE SECCIÓN (TP-HEADER) ===
+// Banda oscura que separa visualmente cada sección de la página del producto
+// Contiene ícono, etiqueta de sección y título descriptivo
+.tp-header {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+
+  &--blue  { background: linear-gradient(100deg, $brand-red 0%, #0039b8 100%); }
+  &--dark  { background: linear-gradient(100deg, #374151 0%, #4b5563 100%); }
+  &--green { background: linear-gradient(100deg, #374151 0%, #4b5563 100%); }
+}
+
+.tp-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.tp-header-icon {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i { font-size: 1.5rem; color: #fff; }
+}
+
+.tp-header-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 0.2rem;
+}
+
+.tp-header-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+// ══════════════════════════════════════════════════════════════
+// TAB 1 — INFORMACIÓN GENERAL
+// ══════════════════════════════════════════════════════════════
+.tab-general { background: #f1f5f9; }
+
+// Párrafo de resumen (heredado por tg-resumen-card)
+.tg-desc-text {
+  font-size: 0.93rem;
+  color: #555555;
+  line-height: 1.85;
+  text-align: justify;
+  margin: 0;
+}
+
+// Callout de resumen
+.tg-resumen-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: #fff;
+  border-left: 4px solid #555555;
+  border-radius: 0 12px 12px 0;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tg-resumen-icon {
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  color: #9ca3af;
+  margin-top: 3px;
+}
+
+// Etiqueta de sección
+.tg-section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $gray-text;
+  margin-bottom: 1rem;
+}
+
+// Grid de tarjetas de características
+.tg-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 767px) { grid-template-columns: 1fr; }
+}
+
+.tg-feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.tg-feature-icon-wrap {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i { font-size: 1.2rem; color: #555555; }
+}
+
+.tg-feature-body { flex: 1; min-width: 0; }
+
+.tg-feature-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $text-dark;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.tg-feature-desc {
+  font-size: 0.82rem;
+  color: $gray-text;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// Fila inferior: tamaños + normas
+.tg-bottom-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tg-bottom-block {
+  flex: 1 1 0;
+  padding: 1.25rem 1.5rem;
+}
+
+.tg-bottom-divider {
+  width: 1px;
+  align-self: stretch;
+  background: $gray-border;
+  flex: 0 0 1px;
+
+  @media (max-width: 575px) { display: none; }
+}
+
+.tg-sublabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $gray-text;
+  margin-bottom: 0.7rem;
+}
+
+.tamanos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tamano-chip {
+  display: inline-block;
+  padding: 0.32rem 0.8rem;
+  font-size: 0.83rem;
+  font-weight: 700;
+  background: #f3f4f6;
+  color: #555555;
+  border: 1px solid #9ca3af;
+  border-radius: 6px;
+}
+
+.tg-normas-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tg-norma-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: #f3f4f6;
+  color: #555555;
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+
+  i { color: #9ca3af; }
+}
+
+// Grid 2 columnas del tab general
+// Grid 2×2: CSS grid iguala altura de celdas en la misma fila automáticamente
+.tg-four-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+
+  @media (max-width: 991px) { grid-template-columns: 1fr; }
+}
+
+// Tarjeta de sección (section card)
+.tg-sc {
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.tg-sc--table {
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+// Etiqueta de sección dentro de tarjeta
+.tg-sc-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $gray-text;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid #f0f4f8;
+
+  i { font-size: 0.85rem; }
+}
+
+// Lista de características especiales
+.tg-feat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.tg-feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.tg-feat-icon {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i { font-size: 0.95rem; color: #555; }
+}
+
+.tg-feat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.tg-feat-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: $text-dark;
+  line-height: 1.3;
+}
+
+.tg-feat-desc {
+  font-size: 0.80rem;
+  color: $gray-text;
+  line-height: 1.55;
+}
+
+// Lista de aplicaciones
+.tg-aplic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tg-aplic-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.875rem;
+  color: $text-dark;
+  line-height: 1.5;
+
+  i {
+    flex: 0 0 auto;
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 2px;
+  }
+}
+
+// Características Técnicas — ancho completo con 2 columnas internas
+.tg-sc--tecnicas {
+  margin-top: 1.25rem;
+}
+
+.tg-tech-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $gray-border;
+
+  @media (max-width: 767px) { grid-template-columns: 1fr; }
+}
+
+.tg-tech-item {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid $gray-border;
+  gap: 0.75rem;
+
+  &:last-child, &:nth-last-child(2):not(:nth-child(odd)) { border-bottom: none; }
+
+  &--alt { background: #f8fafc; }
+}
+
+.tg-tech-lbl {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: $gray-text;
+  flex: 0 0 45%;
+  min-width: 0;
+}
+
+.tg-tech-val {
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: $text-dark;
+  flex: 1;
+  min-width: 0;
+}
+
+// Tabla de características técnicas (dentro del tab general)
+.tg-tech-table-wrap {
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.tg-tech-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr { border-bottom: 1px solid $gray-border; }
+  tr:last-child { border-bottom: none; }
+}
+
+.tg-tech-row-alt { background: #f8fafc; }
+
+.tg-tech-label {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: $gray-text;
+  width: 45%;
+  vertical-align: middle;
+}
+
+.tg-tech-value {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: $text-dark;
+  vertical-align: middle;
+}
+
+// Lista de aplicaciones (dentro del tab general)
+.tg-aplicaciones-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.tg-aplicacion-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  color: $text-dark;
+  line-height: 1.5;
+
+  i {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 1px;
+  }
+}
+
+// Card de funcionamiento
+.tg-funcionamiento-card {
+  background: #fff;
+  border-left: 4px solid #9ca3af;
+  border-radius: 0 12px 12px 0;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 575px) {
+  .tg-bottom-row { flex-direction: column; }
+  .tg-bottom-block + .tg-bottom-block { border-top: 1px solid $gray-border; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// TAB 2 — ESPECIFICACIONES TÉCNICAS
+// ══════════════════════════════════════════════════════════════
+.tab-especificaciones { background: #f1f5f9; }
+
+// === TABLA DE ESPECIFICACIONES TÉCNICAS ===
+// Card que contiene las filas de datos técnicos (medidas, materiales, presión, etc.)
+// Filas alternadas con fondo gris muy claro para facilitar la lectura
+.te-table-card {
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.te-table-title {
+  padding: 1rem 1.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #555555;
+  background: #f3f4f6;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.te-spec-list { display: flex; flex-direction: column; }
+
+.te-spec-row {
+  display: flex;
+  border-bottom: 1px solid $gray-border;
+
+  &:last-child { border-bottom: none; }
+  &--alt { background: #f8fafc; }
+  &:hover { background: #f3f4f6; }
+}
+
+.te-spec-label {
+  flex: 0 0 42%;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $text-dark;
+  border-right: 1px solid $gray-border;
+}
+
+.te-spec-value {
+  flex: 1;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.85rem;
+  color: #555555;
+  text-align: justify;
+}
+
+.te-side-card {
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  &--normas { border-top: 3px solid #9ca3af; }
+}
+
+.te-side-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-text;
+  margin-bottom: 0.9rem;
+}
+
+.te-materials-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.te-material-chip {
+  display: flex;
+  align-items: center;
+  font-size: 0.84rem;
+  color: #555555;
+  padding: 0.45rem 0.7rem;
+  background: #f8fafc;
+  border-radius: 7px;
+  border: 1px solid $gray-border;
+
+  i { color: #004dda; flex-shrink: 0; }
+}
+
+.te-normas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.te-norma-badge {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #555555;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+
+  i { color: #9ca3af; }
+}
+
+.te-pdf-cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(100deg, #374151 0%, #4b5563 100%);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover { opacity: 0.88; }
+}
+
+.te-pdf-icon {
+  font-size: 2rem;
+  color: #f87171;
+  flex-shrink: 0;
+}
+
+.te-pdf-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.15rem;
+}
+
+.te-pdf-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+// ══════════════════════════════════════════════════════════════
+// TAB 3 — APLICACIONES E INDUSTRIAS
+// ══════════════════════════════════════════════════════════════
+.tab-aplicaciones { background: #f8f9fa; }
+
+.ta-block-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $gray-text;
+  margin-bottom: 1rem;
+}
+
+.ta-industrias-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+
+  @media (max-width: 575px) { grid-template-columns: 1fr; }
+}
+
+.ta-industria-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 10px;
+  text-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: #9ca3af;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  }
+}
+
+.ta-industria-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i { font-size: 1.1rem; color: #6b7280; }
+}
+
+.ta-industria-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $text-dark;
+  line-height: 1.3;
+}
+
+.ta-apps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ta-app-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-bottom: none;
+
+  &:first-child { border-radius: 12px 12px 0 0; }
+  &:last-child  { border-bottom: 1px solid $gray-border; border-radius: 0 0 12px 12px; }
+  &:hover { background: #f3f4f6; }
+}
+
+.ta-app-num {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #555555;
+  margin-top: 1px;
+}
+
+.ta-app-text {
+  font-size: 0.88rem;
+  color: #555555;
+  line-height: 1.7;
+  text-align: justify;
+  margin: 0;
+}
+
+// ══════════════════════════════════════════════════════════════
+// TAB 4 — DEFLAGRACIÓN O DETONACIÓN
+// ══════════════════════════════════════════════════════════════
+.tab-deflagracion { background: #f1f5f9; }
+
+.dd-cobertura-badge {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  background: #fff;
+  border: 1.5px solid #d1d5db;
+  border-left: 4px solid #555555;
+  border-radius: 0 10px 10px 0;
+  padding: 1rem 1.4rem;
+  font-size: 0.88rem;
+  color: #374151;
+  line-height: 1.6;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+  i { font-size: 1rem; color: #6b7280; flex-shrink: 0; }
+  strong { color: #374151; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// TAB 2 — VENTAJAS DE NUESTRA MARCA
+// ══════════════════════════════════════════════════════════════
+.tab-marca { background: #f1f5f9; }
+
+// Bloque de lema introductorio
+.vm-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: #fff;
+  border-left: 4px solid #555;
+  border-radius: 0 12px 12px 0;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.vm-intro-quote {
+  flex: 0 0 auto;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #d1d5db;
+  margin-top: -4px;
+}
+
+.vm-intro-text {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.8;
+  margin: 0;
+
+  strong {
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: 0.01em;
+  }
+}
+
+// Grid de tarjetas de ventajas
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: 767px) { grid-template-columns: 1fr; }
+}
+
+.vm-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.vm-card-icon {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i { font-size: 1.2rem; color: #555; }
+}
+
+.vm-card-body { flex: 1; min-width: 0; }
+
+.vm-card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $text-dark;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.vm-card-desc {
+  font-size: 0.82rem;
+  color: $gray-text;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// Grid de tarjetas con imagen
+.vm-adv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 575px) { grid-template-columns: 1fr; }
+}
+
+.vm-adv-card {
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+    transform: translateY(-3px);
+  }
+}
+
+.vm-adv-icon-banner {
+  background: #f1f5f9;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid $gray-border;
+  transition: background 0.2s ease;
+
+  i {
+    font-size: 2.4rem;
+    color: #555555;
+    transition: transform 0.2s ease;
+  }
+
+  .vm-adv-card:hover & {
+    background: #e8edf2;
+    i { transform: scale(1.1); }
+  }
+}
+
+.vm-adv-body {
+  padding: 1.1rem 1.25rem 1.25rem;
+}
+
+.vm-adv-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: $text-dark;
+  margin: 0 0 0.45rem 0;
+  line-height: 1.3;
+}
+
+.vm-adv-desc {
+  font-size: 0.82rem;
+  color: $gray-text;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.vm-adv-list {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  li {
+    font-size: 0.82rem;
+    color: $gray-text;
+    line-height: 1.55;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// TAB 6 — ACCESORIOS
+// ══════════════════════════════════════════════════════════════
+.tab-accesorios { background: #f1f5f9; }
+
+.acc-empty {
+  font-size: 0.9rem;
+  color: $gray-text;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.acc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: 767px) { grid-template-columns: 1fr; }
+}
+
+.acc-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.acc-icon-wrap {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i { font-size: 1.2rem; color: #555555; }
+}
+
+.acc-body { flex: 1; min-width: 0; }
+
+.acc-nombre {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $text-dark;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.acc-desc {
+  font-size: 0.82rem;
+  color: $gray-text;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// ══════════════════════════════════════════════════════════════
+// TAB 7 — MESG Y GPOS DE GAS
+// ══════════════════════════════════════════════════════════════
+.tab-mesg { background: #f1f5f9; }
+
+.mesg-intro-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  background: #fff;
+  border-left: 4px solid #555555;
+  border-radius: 0 12px 12px 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+  color: #555555;
+  line-height: 1.75;
+
+  p { margin: 0; }
+  strong { color: $text-dark; }
+}
+
+.mesg-intro-icon {
+  flex: 0 0 auto;
+  font-size: 1.3rem;
+  color: #9ca3af;
+  margin-top: 3px;
+}
+
+.mesg-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.mesg-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 0.85rem;
+
+  thead tr {
+    background: #f3f4f6;
+    border-bottom: 2px solid #d1d5db;
+  }
+
+  th {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $gray-text;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid $gray-border;
+    color: #555555;
+    vertical-align: middle;
+
+    &:last-child { border-bottom: none; }
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #f8fafc; }
+}
+
+.mesg-row-cubierto   { background: #f0fdf4; }
+.mesg-row-nocubierto { background: #fff7f7; }
+
+.mesg-grupo {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: $text-dark;
+  white-space: nowrap;
+}
+
+.mesg-valor {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.mesg-descripcion { max-width: 260px; }
+
+.mesg-gases {
+  font-size: 0.82rem;
+  color: $gray-text;
+  max-width: 220px;
+}
+
+.mesg-cubierto-col { white-space: nowrap; }
+
+.mesg-badge-si {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.75rem;
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  i { font-size: 0.8rem; }
+}
+
+.mesg-badge-no {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.75rem;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  i { font-size: 0.8rem; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// MODIFICADOR WIDE — tarjeta ancho completo
+// ══════════════════════════════════════════════════════════════
+.tg-sc--wide {
+  width: 100%;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+
+  // ::ng-deep necesario: el HTML viene de [innerHTML] y no recibe atributos _ngcontent
+  & ::ng-deep p {
+    font-size: 0.93rem;
+    color: #555555;
+    line-height: 1.85;
+    margin: 0 0 0.9rem 0;
+    text-align: justify;
+    &:last-child { margin-bottom: 0; }
+  }
+  & ::ng-deep ul,
+  & ::ng-deep ol {
+    padding-left: 1.5rem;
+    margin: 0 0 0.9rem 0;
+    li { font-size: 0.9rem; color: #555555; line-height: 1.65; }
+  }
+  & ::ng-deep ul li { list-style: disc; }
+  & ::ng-deep ol li { list-style: decimal; }
+  & ::ng-deep strong,
+  & ::ng-deep b { font-weight: 700; color: #374151; }
+  & ::ng-deep h2,
+  & ::ng-deep h3 { font-size: 1rem; font-weight: 700; color: #374151; margin: 1.25rem 0 0.5rem; }
+
+  & ::ng-deep table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid $gray-border;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+
+    thead tr {
+      background: #f3f4f6;
+      border-bottom: 2px solid #d1d5db;
+    }
+    th {
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: $gray-text;
+      text-align: left;
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.7rem 1rem;
+      color: #555555;
+      border-bottom: 1px solid $gray-border;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8fafc; }
+    tbody tr:hover { background: #f1f5f9; }
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// TAB DINÁMICO — contenido HTML inyectado desde Firestore
+// ══════════════════════════════════════════════════════════════
+.tab-dinamico { background: #f1f5f9; }
+
+.tab-contenido-html {
+  background: #fff;
+  border: 1px solid $gray-border;
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+
+  // ::ng-deep necesario: HTML inyectado con [innerHTML] no recibe atributos _ngcontent
+  // de ViewEncapsulation.Emulated, por lo que los selectores anidados no aplican sin esto.
+
+  // ── Párrafos ──────────────────────────────────
+  & ::ng-deep p {
+    font-size: 0.93rem;
+    color: #555555;
+    line-height: 1.85;
+    margin: 0 0 1rem 0;
+    text-align: justify;
+    &:last-child { margin-bottom: 0; }
+  }
+
+  // ── Encabezados ───────────────────────────────
+  & ::ng-deep h1,
+  & ::ng-deep h2,
+  & ::ng-deep h3,
+  & ::ng-deep h4,
+  & ::ng-deep h5 {
+    color: #374151;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-top: 1.75rem;
+    margin-bottom: 0.65rem;
+    &:first-child { margin-top: 0; }
+  }
+  & ::ng-deep h1 { font-size: 1.45rem; }
+  & ::ng-deep h2 {
+    font-size: 1.15rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $gray-border;
+  }
+  & ::ng-deep h3 { font-size: 1rem; }
+  & ::ng-deep h4,
+  & ::ng-deep h5 { font-size: 0.92rem; color: $gray-text; }
+
+  // ── Listas ────────────────────────────────────
+  & ::ng-deep ul,
+  & ::ng-deep ol {
+    padding-left: 1.5rem;
+    margin: 0 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    li {
+      font-size: 0.9rem;
+      color: #555555;
+      line-height: 1.65;
+    }
+  }
+  & ::ng-deep ul li { list-style: disc; }
+  & ::ng-deep ol li { list-style: decimal; }
+
+  // ── Tabla ─────────────────────────────────────
+  & ::ng-deep table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid $gray-border;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+
+    thead tr {
+      background: #f3f4f6;
+      border-bottom: 2px solid #d1d5db;
+    }
+
+    th {
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: $gray-text;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.7rem 1rem;
+      color: #555555;
+      border-bottom: 1px solid $gray-border;
+      vertical-align: top;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8fafc; }
+    tbody tr:hover { background: #f1f5f9; }
+  }
+
+  // ── Énfasis ───────────────────────────────────
+  & ::ng-deep strong,
+  & ::ng-deep b { font-weight: 700; color: #374151; }
+  & ::ng-deep em { font-style: italic; }
+
+  // ── Separador ─────────────────────────────────
+  & ::ng-deep hr {
+    border: none;
+    border-top: 1px solid $gray-border;
+    margin: 1.75rem 0;
+  }
+
+  // ── Cita / blockquote ─────────────────────────
+  & ::ng-deep blockquote {
+    border-left: 4px solid #9ca3af;
+    margin: 1.25rem 0;
+    padding: 0.75rem 1.25rem;
+    background: #f8fafc;
+    border-radius: 0 8px 8px 0;
+
+    p { font-style: italic; color: $gray-text; margin-bottom: 0; }
+  }
+
+  // ── Links ─────────────────────────────────────
+  & ::ng-deep a {
+    color: $brand-red;
+    text-decoration: none;
+    font-weight: 600;
+    &:hover { text-decoration: underline; }
+  }
+
+  // ── Código ────────────────────────────────────
+  & ::ng-deep code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    background: #f1f5f9;
+    color: #374151;
+    padding: 0.15em 0.45em;
+    border-radius: 4px;
+    border: 1px solid $gray-border;
+  }
+
+  @media (max-width: 575px) {
+    padding: 1.25rem 1rem;
+    & ::ng-deep table { font-size: 0.8rem; }
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// CTA COTIZACIÓN
+// ══════════════════════════════════════════════════════════════
+.cta-cotizacion {
+  background: linear-gradient(135deg, $brand-dark 0%, #4b5563 50%, #374151 100%);
+  padding: 4rem 0;
+}
+
+.cta-cotizacion-inner {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.cta-icon-col {
+  flex: 0 0 auto;
+
+  i {
+    font-size: 3.5rem;
+    color: rgba(96, 165, 250, 0.7);
+  }
+
+  @media (max-width: 991px) { display: none; }
+}
+
+.cta-text-col {
+  flex: 1 1 0;
+
+  .cta-titulo {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-sub {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 560px;
+  }
+}
+
+.cta-btn-col {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+
+  @media (max-width: 991px) { width: 100%; }
+}
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.75rem;
+  background: #555555;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    background: #1f2937;
+    transform: translateY(-2px);
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #555555;
+    outline-offset: 2px;
+  }
+}
+
+.cta-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  transition: background 0.25s ease;
+
+  &:hover { background: rgba(37, 211, 102, 0.25); border-color: #25d366; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// PRODUCTOS RELACIONADOS
+// ══════════════════════════════════════════════════════════════
+// === PRODUCTOS RELACIONADOS ===
+// Grid de 3 tarjetas de productos de la misma categoría
+// Permite al usuario descubrir productos complementarios sin volver al catálogo
+.relacionados-section {
+  background: #f1f5f9;
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid $gray-border;
+}
+
+.relacionados-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.relacionados-titulo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.relacionados-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.relacionados-titulo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: $text-dark;
+  margin: 0;
+}
+
+.ver-todos-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555555;
+  text-decoration: none;
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+
+  &:hover { background: #e5e7eb; border-color: #9ca3af; }
+}
+
+// Grid centrado con gap fijo
+.rel-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+// ── Tarjeta relacionado ────────────
+.rel-card {
+  width: 320px;
+  flex: 0 0 320px;
+  background: #fff;
+  border-radius: 0;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+// Imagen
+.rel-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+}
+
+.rel-card:hover .rel-img-wrapper img { transform: scale(1.05); }
+
+// Overlay con label al hover
+.rel-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.rel-overlay-label {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  backdrop-filter: blur(4px);
+  transform: translateY(8px);
+  transition: transform 0.3s ease;
+}
+
+.rel-card:hover .rel-img-overlay { opacity: 1; }
+.rel-card:hover .rel-overlay-label { transform: translateY(0); }
+
+// Info de la tarjeta
+.rel-info {
+  padding: 0.65rem 0.8rem 0.8rem;
+}
+
+.rel-nombre {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #555555;
+  margin: 0.3rem 0 0.5rem;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rel-desc { display: none; }
+
+// Badge de serie
+.rel-serie-tag {
+  display: inline-block;
+  padding: 0.18rem 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border-bottom: 2px solid transparent;
+
+  &.serie-morado { background: #F0E5FA; color: #8C2EC7; border-bottom-color: #8C2EC7; }
+  &.serie-ambar  { background: #FEF0E0; color: #E06A10; border-bottom-color: #E06A10; }
+  &.serie-verde  { background: #E8F5E3; color: #2D9118; border-bottom-color: #2D9118; }
+  &.serie-azul   { background: #E0E9F8; color: #004dda; border-bottom-color: #004dda; }
+  &.serie-teal   { background: #E0F5F5; color: #006064; border-bottom-color: #006064; }
+}
+
+// Botones de acción
+.rel-actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.rel-btn-detalle {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem 0.6rem;
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: #555555;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  white-space: nowrap;
+
+  &:hover { background: #555555; border-color: #555555; color: #fff; }
+}
+
+.rel-btn-cotizar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem 0.6rem;
+  font-size: 0.87rem;
+  font-weight: 700;
+  color: #fff;
+  background: #7f7c7c;
+  border: 1.5px solid #7f7c7c;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.25s, border-color 0.25s;
+  white-space: nowrap;
+
+  &:hover { background: #555555; border-color: #555555; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// BOTÓN PDF EN HERO
+// ══════════════════════════════════════════════════════════════
+.btn-pdf-hero {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+  color: #555555;
+  border: 1.5px solid #9ca3af;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  white-space: nowrap;
+
+  &:hover {
+    background: #555555;
+    color: #fff;
+    border-color: #555555;
+    transform: translateY(-2px);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// CTA STICKY — barra de cotización fija al pie de la pantalla
+// Aparece cuando el usuario hace scroll más de 480px (controlado por el signal stickyVisible en specs.ts)
+// Permite solicitar cotización o contactar por WhatsApp sin volver al hero del producto
+// ══════════════════════════════════════════════════════════════
+// === CTA STICKY (BARRA INFERIOR FIJA) ===
+// Barra que aparece al hacer scroll, fija al bottom de la pantalla
+// Muestra el nombre del producto y botones de cotización y WhatsApp
+// Se activa cuando stickyVisible() retorna true en specs.ts
+.specs-sticky-cta {
+  position: fixed;      // Fijo al viewport — no se mueve con el scroll
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;         // Por encima del contenido pero debajo del header (1050)
+  background: #374151;  // Gris oscuro corporativo
+  border-top: 2px solid #4b5563;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  transform: translateY(100%);   // Estado oculto: desplazado completamente fuera de la pantalla hacia abajo
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); // Animación suave de entrada
+
+  &.sticky-visible { transform: translateY(0); } // Estado visible: sube a su posición normal con la animación
+
+  .sticky-nombre {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sticky-sep {
+    width: 1px;
+    height: 28px;
+    background: #6b7280;
+    flex-shrink: 0;
+
+    @media (max-width: 480px) { display: none; }
+  }
+
+  .sticky-btns {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .sticky-btn-cot {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #7f7c7c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+    white-space: nowrap;
+    &:hover { background: #555555; }
+  }
+
+  .sticky-btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: #25d366;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+    &:hover { background: #1ebe5d; }
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 12px;
+    .sticky-nombre { display: none; }
+    .sticky-btn-cot, .sticky-btn-wa { padding: 8px 12px; font-size: 12px; }
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// BREAKPOINTS 480px / 320px
+// ══════════════════════════════════════════════════════════════
+@media (max-width: 480px) {
+  .specs-titulo         { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .btn-cotizar-hero,
+  .btn-wa-hero,
+  .btn-pdf-hero         { font-size: 0.82rem; padding: 0.65rem 1rem; }
+  .tamano-chip          { font-size: 11px; padding: 3px 8px; }
+  .quick-stat .qs-value { font-size: 1.5rem; }
+  .tabs-header-inner    { gap: 4px; }
+  .tab-btn              { font-size: 12px; padding: 0.7rem 0.8rem; }
+  .te-spec-label        { flex: 0 0 50%; font-size: 0.78rem; }
+  .te-spec-value        { font-size: 0.78rem; }
+  .cta-cotizacion       { padding: 2.5rem 0; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// INFORMACIÓN GENERAL — clases ig-* (tab contenido)
+// ══════════════════════════════════════════════════════════════
+
+// Párrafo intro — callout destacado con borde izquierdo de acento
+.specs-intro-text {
+  position: relative;
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.9;
+  margin-bottom: 2rem;
+  padding: 1.4rem 1.75rem;
+  background: #fff;
+  border-left: 4px solid var(--primary, #c8102e);
+  border-radius: 0 14px 14px 0;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+}
+
+// Grid de 2 columnas — left: características+descripción / right: tabla+aplicaciones+funcionamiento
+.info-general-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+
+  @media (max-width: 991px) { grid-template-columns: 1fr; }
+}
+
+.ig-col-left,
+.ig-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+// Tarjeta de bloque — superficie blanca con sombra suave
+.ig-block {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+    transform: translateY(-2px);
+  }
+}
+
+// Subtítulo de sección — etiqueta uppercase con línea decorativa
+.ig-subtitle {
+  position: relative;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin: 0 0 1.1rem 0;
+  padding-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    border-radius: 3px;
+    background: var(--primary, #c8102e);
+    flex-shrink: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, #e9ecef 60%, transparent);
+  }
+}
+
+// Lista de características especiales — checkmarks verdes
+.ig-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.65;
+
+    &::before {
+      content: '';
+      flex: 0 0 20px;
+      height: 20px;
+      margin-top: 1px;
+      border-radius: 50%;
+      background-color: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2310b981'%3E%3Cpath d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+      background-size: 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Párrafo de texto general
+.ig-text {
+  font-size: 0.93rem;
+  color: #4b5563;
+  line-height: 1.85;
+  margin: 0;
+  white-space: pre-line;
+}
+
+// Tabla de características técnicas
+.ig-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+
+  tr {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.15s ease;
+
+    &:last-child { border-bottom: none; }
+    &:nth-child(even) { background: #f8fafc; }
+    &:hover { background: #f0f4f8; }
+  }
+}
+
+.ig-table-key {
+  padding: 0.6rem 1rem 0.6rem 0.25rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #6b7280;
+  width: 40%;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.ig-table-val {
+  padding: 0.6rem 0.25rem 0.6rem 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #1f2937;
+  vertical-align: top;
+}
+
+// Texto de ventajas de marca y accesorios — tarjeta con tipografía legible
+.ventajas-texto,
+.accesorios-texto {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.9;
+  white-space: pre-line;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 860px;
+
+  @media (max-width: 575px) { padding: 1.25rem 1.25rem; }
+}

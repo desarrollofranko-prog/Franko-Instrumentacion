@@ -1,0 +1,376 @@
+<main>
+  <section class="hero-banner position-relative d-flex align-items-center">
+    <img ngSrc="assets/images/site/slide_home_1.webp"
+         alt="Planta industrial con equipos de seguridad Franko"
+         class="hero-bg-img"
+         width="1920" height="900"
+         priority>
+    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    <div class="container position-relative text-center" style="z-index:2">
+      <p class="hero-eyebrow mb-4">ISO 9001 · Más de 35 años protegiendo industrias</p>
+      <h1 class="text-white fw-bold hero-slogan mb-3">
+        Ingeniería que Protege.<br>
+        <span class="hero-slogan-accent">Calidad que Perdura.</span>
+      </h1>
+      <p class="text-white mb-5 hero-sub" style="opacity: 0.92;">
+        Fabricantes mexicanos de equipos para control de presión, alivio de emergencia y seguridad en procesos.<br>
+        Soluciones certificadas para las industrias más exigentes del país.
+      </p>
+      <div class="hero-cta d-flex align-items-center justify-content-center gap-3 flex-wrap">
+        <a routerLink="/productos" class="btn btn-accent px-4 py-2 fw-bold">Explorar Catálogo</a>
+        <a href="https://franko.com.mx/pdfs/certIso.pdf" target="_blank" rel="noopener" class="hero-iso-badge" aria-label="Descargar Certificado ISO 9001 en formato PDF">
+          <i class="bi bi-patch-check-fill me-2" aria-hidden="true"></i>Certificados ISO 9001
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-bar">
+    <div class="container">
+      <div class="features-row">
+        @for (f of features; track f.title) {
+          <div class="feature-item">
+            <div class="feature-icon-box">
+              <i [class]="f.icon" aria-hidden="true"></i>
+            </div>
+            <div class="feature-text">
+              <div class="feature-title">{{ f.title }}</div>
+              <div class="feature-desc">{{ f.desc }}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <div class="row g-0 stats-row justify-content-center">
+        @for (stat of stats; track stat.label) {
+          <div class="col-6 col-md-4 stat-item">
+            <div class="stat-number">
+              <span class="stat-count" [attr.data-target]="stat.value">0</span>{{ stat.suffix }}
+            </div>
+            <div class="stat-label">{{ stat.label }}</div>
+            <div class="stat-sub">{{ stat.sub }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mosaic-section">
+    <div class="row g-0 categories-mosaic">
+
+      <div class="col-md-6 reveal-left">
+        <a [routerLink]="['/productos']" fragment="alivio-de-presion" class="cat-mosaic-card cat-large d-block position-relative overflow-hidden" aria-label="Ver catálogo de Alivio de Presión y Tank Blanketing">
+          <img src="assets/images/site/img_cat_home_1.webp" alt="Válvulas de Alivio de Presión instaladas en planta industrial" class="cat-mosaic-bg-img" width="800" height="800" loading="lazy" decoding="async">
+          <div class="cat-mosaic-overlay">
+            <span class="cat-label">Alivio de Presión, Tank Blanketing</span>
+            <span class="cat-count">+10 Productos</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row g-0">
+
+          <div class="col-6 reveal" style="transition-delay:0.10s">
+            <a [routerLink]="['/productos']" fragment="control-y-medicion" class="cat-mosaic-card cat-small d-block position-relative overflow-hidden" aria-label="Ver catálogo de Indicación y Control de Nivel">
+              <img src="assets/images/site/img_cat_home_2.webp" alt="Equipos de medición y control de nivel industrial" class="cat-mosaic-bg-img" width="800" height="800" loading="lazy" decoding="async">
+              <div class="cat-mosaic-overlay">
+                <span class="cat-label">Indicación y Control de Nivel</span>
+                <span class="cat-count">+8 Productos</span>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-6 reveal" style="transition-delay:0.20s">
+            <a [routerLink]="['/productos']" fragment="alivio-emergente" class="cat-mosaic-card cat-small d-block position-relative overflow-hidden" aria-label="Ver catálogo de Ventilas de Emergencia">
+              <img src="assets/images/site/img_cat_home_3.webp" alt="Ventilas de emergencia para alivio de presión en tanques" class="cat-mosaic-bg-img" width="800" height="800" loading="lazy" decoding="async">
+              <div class="cat-mosaic-overlay">
+                <span class="cat-label">Ventilas de Emergencia</span>
+                <span class="cat-count">+5 Productos</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 reveal" style="transition-delay:0.30s">
+            <a [routerLink]="['/productos']" fragment="arrestadores-de-flama" class="cat-mosaic-card cat-small cat-wide d-block position-relative overflow-hidden" aria-label="Ver catálogo de Extinción y Prevención de Flama">
+              <img src="assets/images/site/img_cat_home_4.webp" alt="Sistemas de arrestadores de flama industriales" class="cat-mosaic-bg-img" width="800" height="800" loading="lazy" decoding="async">
+              <div class="cat-mosaic-overlay">
+                <span class="cat-label">Extinción y Prevención de Flama</span>
+                <span class="cat-count">+10 Productos</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="popular-products-section py-5">
+    <div class="container">
+
+      <div class="section-heading text-center mb-5 reveal" data-bg="PRODUCTOS">
+        <span class="section-eyebrow">Catálogo Destacado</span>
+        <h2 class="section-title mt-2 mb-2">Productos más Populares</h2>
+        <p class="section-sub mb-3">Equipos certificados y probados en campo — los más elegidos por las principales industrias de México.</p>
+        <div class="title-divider mx-auto"></div>
+      </div>
+
+      <div class="row g-4">
+        @for (prod of products; track prod.serie; let pi = $index) {
+          <div class="col-lg-3 col-md-4 col-6 reveal" [style.transition-delay]="(pi * 0.08) + 's'">
+            <a [routerLink]="prod.link" class="card product-card h-100 text-decoration-none position-relative" [attr.aria-label]="'Ver detalles de ' + prod.name + ' ' + prod.serie">
+              @if (prod.badge) {
+                <span class="product-badge">{{ prod.badge }}</span>
+              }
+              <div class="product-img-box">
+                <img [ngSrc]="prod.image" [alt]="prod.name" class="product-img" width="400" height="400">
+                <span class="product-watermark" aria-hidden="true">F</span>
+              </div>
+              <div class="card-body px-3 pt-3 pb-0">
+                <div class="product-stars mb-1">
+                  @for (star of [1,2,3,4,5]; track star) {
+                    <i [class]="star <= prod.rating ? 'bi bi-star-fill star-filled' : 'bi bi-star star-empty'" aria-hidden="true"></i>
+                  }
+                </div>
+                <div class="product-name">{{ prod.name }}</div>
+                <div class="product-serie mb-3">{{ prod.serie }}</div>
+              </div>
+              <div class="product-card-footer">
+                <span class="product-ver-detalles">
+                  <i class="bi bi-eye me-1" aria-hidden="true"></i>Ver detalles
+                </span>
+              </div>
+            </a>
+          </div>
+        }
+      </div>
+
+      <div class="text-center mt-5 reveal" style="transition-delay:0.2s">
+        <a routerLink="/productos" class="btn btn-see-all">
+          Ver Todos los Productos <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="brands-section reveal">
+    <div class="section-heading text-center mb-5" data-bg="MARCAS">
+      <h2 class="section-title mb-2">Empresas que confían en Franko</h2>
+      <p class="section-sub">Más de 200 clientes activos en todo el país respaldan nuestra calidad.</p>
+    </div>
+
+    <div class="brands-carousel-container">
+      <div class="brands-carousel-viewport">
+        <div class="brands-carousel-track">
+          @for (b of brandLogosLoop; track $index) {
+            <div class="brands-carousel-slide">
+              <img [ngSrc]="b.src" [alt]="'Logotipo de ' + b.name" class="brand-logo-img" width="140" height="60">
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="py-5 industry-section" id="industrias">
+    <div class="container">
+      <div class="section-heading text-center mb-5 reveal" data-bg="INDUSTRIAS">
+        <span class="section-eyebrow-dark">Tu Industria</span>
+        <h2 class="section-title mt-2 mb-2">La solución exacta para cada proceso</h2>
+        <p class="industry-section-sub mb-3">Cada industria enfrenta riesgos únicos — nosotros llevamos más de 35 años desarrollando el equipo certificado para enfrentarlos.</p>
+        <div class="title-divider mx-auto"></div>
+      </div>
+      <div class="industry-row">
+        @for (ind of industries; track ind.title; let ii = $index) {
+          <div class="industry-panel reveal" [style.transition-delay]="(ii * 0.12) + 's'">
+            <a [routerLink]="ind.link" class="industry-card-link" [attr.aria-label]="'Ver guía de productos para la industria ' + ind.title">
+              <img [src]="ind.image" [alt]="'Complejo industrial del sector ' + ind.title" class="industry-panel-img" loading="lazy" decoding="async">
+              <div class="industry-panel-overlay">
+                <div class="industry-panel-content">
+                  <span class="industry-card-tag"><i class="bi bi-shield-check me-1" aria-hidden="true"></i>Industria</span>
+                  <h3 class="industry-card-title">{{ ind.title }}</h3>
+                  <div class="industry-panel-extra">
+                    <p class="industry-card-tagline">{{ ind.tagline }}</p>
+                    <p class="industry-card-desc">{{ ind.desc }}</p>
+                    <span class="industry-card-cta">Ver guía de productos <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal-left">
+          <div class="about-img-wrap">
+            <img ngSrc="assets/images/Imagenes/aboutUs-retoque.jpg" alt="Instalaciones y equipo de Franko Instrumentación" class="about-img" width="800" height="533">
+            <div class="about-iso-badge">
+              <i class="bi bi-patch-check-fill" aria-hidden="true"></i>
+              <span>ISO 9001<br><small>Certificados</small></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal-right">
+          <div class="section-heading section-heading--left mb-3" data-bg="NOSOTROS">
+            <span class="section-eyebrow">Nuestra Historia</span>
+            <h2 class="section-title mt-2 mb-0">Pioneros en seguridad<br>industrial desde 1990</h2>
+          </div>
+          <p class="text-muted mb-3" style="font-size:14.5px;line-height:1.8">
+            Franko nació en México con una misión clara: fabricar equipos de control de presión y seguridad industrial
+            con la misma calidad que los mejores proveedores internacionales, pero con respaldo local y tiempos de entrega reales.
+          </p>
+          <p class="text-muted mb-4" style="font-size:14.5px;line-height:1.8">
+            Más de 35 años después, nuestros productos protegen tanques de almacenamiento, destilerías, refinerías y
+            plantas de biogás en todo el país — respaldados por nuestra certificación ISO 9001 y mecanizado CNC de alta precisión.
+          </p>
+          <div class="about-highlights">
+            <div class="about-highlight-item">
+              <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+              <span>Fabricación 100% nacional · Cd. López Mateos, Edo. de México</span>
+            </div>
+            <div class="about-highlight-item">
+              <i class="bi bi-tools" aria-hidden="true"></i>
+              <span>Mecanizado CNC en aceros y aleaciones especiales</span>
+            </div>
+            <div class="about-highlight-item">
+              <i class="bi bi-patch-check-fill" aria-hidden="true"></i>
+              <span>Certificación ISO 9001 en manufactura y pruebas</span>
+            </div>
+          </div>
+          <div class="mt-4 d-flex gap-3 flex-wrap">
+            <a routerLink="/contacto" class="btn btn-accent px-4 py-2 fw-bold">Contáctanos</a>
+            <a href="https://franko.com.mx/pdfs/certIso.pdf" target="_blank" rel="noopener" class="btn btn-outline-secondary px-4 py-2 fw-semibold" aria-label="Ver documento PDF del certificado ISO">Ver Certificado ISO</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TESTIMONIOS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="testimonios-section py-5">
+    <div class="container">
+      <div class="section-heading text-center mb-5 reveal" data-bg="CLIENTES">
+        <span class="section-eyebrow">Clientes que confían en nosotros</span>
+        <h2 class="section-title mt-2 mb-2">Lo que dicen nuestros clientes</h2>
+        <p class="section-sub">Más de 35 años respaldando operaciones en las industrias más exigentes de México.</p>
+        <div class="title-divider mx-auto"></div>
+      </div>
+      <div class="row g-4">
+        @for (t of testimonios; track t.autor; let ti = $index) {
+          <div class="col-lg-4 col-md-6 reveal" [style.transition-delay]="(ti * 0.1) + 's'">
+            <div class="testimonio-card">
+              <div class="testimonio-quote-icon" aria-hidden="true"><i class="bi bi-quote"></i></div>
+              <p class="testimonio-texto">"{{ t.texto }}"</p>
+              <div class="testimonio-footer">
+                <div class="testimonio-avatar" aria-hidden="true">{{ t.autor[0] }}</div>
+                <div>
+                  <div class="testimonio-autor">{{ t.autor }}</div>
+                  <div class="testimonio-cargo">{{ t.cargo }}</div>
+                </div>
+              </div>
+              <div class="testimonio-stars" aria-label="5 estrellas">
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div>
+          <h2 class="cta-title" style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem;">¿Tienes un proyecto o necesitas cotizar?</h2>
+          <p class="cta-sub">Nuestros ingenieros te asesoran sin costo. Respuesta en menos de 24 horas.</p>
+        </div>
+        <div class="cta-actions">
+          <a routerLink="/contacto" class="btn btn-light fw-bold px-4 py-2">Enviar consulta</a>
+          <a href="https://api.whatsapp.com/send?phone=5215518120191&text=Hola%2C%20necesito%20una%20cotizaci%C3%B3n"
+             target="_blank" rel="noopener" class="btn cta-wa-btn fw-bold px-4 py-2" aria-label="Contactar a un ingeniero asesor por WhatsApp">
+            <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════════════════ -->
+  <section class="faq-section py-5 bg-light">
+    <div class="container">
+      <div class="section-heading text-center mb-5 reveal" data-bg="SOPORTE">
+        <span class="section-eyebrow">Preguntas Frecuentes</span>
+        <h2 class="section-title mt-2 mb-2">Resolvemos tus dudas</h2>
+        <p class="section-sub">Las preguntas más comunes de nuestros clientes sobre productos, pedidos y soporte.</p>
+        <div class="title-divider mx-auto"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="faq-list reveal">
+            @for (faq of faqs; track faq.pregunta; let fi = $index) {
+              <div class="faq-item" [class.faq-open]="faqAbierto === fi">
+                <button class="faq-btn" type="button" (click)="toggleFaq(fi)" [attr.aria-expanded]="faqAbierto === fi">
+                  <span>{{ faq.pregunta }}</span>
+                  <i class="bi" [class.bi-plus-lg]="faqAbierto !== fi" [class.bi-dash-lg]="faqAbierto === fi" aria-hidden="true"></i>
+                </button>
+                <div class="faq-body" [class.faq-body-open]="faqAbierto === fi">
+                  <p>{{ faq.respuesta }}</p>
+                </div>
+              </div>
+            }
+          </div>
+          <div class="text-center mt-4 reveal">
+            <p class="text-muted small">¿No encontraste lo que buscas?</p>
+            <a routerLink="/contacto" class="btn btn-outline-secondary px-4 py-2 fw-bold">Habla con un ingeniero</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="docs-section py-5 bg-white">
+    <div class="container">
+      <div class="section-heading text-center mb-4 reveal" data-bg="DESCARGAS">
+        <span class="section-eyebrow">Centro de Descargas</span>
+        <h2 class="section-title mt-2 mb-2">Documentación Técnica</h2>
+        <p class="section-sub" style="font-size:14px">Accede a nuestros documentos de referencia técnica y certificaciones.</p>
+      </div>
+      <div class="row g-3 justify-content-center">
+        @for (doc of techDocs; track doc.title; let di = $index) {
+          <div class="col-md-4 col-lg-3 reveal" [style.transition-delay]="(di * 0.1) + 's'">
+            <a [href]="doc.url" target="_blank" rel="noopener" class="doc-card" [attr.aria-label]="'Descargar documento técnico: ' + doc.title">
+              <i [class]="doc.icon + ' doc-icon'" aria-hidden="true"></i>
+              <div class="doc-info">
+                <div class="doc-title">{{ doc.title }}</div>
+                <div class="doc-type">{{ doc.type }}</div>
+              </div>
+              <i class="bi bi-download doc-dl" aria-hidden="true"></i>
+            </a>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</main>

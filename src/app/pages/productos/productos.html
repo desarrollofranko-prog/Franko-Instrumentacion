@@ -1,0 +1,186 @@
+<main>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb-nav" aria-label="breadcrumb">
+    <div class="container-fluid px-4">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Productos</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="/assets/images/Imagenes/tn-i-Petro.webp" alt="" class="hero-bg-img" fetchpriority="high" decoding="sync" aria-hidden="true">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Catálogo completo</span>
+      <h1 class="titulo">NUESTROS PRODUCTOS</h1>
+      <p class="hero-sub">Más de 30 líneas especializadas para la industria</p>
+      <div class="hero-line"></div>
+    </div>
+  </section>
+
+  <!-- ¿Por qué comprar con nosotros? -->
+  <section class="por-que-section" aria-label="Razones para elegir Franko">
+    <div class="container-fluid px-4">
+      <div class="section-heading text-center mb-5 reveal" data-bg="CALIDAD">
+        <h2 class="section-title mb-2">¿Por qué comprar con nosotros?</h2>
+        <p class="section-sub">Productos que cumplen los estándares más exigentes de la industria.</p>
+      </div>
+      <div class="pq-grid">
+
+        <div class="pq-item reveal">
+          <div class="pq-icon"><i class="bi bi-award-fill" aria-hidden="true"></i></div>
+          <h3 class="pq-title">Normas Internacionales</h3>
+          <p class="pq-text">Fabricados bajo API 2000, NFPA 30, ISO 16852 e ISO 9001. Cada producto cumple los estándares de seguridad más exigentes de la industria global.</p>
+        </div>
+
+        <div class="pq-item reveal">
+          <div class="pq-icon"><i class="bi bi-shield-fill-check" aria-hidden="true"></i></div>
+          <h3 class="pq-title">Materiales Certificados</h3>
+          <p class="pq-text">Acero inoxidable, aluminio y aleaciones especiales. Certificados de material disponibles bajo solicitud para trazabilidad total del producto.</p>
+        </div>
+
+        <div class="pq-item reveal">
+          <div class="pq-icon"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i></div>
+          <h3 class="pq-title">Ingeniería Personalizada</h3>
+          <p class="pq-text">Adaptamos dimensiones, materiales y configuraciones a las especificaciones exactas de tu proceso. No vendemos catálogo, resolvemos tu problema.</p>
+        </div>
+
+        <div class="pq-item reveal">
+          <div class="pq-icon"><i class="bi bi-headset" aria-hidden="true"></i></div>
+          <h3 class="pq-title">Soporte Post-Venta</h3>
+          <p class="pq-text">Asesoría técnica, refacciones originales y servicio de campo por ingenieros especializados en instrumentación industrial.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Toggle sidebar móvil -->
+  <div class="sidebar-mobile-toggle d-lg-none">
+    <div class="container-fluid px-4">
+      <button class="sidebar-toggle-btn" type="button" (click)="sidebarAbierto = !sidebarAbierto" [attr.aria-expanded]="sidebarAbierto">
+        <i class="bi bi-grid-fill me-2" aria-hidden="true"></i>
+        Filtrar por categoría
+        <i class="bi ms-auto" [class.bi-chevron-down]="!sidebarAbierto" [class.bi-chevron-up]="sidebarAbierto" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="container-fluid py-5 px-4">
+    <div class="row g-4">
+
+      <!-- Sidebar: Lista de categorías -->
+      <aside class="col-lg-3 col-md-4"
+        style="align-self: flex-start; position: sticky; top: 136px;"
+        [class.sidebar-hidden]="!sidebarAbierto"
+        [class.sidebar-visible]="sidebarAbierto">
+
+        <div class="sidebar-categorias">
+          <div class="sidebar-header">
+            <i class="bi bi-grid-fill me-2" aria-hidden="true"></i>Categorías
+          </div>
+          <div class="list-group">
+            <div
+              *ngFor="let cat of categorias"
+              [id]="'sidebar-' + cat.id"
+              class="sidebar-item list-group-item d-flex align-items-center gap-2"
+              [class.sidebar-item--active]="activeCatId === cat.id"
+              [class.cat-ambar]="['arrestadores-de-flama','formadores-de-espuma'].includes(cat.id)"
+              [class.cat-verde]="['control-y-medicion'].includes(cat.id)"
+              [class.cat-azul]="['cristales-visores'].includes(cat.id)"
+              [attr.aria-label]="cat.nombre"
+              (click)="scrollToCategory(cat.id)">
+              <i class="bi bi-chevron-right sidebar-chevron" aria-hidden="true"></i>
+              <span>{{ cat.nombre }}</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Productos por categoría -->
+      <section class="col-lg-9 col-md-8">
+
+        <!-- Banner de búsqueda activa -->
+        <div *ngIf="busqueda" class="busqueda-banner mb-4">
+          <div class="busqueda-banner-inner">
+            <i class="bi bi-search me-2" aria-hidden="true"></i>
+            <span>Resultados para: <strong>{{ busqueda }}</strong></span>
+          </div>
+        </div>
+
+        <!-- Sin resultados -->
+        <div *ngIf="busqueda && categoriasFiltradas.length === 0" class="sin-resultados">
+          <i class="bi bi-search sin-resultados-icon" aria-hidden="true"></i>
+          <h3 class="sin-resultados-titulo">Sin resultados para "{{ busqueda }}"</h3>
+          <p class="sin-resultados-sub">Intenta con otro término o revisa el catálogo completo.</p>
+        </div>
+
+        <div *ngFor="let cat of categoriasFiltradas" [id]="cat.id" data-cat-section class="mb-5">
+
+          <h2 class="cat-title reveal-left" [ngClass]="getCatTitleClass(cat.id)">
+            <i class="bi bi-box-seam me-2" aria-hidden="true"></i>{{ cat.nombre }}
+          </h2>
+
+          <div class="cat-info mb-4 reveal">
+            <p class="cat-descripcion">{{ cat.descripcionCat }}</p>
+            <div class="cat-industrias" aria-label="Industrias de aplicación">
+              <span *ngFor="let ind of cat.industrias" class="ind-tag">{{ ind }}</span>
+            </div>
+          </div>
+
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4">
+            <div *ngFor="let producto of cat.productos" class="col d-flex justify-content-center">
+              <div class="producto-card shadow-sm border-0 reveal">
+                <div class="card-img-wrapper">
+                  <img [src]="producto.imagen" [alt]="producto.nombre" width="380" height="380" loading="lazy" decoding="async">
+                  <a [routerLink]="'/productos/' + producto.ruta" class="img-overlay" [attr.aria-label]="'Ver detalles de ' + producto.nombre">
+                    <span class="img-overlay-label">
+                      <i class="bi bi-eye me-2" aria-hidden="true"></i>Ver detalles
+                    </span>
+                  </a>
+                </div>
+                <div class="producto-info">
+                  <h5 class="producto-nombre">{{ producto.nombre }}</h5>
+                  <p class="producto-desc">{{ producto.descripcion }}</p>
+                  <span class="serie-tag" [ngClass]="getSerieClass(producto.serie)">{{ producto.serie }}</span>
+                  <div class="card-actions">
+                    <a [routerLink]="'/productos/' + producto.ruta" class="btn-ver-detalles" [attr.aria-label]="'Ver detalles de ' + producto.nombre">
+                      <i class="bi bi-eye me-1" aria-hidden="true"></i>Ver detalles
+                    </a>
+                    <button type="button" class="btn-cotizar"
+                      [ngClass]="getSerieClass(producto.serie)"
+                      (click)="cotizarProducto(producto, cat.nombre)"
+                      [attr.aria-label]="'Cotizar ' + producto.nombre">
+                      <i class="bi bi-envelope me-1" aria-hidden="true"></i>Cotizar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- CTA Final -->
+  <section class="cta-section" aria-label="Contacto para asesoría de productos">
+    <div class="cta-inner container-fluid px-4">
+      <div class="cta-text reveal-left">
+        <h2 class="cta-title">¿No encuentras lo que necesitas?</h2>
+        <p class="cta-sub">Cuéntanos tu proyecto y nuestros ingenieros te asesorarán en la selección del producto correcto para tu proceso.</p>
+      </div>
+      <a routerLink="/contacto" class="cta-btn">
+        <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>Contactar un Ingeniero
+      </a>
+    </div>
+  </section>
+
+</main>

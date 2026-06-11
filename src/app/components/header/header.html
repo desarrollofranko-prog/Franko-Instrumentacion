@@ -1,0 +1,314 @@
+<header class="site-header" [class.header-scrolled]="isScrolled">
+  <div class="nav-row-1">
+    <div class="container d-flex align-items-center justify-content-between nav-row-1-inner">
+      <div class="d-flex align-items-center gap-3">
+        <a routerLink="/" (click)="closeAll()" aria-label="Ir al inicio de Franko">
+          <img src="assets/images/logos/LogoBlanco.png" alt="Logo de Franko Instrumentación" width="184" height="46" style="height:46px;width:auto;" fetchpriority="high">
+        </a>
+        <a href="tel:+525558165957" class="header-phone d-none d-xl-flex" aria-label="Llamar al teléfono de atención +52 55-5816-5957">
+          <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+          <span>+52 55-5816-5957</span>
+        </a>
+      </div>
+
+      <nav class="d-none d-lg-flex align-items-center h-100" aria-label="Navegación principal">
+        <a routerLink="/" class="nav-link-red" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{exact:true}" (click)="closeAll()" aria-label="Ir al inicio"><i class="bi bi-house-door-fill" aria-hidden="true"></i></a>
+        <span class="nav-separator" aria-hidden="true">|</span>
+
+        <div class="h-100 d-flex align-items-center"
+             (mouseenter)="openMenu('productos')" (mouseleave)="closeMenu()">
+          <button type="button" class="nav-link-red" [class.nav-link-active]="isProductosActive" routerLink="/productos" (click)="closeAll()" aria-label="Ver todos los productos" aria-expanded="false" aria-haspopup="true">PRODUCTOS <i class="bi bi-chevron-down nav-arrow" [class.rotated]="activeMenu==='productos'" aria-hidden="true"></i></button>
+
+          <div class="mega-dropdown mega-productos shadow-lg" *ngIf="activeMenu==='productos'">
+            <div class="mega-inner">
+
+              <div class="mega-left">
+                <p class="mega-left-eyebrow">Catálogo</p>
+                <h2 class="mega-left-title">Productos</h2>
+                <p class="mega-left-sub">Más de 30 líneas especializadas para la industria</p>
+                <a href="https://franko.com.mx/pdfs/catalogo-general.pdf" target="_blank" rel="noopener" class="mega-ver-todos-btn" aria-label="Descargar catálogo general de productos Franko en PDF">
+                  <i class="bi bi-download me-2" aria-hidden="true"></i>Ver Catálogo
+                </a>
+              </div>
+
+              <div class="mega-cols">
+
+                <div class="mega-col">
+                  <div class="mega-col-header"><i class="bi bi-wrench" aria-hidden="true"></i> Válvulas</div>
+
+                  <div class="mega-col-section">Válvulas de Alivio</div>
+                  <a class="mega-item" routerLink="/productos/1000" (click)="closeAll()"><span class="mega-num">1000</span> Alivio Presión/Vacío</a>
+                  <a class="mega-item" routerLink="/productos/1010" (click)="closeAll()"><span class="mega-num">1010</span> Presión Dirigida/Vacío</a>
+                  <a class="mega-item" routerLink="/productos/1030" (click)="closeAll()"><span class="mega-num">1030</span> Alivio de Vacío</a>
+                  <a class="mega-item" routerLink="/productos/1040" (click)="closeAll()"><span class="mega-num">1040</span> Alivio de Presión</a>
+
+                  <div class="mega-col-section">Válvulas Blanketing</div>
+                  <a class="mega-item" routerLink="/productos/1080" (click)="closeAll()"><span class="mega-num">1080</span> Tank Blanketing baja presión</a>
+
+                  <div class="mega-col-section">Accesorios</div>
+                  <a class="mega-item" routerLink="/productos/3000" (click)="closeAll()"><span class="mega-num">3000</span> Escotilla de Medición</a>
+                </div>
+
+                <div class="mega-col">
+                  <div class="mega-col-header"><i class="bi bi-shield-check" aria-hidden="true"></i> Seguridad</div>
+
+                  <div class="mega-col-section">Alivio Emergente</div>
+                  <a class="mega-item" routerLink="/productos/3010" (click)="closeAll()"><span class="mega-num">3010</span> Ventila Baja Presión</a>
+                  <a class="mega-item" routerLink="/productos/3015" (click)="closeAll()"><span class="mega-num">3015</span> Ventila con Brazo</a>
+                  <a class="mega-item" routerLink="/productos/3020" (click)="closeAll()"><span class="mega-num">3020</span> Ventila Alta Presión</a>
+                  <a class="mega-item" routerLink="/productos/3030" (click)="closeAll()"><span class="mega-num">3030</span> Ventila Presión/Vacío</a>
+
+                  <div class="mega-col-section">Arrestadores de Flama</div>
+                  <a class="mega-item" routerLink="/productos/2000" (click)="closeAll()"><span class="mega-num">2000</span> Arr. de Deflagración</a>
+                  <a class="mega-item" routerLink="/productos/2010" (click)="closeAll()"><span class="mega-num">2010</span> Arr. de Detonación</a>
+                  <a class="mega-item" routerLink="/productos/2020" (click)="closeAll()"><span class="mega-num">2020</span> Flame Check</a>
+                  <a class="mega-item" routerLink="/productos/2030" (click)="closeAll()"><span class="mega-num">2030</span> Arr. Compacto</a>
+                  <a class="mega-item" routerLink="/productos/2035" (click)="closeAll()"><span class="mega-num">2035</span> Arr. con Válvula P/V Integrada</a>
+                </div>
+
+                <div class="mega-col">
+                  <div class="mega-col-header"><i class="bi bi-speedometer2" aria-hidden="true"></i> Medición</div>
+
+                  <div class="mega-col-section">Formadores de Espuma</div>
+                  <a class="mega-item" routerLink="/productos/2200" (click)="closeAll()"><span class="mega-num">2200</span> Cámara de Espuma</a>
+                  <a class="mega-item" routerLink="/productos/2210" (click)="closeAll()"><span class="mega-num">2210</span> Formador de Espuma</a>
+
+                  <div class="mega-col-section">Medición y Control</div>
+                  <a class="mega-item" routerLink="/productos/4000" (click)="closeAll()"><span class="mega-num">4000</span> Ind. Tubular Acorazado</a>
+                  <a class="mega-item" routerLink="/productos/4005" (click)="closeAll()"><span class="mega-num">4005</span> Ind. Tubular</a>
+                  <a class="mega-item" routerLink="/productos/4010" (click)="closeAll()"><span class="mega-num">4010</span> Regleta de Medición</a>
+                  <a class="mega-item" routerLink="/productos/4040" (click)="closeAll()"><span class="mega-num">4040</span> Ind. Cristal Plano</a>
+                  <a class="mega-item" routerLink="/productos/4200" (click)="closeAll()"><span class="mega-num">4200</span> Ind. Magnético</a>
+                  <a class="mega-item" routerLink="/productos/5010" (click)="closeAll()"><span class="mega-num">5010</span> Trans. Ultrasónico</a>
+                  <a class="mega-item" routerLink="/productos/5020" (click)="closeAll()"><span class="mega-num">5020</span> Switch</a>
+                </div>
+
+                <div class="mega-col mega-col-last">
+                  <div class="mega-col-header"><i class="bi bi-eye" aria-hidden="true"></i> Visores</div>
+
+                  <div class="mega-col-section">Visores y Mirillas</div>
+                  <a class="mega-item" routerLink="/productos/6010" (click)="closeAll()"><span class="mega-num">6010</span> Mirilla Tubular 360°</a>
+                  <a class="mega-item" routerLink="/productos/6020" (click)="closeAll()"><span class="mega-num">6020</span> Visor a Proceso</a>
+
+                  <div class="mega-menu-img-wrap mt-4">
+                    <img src="assets/images/Imagenes/imgMnu.webp" alt="Catálogo completo de productos Franko" class="mega-menu-img" width="200" height="160" loading="lazy" decoding="async">
+                  </div>
+                </div>
+
+              </div></div></div>
+        </div>
+        <span class="nav-separator" aria-hidden="true">|</span>
+
+        <div class="position-relative h-100 d-flex align-items-center"
+             (mouseenter)="openMenu('industrias')" (mouseleave)="closeMenu()">
+          <button type="button" class="nav-link-red" [class.nav-link-active]="isIndustriasActive" aria-expanded="false" aria-haspopup="true">INDUSTRIAS <i class="bi bi-chevron-down nav-arrow" [class.rotated]="activeMenu==='industrias'" aria-hidden="true"></i></button>
+          <div class="mega-dropdown mega-industrias shadow-lg bg-white rounded-bottom p-4" *ngIf="activeMenu==='industrias'">
+            <div class="row text-center g-3">
+              <div class="col-3" *ngFor="let ind of industriasNav">
+                <a [routerLink]="ind.link" (click)="closeAll()" class="d-block text-decoration-none ind-nav-item" [attr.aria-label]="'Ir a industria ' + ind.name">
+                  <img [src]="ind.img" [alt]="'Representación de la industria ' + ind.name" class="rounded-circle mb-2 border" width="120" height="120" style="width:120px;height:120px;object-fit:cover">
+                  <div class="fw-semibold text-dark small">{{ ind.name }}</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="nav-separator" aria-hidden="true">|</span>
+
+        <div class="position-relative h-100 d-flex align-items-center"
+             (mouseenter)="openMenu('soporte')" (mouseleave)="closeMenu()">
+          <button type="button" class="nav-link-red" aria-expanded="false" aria-haspopup="true">SOPORTE <i class="bi bi-chevron-down nav-arrow" [class.rotated]="activeMenu==='soporte'" aria-hidden="true"></i></button>
+          <div class="mega-dropdown soporte-dd shadow bg-white rounded-bottom py-2" *ngIf="activeMenu==='soporte'">
+            <a href="https://franko.com.mx/pdfs/certIso.pdf" target="_blank" rel="noopener" class="dropdown-item py-2 px-3 small" aria-label="Descargar Certificación ISO 9001 en PDF"><i class="bi bi-file-earmark-check me-2" aria-hidden="true"></i>Certificación ISO 9001</a>
+            <a href="https://franko.com.mx/pdfs/mesg-of-gas.pdf" target="_blank" rel="noopener" class="dropdown-item py-2 px-3 small" aria-label="Descargar documento de Clasificación de Gases IEC en PDF"><i class="bi bi-file-earmark-text me-2" aria-hidden="true"></i>Clasificación de Gases IEC</a>
+            <a href="https://franko.com.mx/pdfs/MetalCorrosion.pdf" target="_blank" rel="noopener" class="dropdown-item py-2 px-3 small" aria-label="Descargar tabla de Resistencia a la Corrosión en PDF"><i class="bi bi-file-earmark-text me-2" aria-hidden="true"></i>Resistencia a la Corrosión</a>
+          </div>
+        </div>
+        <span class="nav-separator" aria-hidden="true">|</span>
+
+        <a routerLink="/contacto" class="nav-cta-btn" (click)="closeAll()"><i class="bi bi-envelope-fill" aria-hidden="true"></i> CONTÁCTANOS</a>
+      </nav>
+
+      <button type="button" class="btn d-lg-none mobile-hamburger" (click)="toggleMobileMenu()" [attr.aria-label]="mobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'" [attr.aria-expanded]="mobileMenuOpen">
+        <span class="hamburger-icon" [class.active]="mobileMenuOpen">
+          <i class="bi bi-list fs-4 icon-bars" aria-hidden="true"></i>
+          <i class="bi bi-x-lg fs-4 icon-x" aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav-row-2">
+    <div class="nav-row-2-inner">
+      <button class="cat-toggle d-none d-lg-flex" (click)="toggleCatSidebar()" aria-label="Abrir barra lateral de categorías de productos">
+        <i class="bi bi-list fs-5" aria-hidden="true"></i> CATEGORÍAS
+      </button>
+      <div class="search-bar-wrap" style="position:relative;">
+        <form (ngSubmit)="doSearch()" class="input-group input-group-sm" role="search" autocomplete="off">
+          <input type="text" class="form-control" placeholder="Buscar producto, serie o categoría..."
+                 aria-label="Buscar productos"
+                 [(ngModel)]="searchQuery" name="searchQuery"
+                 (input)="buscarSugerencias()"
+                 (focus)="buscarSugerencias()"
+                 (blur)="cerrarSugerencias()"
+                 (keydown.arrowDown)="navegarSugerencia(1)"
+                 (keydown.arrowUp)="navegarSugerencia(-1)"
+                 (keydown.enter)="seleccionarActiva($event)"
+                 (keydown.escape)="mostrarSugerencias = false"
+                 autocomplete="off">
+          <button type="submit" class="btn btn-outline-secondary" aria-label="Buscar"><i class="bi bi-search" aria-hidden="true"></i></button>
+        </form>
+
+        <!-- Dropdown de sugerencias -->
+        <div class="search-suggestions" *ngIf="mostrarSugerencias && sugerencias.length > 0" role="listbox">
+          <div *ngFor="let s of sugerencias; let i = index"
+               class="suggestion-item"
+               [class.suggestion-item--active]="i === sugerenciaActiva"
+               (mousedown)="irAProducto(s.slug)"
+               role="option">
+            <img [src]="s.imagen | imagenUrl:'catalog'" [alt]="s.titulo" class="suggestion-img" width="40" height="40" loading="lazy">
+            <div class="suggestion-text">
+              <span class="suggestion-nombre">{{ s.titulo }}</span>
+              <span class="suggestion-meta">{{ s.serie }} · {{ s.categoriaNombre }}</span>
+            </div>
+            <i class="bi bi-arrow-right suggestion-arrow" aria-hidden="true"></i>
+          </div>
+          <div class="suggestion-footer" (mousedown)="doSearch()">
+            <i class="bi bi-search me-2" aria-hidden="true"></i>
+            Ver todos los resultados para "<strong>{{ searchQuery }}</strong>"
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu-backdrop" *ngIf="mobileMenuOpen" (click)="closeMobileMenu()" aria-hidden="true">
+  <button class="mobile-close-x" (click)="closeMobileMenu()" aria-label="Cerrar menú de navegación">
+    <i class="bi bi-x-lg" aria-hidden="true"></i>
+  </button>
+</div>
+
+<div class="mobile-menu d-lg-none" [class.is-open]="mobileMenuOpen" [attr.aria-hidden]="!mobileMenuOpen" role="dialog" aria-modal="true" aria-label="Menú de navegación móvil">
+
+    <div class="mobile-search-bar">
+      <form (ngSubmit)="doSearch()" class="mobile-search-form" role="search">
+        <input type="text" class="mobile-search-input" placeholder="Buscar productos..."
+               aria-label="Buscar productos" [(ngModel)]="searchQuery" name="searchQueryMobile">
+        <button type="submit" class="mobile-search-btn" aria-label="Buscar">
+          <i class="bi bi-search" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+
+    <nav class="mobile-menu-body" aria-label="Navegación principal móvil">
+
+      <a routerLink="/" class="mobile-nav-item" (click)="closeAll()" aria-label="Ir al inicio">
+        HOME
+      </a>
+
+      <div class="mobile-nav-group">
+        <button type="button" class="mobile-nav-item mobile-nav-toggle"
+                (click)="toggleMobileSection('productos')"
+                [attr.aria-expanded]="mobileExpandedSection === 'productos'"
+                aria-haspopup="true">
+          PRODUCTOS
+          <i class="bi bi-chevron-down mobile-chevron"
+             [class.rotated]="mobileExpandedSection === 'productos'"
+             aria-hidden="true"></i>
+        </button>
+        <div class="mobile-nav-sub" *ngIf="mobileExpandedSection === 'productos'">
+          <a routerLink="/productos" class="mobile-nav-sub-item mobile-nav-sub-main" (click)="closeAll()">
+            Ver todos los productos
+          </a>
+          <ng-container *ngFor="let cat of categories">
+            <button type="button" class="mobile-nav-sub-item" (click)="toggleMobileCat(cat.name)">
+              <i class="bi bi-chevron-right mobile-cat-chevron" [class.rotated]="mobileExpandedCat === cat.name" aria-hidden="true"></i>
+              {{ cat.name }}
+            </button>
+            <div class="mobile-cat-items" *ngIf="mobileExpandedCat === cat.name">
+              <a *ngFor="let item of cat.items"
+                 [routerLink]="getCatItemRoute(item)"
+                 class="mobile-cat-item"
+                 (click)="closeAll()">
+                {{ item }}
+              </a>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="mobile-nav-group">
+        <button type="button" class="mobile-nav-item mobile-nav-toggle"
+                (click)="toggleMobileSection('industrias')"
+                [attr.aria-expanded]="mobileExpandedSection === 'industrias'"
+                aria-haspopup="true">
+          INDUSTRIAS
+          <i class="bi bi-chevron-down mobile-chevron"
+             [class.rotated]="mobileExpandedSection === 'industrias'"
+             aria-hidden="true"></i>
+        </button>
+        <div class="mobile-nav-sub" *ngIf="mobileExpandedSection === 'industrias'">
+          <a *ngFor="let ind of industriasNav" [routerLink]="ind.link" class="mobile-nav-sub-item" (click)="closeAll()">
+            <i class="bi bi-chevron-right" aria-hidden="true"></i> {{ ind.name }}
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-group">
+        <button type="button" class="mobile-nav-item mobile-nav-toggle"
+                (click)="toggleMobileSection('soporte')"
+                [attr.aria-expanded]="mobileExpandedSection === 'soporte'"
+                aria-haspopup="true">
+          SOPORTE
+          <i class="bi bi-chevron-down mobile-chevron"
+             [class.rotated]="mobileExpandedSection === 'soporte'"
+             aria-hidden="true"></i>
+        </button>
+        <div class="mobile-nav-sub" *ngIf="mobileExpandedSection === 'soporte'">
+          <a href="https://franko.com.mx/pdfs/certIso.pdf" target="_blank" rel="noopener" class="mobile-nav-sub-item" (click)="closeAll()" aria-label="Descargar Certificación ISO 9001">
+            <i class="bi bi-file-earmark-check" aria-hidden="true"></i> Certificación ISO 9001
+          </a>
+          <a href="https://franko.com.mx/pdfs/mesg-of-gas.pdf" target="_blank" rel="noopener" class="mobile-nav-sub-item" (click)="closeAll()" aria-label="Descargar Clasificación de Gases IEC">
+            <i class="bi bi-file-earmark-text" aria-hidden="true"></i> Clasificación de Gases IEC
+          </a>
+          <a href="https://franko.com.mx/pdfs/MetalCorrosion.pdf" target="_blank" rel="noopener" class="mobile-nav-sub-item" (click)="closeAll()" aria-label="Descargar Resistencia a la Corrosión">
+            <i class="bi bi-file-earmark-text" aria-hidden="true"></i> Resistencia a la Corrosión
+          </a>
+        </div>
+      </div>
+
+      <a routerLink="/acerca-de" class="mobile-nav-item" (click)="closeAll()" aria-label="Ir a acerca de">
+        ACERCA DE
+      </a>
+
+      <a routerLink="/contacto" class="mobile-nav-item" (click)="closeAll()" aria-label="Ir a contacto">
+        CONTÁCTANOS
+      </a>
+
+    </nav>
+  </div>
+
+<div class="cat-overlay" *ngIf="catSidebarOpen" (click)="closeCatSidebar()"></div>
+
+<div class="cat-sidebar shadow" [class.open]="catSidebarOpen">
+
+  <div class="cat-sidebar-header">
+    <i class="bi bi-grid-fill me-2" aria-hidden="true"></i>
+    <span>CATEGORÍAS</span>
+    <button class="btn btn-sm btn-link p-0 ms-auto" (click)="closeCatSidebar()" aria-label="Cerrar barra lateral de categorías">
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <ul class="list-unstyled mb-0 cat-list-sidebar">
+    <li *ngFor="let cat of categories" class="cat-item">
+      <button type="button" class="cat-item-link"
+              (click)="navigateToCategory(cat.fragment)"
+              [attr.aria-label]="'Ver categoría ' + cat.name">
+        <i class="bi bi-chevron-right me-2" style="font-size:10px;color:#9ca3af"></i>{{ cat.name }}
+      </button>
+    </li>
+  </ul>
+
+</div>

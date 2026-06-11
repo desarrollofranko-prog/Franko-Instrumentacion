@@ -1,0 +1,147 @@
+<main>
+
+  <!-- Breadcrumb -->
+  <nav class="about-breadcrumb" aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Acerca de</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="about-hero-overlay" aria-hidden="true"></div>
+    <div class="container about-hero-content text-center">
+      <span class="hero-eyebrow">Nuestra historia</span>
+      <h1 class="hero-title">Franko Instrumentación</h1>
+      <p class="hero-sub">Más de 35 años fabricando equipos de seguridad industrial en México.</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="about-intro py-5">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <span class="section-eyebrow">Quiénes somos</span>
+          <h2 class="section-title mt-2 mb-3">Pioneros en seguridad industrial desde 1990</h2>
+          <p class="about-text">
+            Franko nació en México con una misión clara: fabricar equipos de control de presión y seguridad industrial con la misma calidad que los mejores proveedores internacionales, pero con respaldo local y tiempos de entrega reales.
+          </p>
+          <p class="about-text">
+            Más de 35 años después, nuestros productos protegen tanques de almacenamiento, destilerías, refinerías y plantas de biogás en todo el país — respaldados por nuestra certificación ISO 9001 y mecanizado CNC de alta precisión.
+          </p>
+          <div class="about-highlights mt-4">
+            <div class="highlight-item"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span>Fabricación 100% nacional · Cd. López Mateos, Edo. de México</span></div>
+            <div class="highlight-item"><i class="bi bi-tools" aria-hidden="true"></i><span>Mecanizado CNC en aceros y aleaciones especiales</span></div>
+            <div class="highlight-item"><i class="bi bi-patch-check-fill" aria-hidden="true"></i><span>Certificación ISO 9001 en manufactura y pruebas</span></div>
+            <div class="highlight-item"><i class="bi bi-box-seam-fill" aria-hidden="true"></i><span>Más de 30 líneas de producto especializadas</span></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-img-wrap">
+            <img src="assets/images/site/planta-franko.webp" alt="Instalaciones de Franko Instrumentación en Ciudad López Mateos" class="about-img" width="800" height="533" loading="lazy" decoding="async">
+            <div class="iso-badge-abs">
+              <i class="bi bi-patch-check-fill" aria-hidden="true"></i>
+              <span>ISO 9001<br><small>Certificados</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="valores-section py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-eyebrow">Lo que nos mueve</span>
+        <h2 class="section-title mt-2 mb-2">Nuestros valores</h2>
+      </div>
+      <div class="row g-4">
+        <div *ngFor="let v of valores" class="col-md-6 col-lg-3">
+          <div class="valor-card">
+            <div class="valor-icon"><i [class]="v.icon" aria-hidden="true"></i></div>
+            <h3 class="valor-title">{{ v.titulo }}</h3>
+            <p class="valor-desc">{{ v.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hitos -->
+  <section class="hitos-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-eyebrow">Trayectoria</span>
+        <h2 class="section-title mt-2 mb-2">35 años de historia</h2>
+      </div>
+      <div class="hitos-list">
+        <div *ngFor="let h of hitos; let i = index" class="hito-item" [class.hito-right]="i % 2 !== 0">
+          <div class="hito-dot" aria-hidden="true"></div>
+          <div class="hito-card">
+            <span class="hito-anio">{{ h.anio }}</span>
+            <p class="hito-desc">{{ h.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificaciones -->
+  <section class="certificaciones-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-eyebrow">Calidad verificada</span>
+        <h2 class="section-title mt-2 mb-2">Normas y Certificaciones</h2>
+        <p class="text-muted">Nuestros productos cumplen con los estándares internacionales más exigentes.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div *ngFor="let cert of certificaciones" class="col-sm-6 col-lg-4">
+          <div class="cert-card">
+            <div class="cert-icon"><i [class]="cert.icono" aria-hidden="true"></i></div>
+            <div class="cert-body">
+              <div class="cert-nombre">{{ cert.nombre }}</div>
+              <div class="cert-desc">{{ cert.desc }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso de fabricación -->
+  <section class="proceso-section py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-eyebrow">Cómo fabricamos</span>
+        <h2 class="section-title mt-2 mb-2">Proceso de Fabricación</h2>
+        <p class="text-muted">De la materia prima al producto certificado en manos del cliente.</p>
+      </div>
+      <div class="proceso-grid">
+        <div *ngFor="let paso of pasosFabricacion; let i = index" class="proceso-paso">
+          <div class="proceso-num">{{ i + 1 }}</div>
+          <div class="proceso-icon"><i [class]="paso.icono" aria-hidden="true"></i></div>
+          <div class="proceso-titulo">{{ paso.titulo }}</div>
+          <div class="proceso-desc">{{ paso.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta py-5">
+    <div class="container text-center">
+      <h2 class="cta-title">¿Quieres ser parte de nuestra historia?</h2>
+      <p class="cta-sub text-muted">Contáctanos para conocer cómo nuestros productos pueden proteger tu operación.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+        <a routerLink="/contacto" class="btn btn-accent px-4 py-2 fw-bold">Contáctanos</a>
+        <a routerLink="/productos" class="btn btn-outline-secondary px-4 py-2 fw-bold">Ver catálogo</a>
+      </div>
+    </div>
+  </section>
+
+</main>

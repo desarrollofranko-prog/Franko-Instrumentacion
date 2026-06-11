@@ -1,0 +1,872 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// PRODUCTOS — Estilos de la página del catálogo de productos
+// Secciones: Hero, Breadcrumb, Sidebar de categorías, Grid de productos,
+//            "¿Por qué comprar?", CTA, Búsqueda en página
+// ══════════════════════════════════════════════════════════════════════════════
+
+// === ENCABEZADO DE SECCIÓN CON TEXTO DE FONDO ===
+.section-heading {
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: attr(data-bg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.045);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1;
+    z-index: 0;
+  }
+
+  .section-title,
+  .section-sub,
+  > p,
+  > h2 {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.section-sub {
+  color: #6b7280;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.section-title {
+  font-size: clamp(1.65rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: #555555;
+  line-height: 1.2;
+}
+
+// === IMAGEN DE FONDO DEL HERO ===
+// La imagen se muestra en escala de grises para dar un look sobrio y profesional
+.hero-bg-img {
+    position: absolute;         // Fuera del flujo — posicionada relativa al .hero
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%; // Centra la imagen desplazando el punto focal 40% desde arriba
+    z-index: 0;                  // Detrás del overlay y el texto
+    filter: grayscale(1);        // Convierte la imagen a escala de grises — look más sobrio
+} // Cierre de .hero-bg-img
+
+// === HERO DE LA PÁGINA PRODUCTOS ===
+// Banner superior con imagen de fondo en escala de grises, overlay y título
+// Altura de 55vh para impacto visual sin ocultar el contenido siguiente
+.hero {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    min-height: 320px;
+    background-color: #555555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(30,30,30,0.85) 0%,
+            rgba(80,80,80,0.45) 100%
+        );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .hero-eyebrow {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0.75rem;
+    }
+
+    .titulo {
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: 0.04em;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-sub {
+        font-size: clamp(0.95rem, 2vw, 1.15rem);
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-line {
+        width: 60px;
+        height: 4px;
+        background: #004dda;
+        border-radius: 2px;
+        margin: 0 auto;
+    }
+}
+
+// === MIGAS DE PAN (BREADCRUMB) ===
+// Barra de navegación secundaria: Inicio > Productos
+// Permite al usuario saber en qué sección del sitio se encuentra
+.breadcrumb-nav {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.6rem 0;
+
+    ol.breadcrumb {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0.95rem;
+        gap: 0;
+    }
+
+    .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+
+        a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 700;
+            &:hover { color: #555555; text-decoration: underline; }
+        }
+
+        &.active {
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        & + .breadcrumb-item::before {
+            content: '>';
+            padding: 0 0.5rem;
+            color: #6c757d;
+        }
+    }
+}
+
+// === SIDEBAR DE CATEGORÍAS (desktop) ===
+// Panel lateral izquierdo con la lista de categorías del catálogo
+// En desktop (≥ 992px): siempre visible y sticky
+// En móvil (< 992px): oculto por defecto, se muestra con .sidebar-visible
+// === SIDEBAR DE CATEGORÍAS ===
+// Panel izquierdo de navegación por categorías de productos
+// Se queda fijo (position: sticky) al hacer scroll gracias a align-self: flex-start en el <aside>
+// Los colores del ítem activo cambian dinámicamente según la categoría con !important para superar Bootstrap
+.sidebar-categorias {
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    .sidebar-header {
+        background: linear-gradient(135deg, #5a5a5a, #7a7a7a);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 1.15rem 1.5rem;
+        border-radius: 12px 12px 0 0;
+
+        i { opacity: 0.85; }
+    }
+
+    .sidebar-item {
+        border: none !important;
+        border-left: 4px solid transparent !important;
+        border-radius: 0 !important;
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        color: #3a3a3a;
+        background-color: #fff !important;
+        cursor: pointer;
+        transition: background-color 0.25s ease, border-left-color 0.25s ease, color 0.25s ease;
+
+        .sidebar-chevron {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #f0f0f0 !important;
+        }
+
+        &:last-child {
+            border-radius: 0 0 12px 12px !important;
+        }
+
+        &:hover:not(.sidebar-item--active) {
+            background-color: #f9fafb !important;
+        }
+
+        &.sidebar-item--active {
+            background-color: #f9f5ff !important;
+            color: #8C2EC7 !important;
+            border-left-color: #8C2EC7 !important;
+            font-weight: 600;
+            .sidebar-chevron { transform: translateX(3px); color: #8C2EC7 !important; }
+        }
+
+        &.sidebar-item--active.cat-ambar {
+            background-color: #fff7f0 !important;
+            color: #E06A10 !important;
+            border-left-color: #E06A10 !important;
+            .sidebar-chevron { color: #E06A10 !important; }
+        }
+
+        &.sidebar-item--active.cat-verde {
+            background-color: #f0fce8 !important;
+            color: #2D9118 !important;
+            border-left-color: #2D9118 !important;
+            .sidebar-chevron { color: #2D9118 !important; }
+        }
+
+        &.sidebar-item--active.cat-azul {
+            background-color: #eff6ff !important;
+            color: #004dda !important;
+            border-left-color: #004dda !important;
+            .sidebar-chevron { color: #004dda !important; }
+        }
+    }
+}
+
+// === TARJETA DE PRODUCTO ===
+// Card cuadrada sin border-radius (look industrial y limpio)
+// El efecto hover levanta la tarjeta con translateY y sombra más pronunciada
+// La imagen tiene un overlay oscuro con botón "Ver detalles" que aparece al hover
+.producto-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 0;
+    border: 1px solid #c9cdd4 !important;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.363) !important;
+    }
+
+    .card-img-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .img-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.52);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .img-overlay-label {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            padding: 0.55rem 1.3rem;
+            backdrop-filter: blur(4px);
+            transform: translateY(8px);
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            img { transform: scale(1.05); }
+            .img-overlay { opacity: 1; }
+            .img-overlay-label { transform: translateY(0); }
+        }
+    }
+
+    .producto-info {
+        padding: 1rem 1.1rem 1.1rem;
+
+        .producto-nombre {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 0.35rem;
+            line-height: 1.3;
+        }
+
+        .producto-desc {
+            font-size: 0.95rem;
+            color: #888990;
+            margin-bottom: 0.6rem;
+            line-height: 1.5;
+        }
+
+        .serie-tag {
+            display: inline-block;
+            padding: 0.28rem 0.7rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border-radius: 4px;
+            border-bottom: 3px solid transparent;
+
+            &.serie-morado { background: #F0E5FA; color: #8C2EC7; border-bottom-color: #8C2EC7; }
+            &.serie-ambar  { background: #FEF0E0; color: #E06A10; border-bottom-color: #E06A10; }
+            &.serie-verde  { background: #E8F5E3; color: #2D9118; border-bottom-color: #2D9118; }
+            &.serie-azul   { background: #E0E9F8; color: #004dda; border-bottom-color: #004dda; }
+            &.serie-rojo   { background: #f3f4f6; color: #6c757d; border-bottom-color: #9ca3af; }
+            &.serie-teal   { background: #E0F5F5; color: #006064; border-bottom-color: #006064; }
+        }
+    }
+}
+
+// ============================================================
+// ¿POR QUÉ COMPRAR CON NOSOTROS?
+// ============================================================
+// === SECCIÓN ¿POR QUÉ COMPRAR CON NOSOTROS? ===
+// Grid de 4 tarjetas con razones: Normas, Materiales, Ingeniería, Soporte
+// Fondo gris claro para separar visualmente del listado de productos
+.por-que-section {
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+    padding: 3.5rem 0;
+}
+
+
+.pq-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+
+    @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 480px)  { grid-template-columns: 1fr; }
+}
+
+.pq-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        border-top-color: #004dda;
+        box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+        transform: translateY(-4px);
+    }
+}
+
+.pq-icon {
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: 2px solid var(--page-accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    i { font-size: 1.4rem; color: var(--page-accent); }
+}
+
+.pq-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #555555;
+    margin-bottom: 0.5rem;
+}
+
+.pq-text {
+    font-size: 1rem;
+    color: #888990;
+    line-height: 1.7;
+    margin: 0;
+}
+
+// ============================================================
+// TÍTULOS DE CATEGORÍA
+// ============================================================
+// === TÍTULO DE CATEGORÍA ===
+// Encabezado de cada grupo de productos en el listado
+// Cada categoría tiene su propio color según la línea de productos
+.cat-title {
+  color: #3d3d3d;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, #adb5bd 0%, #d1d5db 40%, transparent 72%);
+  }
+
+  i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+// ============================================================
+// DESCRIPCIÓN Y ETIQUETAS DE CATEGORÍA
+// ============================================================
+.cat-descripcion {
+    font-size: 1rem;
+    color: #888990;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    max-width: 740px;
+}
+
+.cat-industrias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.ind-tag {
+    display: inline-block;
+    padding: 0.22rem 0.65rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    background: #f3f4f6;
+    color: #7d7d7d;
+    border: 1px solid #d1d5db;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+// ============================================================
+// BOTONES DE ACCIÓN EN TARJETA
+// ============================================================
+// === BOTONES DE ACCIÓN DE LA TARJETA ===
+// Fila de dos botones: "Ver detalles" (gris claro) y "Cotizar" (gris oscuro)
+// flex: 1 en cada botón los hace del mismo ancho independientemente del texto
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+}
+
+// Botón secundario que lleva a la ficha técnica del producto
+// En hover cambia a fondo gris oscuro con texto blanco
+.btn-ver-detalles {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.42rem 0.6rem;
+    font-size: 0.87rem;
+    font-weight: 600;
+    color: #555555;
+    background: #f8f9fa;
+    border: 1.5px solid #dee2e6;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+
+    &:hover {
+        background: #555555;
+        border-color: #555555;
+        color: #fff;
+    }
+}
+
+// Botón primario de cotización — abre el popup de SweetAlert2 con el formulario
+// El color base es gris (#7f7c7c) — sin colores por serie para mantener la escala de grises
+.btn-cotizar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.42rem 0.6rem;
+    font-size: 0.87rem;
+    font-weight: 700;
+    color: #fff;
+    background: #7f7c7c;
+    border: 1.5px solid #7f7c7c;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    white-space: nowrap;
+
+    &:hover { background: #555555; border-color: #555555; }
+    &:focus-visible { outline: 2px solid #555555; outline-offset: 2px; }
+
+    &.serie-morado { background: #949494; border-color: #ffffff; &:hover { background: #5c5c5c; } }
+    &.serie-ambar  { background: #949494; border-color: #ffffff; &:hover { background: #5c5c5c; } } 
+    &.serie-verde  { background: #949494; border-color: #ffffff; &:hover { background: #5c5c5c; } }
+    &.serie-azul   { background: #949494; border-color: #ffffff; &:hover { background: #5c5c5c; } }
+    &.serie-teal   { background: #949494; border-color: #ffffff; &:hover { background: #5c5c5c; } }
+}
+
+// ============================================================
+// CTA FINAL
+// ============================================================
+// === CTA FINAL ===
+// Banda de llamada a la acción al final de la página
+// Diseño horizontal: texto a la izquierda, botón a la derecha
+.cta-section {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    padding: 4rem 0;
+    margin-top: 1rem;
+}
+
+.cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.cta-title {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.72);
+    margin: 0;
+    max-width: 560px;
+    line-height: 1.65;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #555555;
+    background: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background: #004dda;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+// scroll-margin-top en todos los elementos con id
+// Cuando el router o el sidebar hace scroll hasta una sección (#id),
+// este margen superior garantiza que la sección quede visible debajo del header fijo (~110px)
+// en lugar de quedar oculta detrás de él
+[id] {
+    scroll-margin-top: 110px;
+}
+
+// ============================================================
+// SIDEBAR TOGGLE MÓVIL
+// ============================================================
+.sidebar-mobile-toggle {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.6rem 0;
+}
+
+.sidebar-toggle-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #555555;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    &:hover { border-color: #004dda; }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar-hidden { display: none; }
+    .sidebar-visible { display: block; }
+    aside { flex: 0 0 100%; max-width: 100%; }
+    .col-lg-9.col-md-8 { flex: 0 0 100%; max-width: 100%; }
+}
+
+@media (min-width: 992px) {
+    .sidebar-hidden, .sidebar-visible { display: block !important; }
+}
+
+// ============================================================
+// MOBILE 480px
+// ============================================================
+@media (max-width: 480px) {
+    .hero { min-height: 200px; }
+    .titulo { font-size: 1.5rem; }
+    .producto-nombre { font-size: 15px; }
+    .producto-desc   { font-size: 14px; }
+    .serie-tag       { font-size: 12px; padding: 2px 8px; }
+    .pq-item         { padding: 1.2rem 1rem; }
+    .pq-title        { font-size: 1rem; }
+    .cat-title       { font-size: 1.2rem; }
+}
+
+// ============================================================
+// BÚSQUEDA EN PÁGINA — Barra de búsqueda flotante en la parte superior del contenido
+// Se muestra cuando la página se carga con queryParam ?q= desde el header
+// ============================================================
+.busqueda-pagina-wrap {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 0;
+}
+
+.busqueda-pagina-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    background: #fff;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus-within {
+        border-color: #004dda;
+        box-shadow: 0 0 0 3px rgba(0,77,218,.18);
+    }
+}
+
+.busqueda-pagina-icono {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    margin-right: 0.65rem;
+}
+
+.busqueda-pagina-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.7rem 0;
+    font-size: 1rem;
+    color: #555555;
+    background: transparent;
+    font-family: inherit;
+
+    &::placeholder { color: #9ca3af; }
+}
+
+.busqueda-pagina-clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: #9ca3af;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    transition: color 0.15s ease, background 0.15s ease;
+    flex-shrink: 0;
+
+    &:hover { color: #555555; background: #f3f4f6; }
+}
+
+// === BANNER DE BÚSQUEDA ACTIVA ===
+// Aparece solo cuando hay un término de búsqueda activo (?q=...)
+// Fondo azul muy claro para indicar el estado de filtrado activo
+.busqueda-banner {
+    background: var(--page-accent-light);
+    border: 1px solid rgba(0,77,218,.2);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+
+    .busqueda-banner-inner {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #004dda;
+
+        strong { color: #555555; }
+    }
+}
+
+// ══════════════════════════════════════════════════════════════
+// ANIMACIONES DE ENTRADA — HERO (keyframes CSS directos)
+// Visibles al cargar la página — no necesitan IntersectionObserver
+// ══════════════════════════════════════════════════════════════
+@keyframes prodEntry {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero .hero-eyebrow { animation: prodEntry 0.9s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
+.hero .titulo       { animation: prodEntry 0.9s cubic-bezier(0.22,1,0.36,1) 0.28s both; }
+.hero .hero-sub     { animation: prodEntry 0.9s cubic-bezier(0.22,1,0.36,1) 0.46s both; }
+.hero .hero-line    { animation: prodEntry 0.9s cubic-bezier(0.22,1,0.36,1) 0.62s both; }
+
+// ══════════════════════════════════════════════════════════════
+// SCROLL REVEAL — fade-in + slide al entrar al viewport
+// IntersectionObserver en productos.ts añade/quita .revealed
+// ══════════════════════════════════════════════════════════════
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: opacity, transform;
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+              transform 0.75s cubic-bezier(0.22,1,0.36,1);
+  &.revealed { opacity: 1; transform: none; will-change: auto; }
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-34px);
+  will-change: opacity, transform;
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1),
+              transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  &.revealed { opacity: 1; transform: none; will-change: auto; }
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(34px);
+  will-change: opacity, transform;
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1),
+              transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  &.revealed { opacity: 1; transform: none; will-change: auto; }
+}
+
+// Stagger tarjetas ¿Por qué? (4 columnas)
+.pq-grid .pq-item.reveal {
+  &:nth-child(2) { transition-delay: 0.09s; }
+  &:nth-child(3) { transition-delay: 0.18s; }
+  &:nth-child(4) { transition-delay: 0.27s; }
+}
+
+// Stagger tarjetas de producto — ciclo de 3 por fila
+.row .col:nth-child(3n+2) .producto-card.reveal { transition-delay: 0.09s; }
+.row .col:nth-child(3n+3) .producto-card.reveal { transition-delay: 0.18s; }
+
+// Una vez revelada, la tarjeta recupera la transición rápida de hover
+.producto-card.reveal.revealed {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  &:hover { transform: translateY(-5px); }
+}
+
+// Accesibilidad — desactiva animaciones si el usuario lo prefiere
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+  .hero .hero-eyebrow,
+  .hero .titulo,
+  .hero .hero-sub,
+  .hero .hero-line    { animation: none; }
+}
+
+// === ESTADO SIN RESULTADOS ===
+// Pantalla vacía con ícono grande y mensaje cuando la búsqueda no encuentra productos
+.sin-resultados {
+    text-align: center;
+    padding: 4rem 1rem;
+
+    .sin-resultados-icon {
+        font-size: 3.5rem;
+        color: #d1d5db;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .sin-resultados-titulo {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #555555;
+        margin-bottom: 0.5rem;
+    }
+
+    .sin-resultados-sub {
+        font-size: 0.98rem;
+        color: #6c757d;
+    }
+}

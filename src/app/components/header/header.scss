@@ -1,0 +1,1025 @@
+// ══════════════════════════════════════════════════════════════════════════════
+// HEADER — Estilos del componente de navegación principal
+// El header tiene dos filas:
+//   Fila 1 (.nav-row-1): fondo rojo con logo, links de navegación desktop y CTA
+//   Fila 2 (.nav-row-2): fondo blanco con botón de categorías y barra de búsqueda
+// En desktop, al hacer scroll la fila 1 se colapsa y solo permanece la fila 2.
+// En móvil (< 992px), toda la navegación se mueve a un sidebar deslizable.
+// ══════════════════════════════════════════════════════════════════════════════
+
+// === CONTENEDOR DEL HEADER FIJO ===
+// Permanece pegado a la parte superior del viewport en todo momento
+.site-header {
+  position: fixed;  // El header no participa en el flujo del documento — no ocupa espacio
+  top: 0;           // Fijado al borde superior del viewport
+  left: 0;
+  right: 0;
+  z-index: 1050;    // Por encima del contenido de la página (Bootstrap dropdowns usan z-index 1000)
+  will-change: transform; // Pista al navegador para crear una capa GPU — optimiza animaciones
+}
+
+// === FILA 1: BARRA ROJA CON LOGO Y NAVEGACIÓN PRINCIPAL ===
+.nav-row-1 {
+  background: linear-gradient(90deg, #D4880A 0%, #FF0000 8%, #FF0000 92%, #D4880A 100%);
+  border-bottom: 1px solid rgba(0,0,0,0.15); // Línea sutil que separa la fila 1 de la fila 2
+  position: relative;
+  overflow: visible;                    // Permite que los mega-dropdowns desborden hacia abajo
+  max-height: 100px;                    // Altura máxima que se usa para la animación de colapso al hacer scroll
+  // Transición para el colapso suave de la fila 1 al hacer scroll
+  transition: max-height 0.35s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.35s ease;
+}
+// Contenedor interno de la fila 1 — flex para distribuir logo, nav y CTA en horizontal
+.nav-row-1-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px; // Altura fija de la barra roja en estado expandido
+}
+
+// === COMPORTAMIENTO AL HACER SCROLL (clase añadida por el componente TS) ===
+// .header-scrolled se añade al <header> cuando window.scrollY > 10px
+// En desktop: la fila roja se colapsa y la fila de búsqueda toma más protagonismo
+.header-scrolled {
+  .nav-row-1 {
+    max-height: 0;            // Colapsa la fila 1 hasta altura cero (la transición la hace suave)
+    overflow: hidden;         // Oculta el contenido que desborda durante la transición
+    border-bottom-color: transparent; // Oculta el borde mientras la fila se colapsa
+  }
+  .nav-row-2 {
+    box-shadow: 0 3px 16px rgba(0,0,0,0.13);
+    border-bottom-color: #dee2e6;
+  }
+}
+
+// === TELÉFONO EN LA BARRA ROJA ===
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  border-left: 1px solid rgba(255,255,255,0.35); // Separador vertical sutil respecto al link anterior
+  padding-left: 16px;
+  transition: color 0.3s ease, opacity 0.3s ease, width 0.3s ease, padding 0.3s ease;
+  i { font-size: 14px; }
+  &:hover, &:focus-visible {
+    color: rgba(255,255,255,0.8); // Atenúa levemente el color al hacer hover — feedback visual
+    outline: none;
+  }
+}
+
+// === LINKS DE NAVEGACIÓN SOBRE FONDO ROJO ===
+// Botones/links del menú desktop en la fila 1 (Inicio, Productos, Industrias, Soporte)
+.nav-link-red {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 22px;
+  height: 100%; // Ocupa toda la altura de la fila para maximizar el área de clic/hover
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  white-space: nowrap; // El texto del link no debe partirse en múltiples líneas
+  transition: background 0.35s cubic-bezier(0.22,1,0.36,1), color 0.35s cubic-bezier(0.22,1,0.36,1);
+
+  &:hover, &:focus-visible {
+    background: rgba(0, 0, 0, 0.12); // Fondo oscuro semitransparente al hacer hover
+    color: #fff;
+    outline: none;
+  }
+
+  // Estado activo: subrayado blanco al fondo del link para indicar la ruta activa
+  &.nav-link-active {
+    border-bottom: 3px solid #fff;
+  }
+}
+
+// Separador visual entre links de la barra de navegación ("|")
+.nav-separator {
+  color: rgba(255,255,255,0.75); // Blanco semitransparente — menos prominente que los links
+  font-size: 18px;
+  font-weight: 300;
+  user-select: none; // El separador no debe seleccionarse al hacer triple clic
+}
+
+// Flecha chevron de los links con dropdown — rota 180° cuando el dropdown está abierto
+.nav-arrow {
+  font-size: 10px;
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  &.rotated { transform: rotate(180deg); } // El componente TS añade .rotated cuando el menú está abierto
+}
+
+// Botón CTA "Cotizar" en la fila 1 — blanco con texto rojo para máximo contraste y diferenciación
+.nav-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  height: auto;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--primary); // Texto rojo de la marca sobre fondo blanco
+  background: #fff;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background 0.4s cubic-bezier(0.22,1,0.36,1),
+              color 0.4s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.4s cubic-bezier(0.22,1,0.36,1);
+  margin-left: 10px;
+  text-decoration: none;
+
+  &:hover, &:focus-visible {
+    background: rgba(255,255,255,0.88); // Levemente translúcido al hover
+    border-color: rgba(255,255,255,0.88);
+    color: var(--primary-dark);
+    outline: none;
+  }
+}
+
+// === FILA 2: BARRA BLANCA CON BÚSQUEDA ===
+.nav-row-2 {
+  background: #fff;
+  border-bottom: 1px solid #e9ecef;
+}
+// Contenedor interno centrado con ancho máximo — concentra la búsqueda en el centro de la pantalla
+.nav-row-2-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  gap: 16px;
+  max-width: 700px;  // Limita el ancho para que la búsqueda sea legible y centrada en pantallas anchas
+  margin: 0 auto;
+  padding: 0 16px;
+}
+// Botón "Categorías" — abre el sidebar de categorías al hacer clic
+.cat-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--secondary);
+  cursor: pointer;
+  padding: 8px 0;
+  white-space: nowrap;
+  transition: color 0.35s cubic-bezier(0.22,1,0.36,1);
+
+  &:hover, &:focus-visible {
+    color: var(--primary);
+    outline: none;
+  }
+}
+// Contenedor del input de búsqueda — flex: 1 hace que ocupe el espacio disponible en la fila
+.search-bar-wrap {
+  flex: 1;
+  max-width: 460px;
+  .input-group { height: 34px; }
+  input {
+    font-size: 13px;
+    &::placeholder { color: #6b7280; }
+    &:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+  }
+}
+
+// === DROPDOWN DE AUTOCOMPLETADO DE BÚSQUEDA ===
+// Aparece debajo del input de búsqueda cuando el usuario empieza a escribir
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 6px); // 6px de espacio entre el input y el dropdown
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14); // Sombra para que se vea "flotando" sobre el contenido
+  z-index: 2000; // Por encima del header (1050) y los mega-dropdowns (1050)
+  overflow: hidden;
+  animation: slideDownSimple 0.18s ease; // Aparece con animación suave de slide-down
+}
+
+// Item individual en el dropdown de autocompletado
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border-bottom: 1px solid #f3f4f6; // Separador muy sutil entre sugerencias
+
+  &:hover, &--active {
+    background: var(--primary-light); // Fondo rojo suave al hover o cuando está seleccionado con teclado
+  }
+
+  &:last-of-type { border-bottom: none; } // Sin borde en la última sugerencia
+}
+
+// Imagen miniatura del producto en la sugerencia
+.suggestion-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f9fafb;
+  border: 1px solid #e9ecef;
+  flex-shrink: 0; // No se encoge aunque el texto sea largo
+}
+
+// Columna de texto del item de sugerencia (nombre + serie/categoría)
+.suggestion-text {
+  flex: 1;
+  min-width: 0; // Permite que el texto se trunque con ellipsis en lugar de desbordar
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+// Nombre del producto en la sugerencia
+.suggestion-nombre {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; // "..." si el nombre es demasiado largo para el espacio disponible
+}
+
+// Metadatos del producto (serie y categoría)
+.suggestion-meta {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+// Flecha "›" al final de cada sugerencia — indica que es un link navegable
+.suggestion-arrow {
+  font-size: 11px;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+// Pie del dropdown de autocompletado — link para ver todos los resultados
+.suggestion-footer {
+  display: flex;
+  align-items: center;
+  padding: 9px 14px;
+  font-size: 12px;
+  color: var(--primary);
+  cursor: pointer;
+  background: var(--bg-light); // Fondo gris suave para distinguirlo de las sugerencias individuales
+  border-top: 1px solid #e5e7eb;
+  transition: background 0.15s ease;
+
+  &:hover { background: var(--primary-light); }
+
+  strong { color: var(--secondary); }
+}
+
+// === MEGA DROPDOWNS (menús grandes de escritorio) ===
+// Los mega dropdowns se despliegan debajo de los links de la fila 1
+.mega-dropdown {
+  position: absolute;
+  top: 100%; // Se posiciona justo debajo del elemento que lo contiene (la fila 1)
+  z-index: 1050;
+  animation: slideDownSimple 0.4s cubic-bezier(0.33, 1, 0.68, 1) both;
+  transform-origin: top center;
+}
+
+// Mega dropdown de "Productos" — ocupa el ancho completo de la pantalla
+.mega-productos {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 100vw;
+  background: #fff;
+  border-top: none;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  transform-origin: top center;
+  animation: slideDownFull 0.45s cubic-bezier(0.33, 1, 0.68, 1) both;
+}
+
+// Contenedor interno del mega dropdown de productos
+.mega-inner {
+  display: flex;
+  min-height: 0;
+  width: 100%;
+}
+
+// Panel lateral izquierdo del mega dropdown — fondo gris claro
+.mega-left {
+  width: clamp(200px, 18vw, 280px);
+  flex-shrink: 0;
+  background: #f3f4f6;
+  color: #374151;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-right: 1px solid #e5e7eb;
+  animation: megaPanelLeft 0.4s cubic-bezier(0.33, 1, 0.68, 1) 0.06s both;
+}
+
+// Etiqueta pequeña encima del título del panel izquierdo
+.mega-left-eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin: 0;
+}
+
+// Título principal del panel izquierdo del mega dropdown
+.mega-left-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+
+// Subtítulo descriptivo del panel izquierdo
+.mega-left-sub {
+  font-size: 15px;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.5;
+}
+
+// Botón "Ver todos los productos" en el panel izquierdo del mega dropdown
+.mega-ver-todos-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  background: #e5e7eb;
+  border: 1.5px solid #d1d5db;
+  border-radius: 4px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: background 0.3s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.3s cubic-bezier(0.22,1,0.36,1);
+  align-self: flex-start; // El botón no se estira al ancho del panel
+  &:hover, &:focus-visible {
+    background: #d1d5db;
+    border-color: #9ca3af;
+    color: #111827;
+    outline: none;
+  }
+}
+
+// Contenedor de imágenes en el panel izquierdo
+.mega-left-imgs {
+  display: flex;
+  gap: 8px;
+  margin-top: auto; // Empuja las imágenes hacia la parte inferior del panel
+}
+
+.mega-menu-img-wrap {
+  margin-top: auto;
+}
+
+// Imagen de producto grande en el panel izquierdo
+.mega-menu-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+// Thumbnails de producto en el panel izquierdo
+.mega-thumb {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08); // Fondo muy tenue sobre el fondo oscuro del panel
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+// Área derecha del mega dropdown — columnas de categorías y productos
+.mega-cols {
+  flex: 1;
+  display: flex;
+  padding: 0;
+  min-width: 0;
+}
+
+// Columna individual de categorías en el mega dropdown
+// Stagger: cada columna aparece 70ms después de la anterior
+.mega-col {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 20px;
+  border-right: 1px solid #f0f0f0;
+  animation: megaColFade 0.38s cubic-bezier(0.33, 1, 0.68, 1) both;
+
+  &:nth-child(1) { animation-delay: 0.10s; }
+  &:nth-child(2) { animation-delay: 0.17s; }
+  &:nth-child(3) { animation-delay: 0.24s; }
+  &:nth-child(4) { animation-delay: 0.31s; }
+
+  &.mega-col-last { border-right: none; }
+}
+
+// Encabezado de cada columna del mega dropdown (nombre de la categoría principal)
+.mega-col-header {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #374151;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  i { color: #374151; }
+}
+
+// Subtítulo de subsección dentro de una columna del mega dropdown
+.mega-col-section {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #4b5563;
+  margin: 10px 0 4px;
+
+  &:first-of-type { margin-top: 0; }
+}
+
+// Link individual de producto en el mega dropdown
+.mega-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px 6px;
+  font-size: 16px;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+
+  &:hover, &:focus-visible {
+    background: #f3f4f6;
+    color: var(--primary); // Cambia a rojo de la marca al hacer hover
+    padding-left: 10px;   // Indenta el link al hacer hover — efecto de selección
+    outline: none;
+  }
+}
+
+// Número de serie del producto en el mega dropdown
+.mega-num {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #717680; // Ajustado para legibilidad clara sobre fondo blanco
+  min-width: 32px;
+  font-variant-numeric: tabular-nums; // Hace que los números tengan el mismo ancho (1 === 9 en espacio)
+}
+
+// Mega dropdown de "Industrias" — centrado en la pantalla y de ancho fijo
+.mega-industrias {
+  left: 50%;
+  width: 750px;
+  background: #fff;
+  animation: slideDownIndustrias 0.42s cubic-bezier(0.33, 1, 0.68, 1) both;
+}
+// Mega dropdown de "Soporte" — alineado a la derecha
+.soporte-dd {
+  right: 0;   // Alineado al borde derecho del link
+  left: auto;
+  min-width: 320px;
+  background: #fff;
+}
+// Tarjeta de industria en el mega dropdown de Industrias — eleva al hacer hover
+.ind-nav-item {
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  &:hover, &:focus-visible {
+    transform: translateY(-6px); // Se eleva 6px al hacer hover — efecto de profundidad
+    outline: none;
+  }
+}
+// Item del dropdown de Soporte
+.dropdown-item {
+  transition: color 0.3s cubic-bezier(0.22,1,0.36,1),
+              background 0.3s cubic-bezier(0.22,1,0.36,1);
+
+  i { color: #2563eb; }
+
+  &:hover, &:focus-visible {
+    color: var(--primary);
+    background-color: #f8f9fa;
+    outline: none;
+    i { color: var(--primary); }
+  }
+}
+
+// === ICONO HAMBURGER ANIMADO ===
+// El icono alterna entre "≡" (3 líneas) y "✕" (X) con animación al abrir/cerrar el menú móvil
+.mobile-hamburger {
+  background: none;
+  padding: 6px 8px;
+  color: #fff;
+  &:focus { box-shadow: none; }
+}
+
+// Contenedor del icono hamburger — superpone el icono de barras y el de X
+.hamburger-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+
+  // Ambos iconos están en la misma posición (centrados) y uno u otro está invisible en cada estado
+  .icon-bars,
+  .icon-x {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: opacity 0.35s cubic-bezier(0.22,1,0.36,1),
+                transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  // El icono X empieza invisible y rotado (preposicionado para la animación de entrada)
+  .icon-x {
+    opacity: 0;
+    transform: rotate(-45deg) scale(0.6);
+  }
+
+  // Estado activo (menú móvil abierto): oculta las barras y muestra la X
+  &.active {
+    .icon-bars {
+      opacity: 0;
+      transform: rotate(45deg) scale(0.6); // Las barras rotan y se desvanecen al cerrarse
+    }
+    .icon-x {
+      opacity: 1;
+      transform: rotate(0deg) scale(1); // La X aparece en posición normal
+    }
+  }
+}
+
+// === SIDEBAR DE MENÚ MÓVIL ===
+// Panel lateral que se desliza desde la izquierda en pantallas móviles (< 992px)
+.mobile-menu {
+  position: fixed; // Fuera del flujo del documento — fijado al viewport
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(300px, 82vw); // Máximo 300px, o el 82% del ancho del viewport (el que sea menor)
+  background: var(--primary); // Fondo rojo de la marca
+  z-index: 9999; // Por encima de casi todo el contenido
+  display: flex;
+  flex-direction: column;
+
+  // Estado cerrado: sidebar invisible y fuera del viewport (desplazado a la izquierda)
+  visibility: hidden;
+  transform: translateX(-100%); // Completamente fuera de la pantalla a la izquierda
+  pointer-events: none; // Ignora clicks cuando está cerrado
+  // La visibilidad se oculta con delay para que coincida con el final de la animación de cierre
+  transition:
+    transform  0.4s cubic-bezier(0.22,1,0.36,1),
+    visibility 0s linear 0.4s;
+
+  // Estado abierto: sidebar desliza hacia adentro desde la izquierda
+  &.is-open {
+    visibility: visible;
+    transform: translateX(0); // Posición normal — completamente visible
+    pointer-events: auto;     // Vuelve a recibir clicks
+    transition:
+      transform  0.45s cubic-bezier(0.22,1,0.36,1),
+      visibility 0s; // La visibilidad se activa inmediatamente (sin delay)
+  }
+}
+
+// Backdrop semitransparente que cubre la parte derecha del viewport cuando el menú está abierto
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0; // Cubre toda la pantalla
+  background: rgba(0, 0, 0, 0.5); // Oscurece el contenido detrás del menú
+  z-index: 9998; // Justo por debajo del menú (9999) pero por encima del contenido
+  pointer-events: auto;
+  // Solo el área fuera del menú (a la derecha) intercepta clics para cerrar el menú
+  padding-left: min(300px, 82vw); // El padding coincide con el ancho del menú para que el menú no lo tape
+}
+
+// Botón flotante de cierre "X" que aparece en la esquina superior derecha del backdrop
+.mobile-close-x {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 50%; // Círculo perfecto
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 10000; // Por encima del menú (9999)
+  transition: background 0.25s ease;
+
+  &:hover, &:focus-visible {
+    background: rgba(255,255,255,0.28);
+    outline: none;
+  }
+}
+
+// Barra de búsqueda dentro del sidebar móvil
+.mobile-search-bar {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.18); // Separador sutil en el fondo rojo
+  flex-shrink: 0; // No se encoge si el contenido del sidebar es demasiado largo
+}
+
+// Formulario pill (redondeado) de búsqueda en el menú móvil
+.mobile-search-form {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 25px; // Forma de cápsula
+  overflow: hidden;
+  height: 40px;
+}
+
+.mobile-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #333;
+  font-size: 13px;
+  padding: 0 14px;
+
+  &::placeholder { color: #6b7280; }
+}
+
+.mobile-search-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary); // Ícono de búsqueda rojo
+  padding: 0 14px;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+
+  &:hover { color: var(--primary-dark); }
+}
+
+// Área scrollable del contenido del menú móvil
+.mobile-menu-body {
+  flex: 1;            // Ocupa todo el espacio disponible entre la búsqueda y el borde inferior
+  overflow-y: auto;  // Permite scroll dentro del menú si hay demasiados items
+  padding-bottom: 24px;
+
+  // Scrollbar delgada y semitransparente dentro del menú rojo
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 2px; }
+}
+
+// Item principal de navegación del menú móvil (link directo o botón expandible)
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.12); // Separador entre items
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.25s ease;
+
+  i { color: rgba(255,255,255,0.85); }
+
+  &:hover, &:focus-visible {
+    background: rgba(0,0,0,0.15); // Fondo oscuro al hover
+    color: #fff;
+    outline: none;
+  }
+}
+
+// Grupo de navegación expandible (con submenú) del menú móvil
+.mobile-nav-group {
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+
+  .mobile-nav-item { border-bottom: none; } // El item del grupo no tiene su propio borde inferior
+}
+
+// Ícono chevron que rota al expandir una sección del menú móvil
+.mobile-chevron {
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+
+  &.rotated { transform: rotate(180deg); } // Apunta hacia arriba cuando la sección está expandida
+}
+
+// Panel de sub-items dentro de una sección expandida del menú móvil
+.mobile-nav-sub {
+  background: rgba(0,0,0,0.14); // Fondo ligeramente más oscuro que el menú para jerarquía visual
+}
+
+// Sub-item del menú móvil (categoría o link de segundo nivel)
+.mobile-nav-sub-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 20px 11px 28px; // Indentado respecto al nivel superior (28px vs 20px)
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.06); // Separador muy sutil entre sub-items
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.22s ease, color 0.22s ease;
+
+  i { font-size: 10px; color: rgba(255,255,255,0.75); }
+
+  &:last-child { border-bottom: none; }
+
+  &:hover, &:focus-visible {
+    background: rgba(0,0,0,0.15);
+    color: #fff;
+    outline: none;
+    i { color: rgba(255,255,255,0.75); }
+  }
+}
+
+// Encabezado de sección principal dentro del sub-menú (ej. "Categorías de Productos")
+.mobile-nav-sub-main {
+  font-weight: 600;
+  color: #fff;
+  font-size: 12.5px;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+// Chevron de categoría — rota 90° cuando la categoría está expandida (rotación distinta al chevron de sección)
+.mobile-cat-chevron {
+  transition: transform 0.3s ease;
+  font-size: 10px;
+  &.rotated { transform: rotate(90deg); } // Apunta a la derecha cuando está expandido
+}
+
+// Panel de items de una categoría expandida en el menú móvil
+.mobile-cat-items {
+  background: rgba(0,0,0,0.18); // Tercer nivel de oscurecimiento para jerarquía visual
+}
+
+// Link individual de un producto dentro de una categoría del menú móvil
+.mobile-cat-item {
+  display: block;
+  width: 100%;
+  padding: 10px 20px 10px 40px; // Profundamente indentado para el tercer nivel de jerarquía
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  &:hover {
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+  }
+}
+
+// === SIDEBAR DE CATEGORÍAS (botón "Categorías" de la fila 2) ===
+// Panel lateral independiente del menú móvil — se usa tanto en desktop como en móvil
+// para navegar por categorías del catálogo desde la barra de búsqueda
+
+// Overlay semitransparente que aparece detrás del sidebar de categorías
+.cat-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1100; // Entre el header (1050) y el sidebar de categorías (1200)
+  animation: overlayFadeIn 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// Panel del sidebar de categorías — desliza desde la izquierda
+.cat-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh; // Ocupa toda la altura del viewport
+  z-index: 1200; // Por encima del overlay (1100)
+  background: var(--primary); // Fondo rojo de la marca
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  transform: translateX(-100%); // Cerrado: fuera del viewport a la izquierda
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  &.open { transform: translateX(0); } // Abierto: desliza al viewport
+}
+
+// Encabezado del sidebar de categorías con botón de cierre
+.cat-sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(0,0,0,0.2); // Oscurece el encabezado para diferenciarlo del cuerpo
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  .btn-link {
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s cubic-bezier(0.22,1,0.36,1);
+    &:hover, &:focus-visible { color: #fff; outline: none; }
+  }
+}
+
+// Lista scrollable de categorías en el sidebar
+.cat-list-sidebar {
+  flex: 1;
+  overflow-y: auto;
+  // Scrollbar delgada y discreta
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 2px; }
+}
+
+.cat-item {
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+// Link de categoría en el sidebar — hover con indentación para feedback visual
+.cat-item-link {
+  display: block;
+  width: 100%;
+  padding: 13px 18px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, padding-left 0.25s ease;
+
+  &:hover, &:focus-visible {
+    background: rgba(0,0,0,0.15);
+    color: #fff;
+    font-weight: 600;
+    padding-left: 26px; // Indenta el link al hacer hover — feedback visual de selección
+    outline: none;
+  }
+}
+
+// Título de la lista de items dentro de la categoría expandida en el panel secundario
+.cat-items-list-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6b7280;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #9ca3af;
+  margin-bottom: 12px;
+}
+
+// Link de producto dentro del panel secundario de una categoría
+.cat-sub-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 9px 6px;
+  font-size: 13px;
+  color: #444;
+  background: transparent;
+  border: none;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  text-decoration: none;
+  transition: color 0.35s cubic-bezier(0.22,1,0.36,1),
+              padding-left 0.35s cubic-bezier(0.22,1,0.36,1);
+
+  i { font-size: 10px; color: #9ca3af; transition: color 0.35s cubic-bezier(0.22,1,0.36,1); }
+
+  &:hover, &:focus-visible {
+    color: var(--primary);  // Cambia a rojo al hacer hover
+    padding-left: 12px;     // Indenta el link
+    outline: none;
+    i { color: var(--primary); } // El ícono también cambia a rojo
+  }
+}
+
+// === KEYFRAMES DE ANIMACIÓN ===
+// flyoutIn: animación de entrada del panel secundario del sidebar de categorías
+@keyframes flyoutIn {
+  from { opacity: 0; transform: translateX(-16px); } // Comienza invisible y desplazado a la izquierda
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+// slideDownFull: slide + scale del contenedor del mega-menu de productos
+@keyframes slideDownFull {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-18px) scaleY(0.93);
+    box-shadow: none;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scaleY(1);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  }
+}
+
+// megaPanelLeft: el panel oscuro izquierdo entra desde la izquierda
+@keyframes megaPanelLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+// megaColFade: cada columna sube desde abajo con fade
+@keyframes megaColFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// slideDownSimple: animación genérica para dropdowns pequeños (industrias, soporte)
+@keyframes slideDownSimple {
+  from { opacity: 0; transform: translateY(-16px) scaleY(0.95); }
+  to   { opacity: 1; transform: translateY(0)     scaleY(1); }
+}
+
+// slideDownIndustrias: incluye translateX(-50%) en todos los frames para evitar salto de posición
+@keyframes slideDownIndustrias {
+  from { opacity: 0; transform: translateX(-50%) translateY(-16px) scaleY(0.95); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0)     scaleY(1); }
+}
+
+// === RESPONSIVE ===
+
+// En tablet (< 992px): la fila roja NO se colapsa al hacer scroll
+// (el usuario necesita el logo y el hamburger siempre visibles)
+@media (max-width: 991.98px) {
+  .header-scrolled {
+    .nav-row-1 {
+      max-height: 100px;    // Mantiene la fila 1 visible en móvil aunque se haga scroll
+      overflow: visible;
+      border-bottom-color: rgba(0,0,0,0.15);
+    }
+  }
+}
+
+// En móvil (< 768px): el sidebar de categorías ocupa el 100% del ancho del viewport
+@media (max-width: 768px) {
+  .cat-sidebar { width: 100vw; }
+}
+
+// Link "Pro" — estilo heredado de nav para links de texto en la fila de navegación
+.enlace-pro{
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}

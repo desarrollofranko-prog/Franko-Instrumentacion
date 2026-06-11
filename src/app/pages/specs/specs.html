@@ -1,0 +1,347 @@
+<main>
+
+  <!-- CARGANDO -->
+  <div *ngIf="cargando" class="text-center py-5">
+    <div class="spinner-border text-danger" role="status">
+      <span class="visually-hidden">Cargando producto...</span>
+    </div>
+  </div>
+
+  <!-- NO ENCONTRADO -->
+  <div *ngIf="notFound && !cargando" class="not-found-section">
+    <div class="container-fluid px-4 text-center">
+      <i class="bi bi-box-seam not-found-icon" aria-hidden="true"></i>
+      <h2 class="not-found-title">Producto no encontrado</h2>
+      <p class="not-found-sub">El producto que buscas no existe o fue removido del catálogo.</p>
+      <a routerLink="/productos" class="btn-back-catalog">
+        <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>Ver todos los productos
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA STICKY -->
+  <div *ngIf="producto" class="specs-sticky-cta" [class.sticky-visible]="stickyVisible()" aria-hidden="true">
+    <span class="sticky-nombre">{{ producto.titulo }} · Serie {{ producto.serie }}</span>
+    <div class="sticky-sep" aria-hidden="true"></div>
+    <div class="sticky-btns">
+      <button type="button" class="sticky-btn-cot" (click)="cotizar()">
+        <i class="bi bi-envelope-fill" aria-hidden="true"></i> Cotizar
+      </button>
+      <a href="https://wa.me/5215518120191" target="_blank" rel="noopener" class="sticky-btn-wa">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <ng-container *ngIf="producto && !notFound && !cargando">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <div class="container-fluid px-4">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+          <li class="breadcrumb-item"><a routerLink="/productos">Productos</a></li>
+          <li class="breadcrumb-item">
+            <a [routerLink]="['/productos']" [fragment]="producto.categoriaId">{{ producto.categoriaNombre }}</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">{{ producto.titulo }}</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="specs-hero">
+      <div class="specs-hero-inner">
+
+        <!-- Imagen + galería -->
+        <div class="specs-img-col">
+          <div class="specs-img-wrapper">
+
+            <button *ngIf="galeria.length > 1" type="button"
+                    class="carousel-arrow carousel-arrow--prev"
+                    (click)="anteriorImagen()" aria-label="Imagen anterior">
+              <i class="bi bi-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <img [src]="imagenActiva" [alt]="producto.titulo"
+                 class="specs-img" [class.specs-img--fading]="imagenFading"
+                 width="560" height="560"
+                 fetchpriority="high" decoding="sync"
+                 (error)="onImageError($event)">
+
+            <button *ngIf="galeria.length > 1" type="button"
+                    class="carousel-arrow carousel-arrow--next"
+                    (click)="siguienteImagen()" aria-label="Imagen siguiente">
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            </button>
+
+            <span class="serie-badge-over" [ngClass]="getSerieClass(producto.serie)">
+              Serie {{ producto.serie }}
+            </span>
+
+            <div class="specs-img-dots" *ngIf="galeria.length > 1" role="tablist">
+              <button *ngFor="let img of galeria; let i = index"
+                      type="button" class="img-dot" role="tab"
+                      [class.active]="imagenActiva === img"
+                      (click)="setImagenActiva(img)"
+                      [attr.aria-label]="'Ver imagen ' + (i + 1)">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info del producto -->
+        <div class="specs-info-wrapper">
+          <div class="container-fluid px-4">
+            <div class="specs-info-col">
+
+              <div class="specs-info-left">
+                <div class="specs-categoria-label" [ngClass]="getSerieClass(producto.serie)">
+                  <i class="bi bi-grid-fill me-2" aria-hidden="true"></i>{{ producto.categoriaNombre }}
+                </div>
+                <h1 class="specs-titulo" [ngClass]="getSerieClass(producto.serie)">{{ producto.titulo }}</h1>
+                <div class="specs-rating">
+                  <div class="rating-stars" aria-label="5 de 5 estrellas">
+                    <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  </div>
+                  <span class="rating-score">5.0</span>
+                  <span class="rating-divider">·</span>
+                  <span class="rating-label">Producto Certificado</span>
+                </div>
+                <div class="specs-sku">
+                  <span class="sku-label">SKU:</span>
+                  <span class="sku-value">{{ producto.serie }}</span>
+                </div>
+                <p class="specs-desc-corta">{{ producto.descripcionCorta }}</p>
+              </div>
+
+              <div class="specs-info-right">
+                <div class="specs-cta-card">
+                  <p class="cta-card-title">¿Te interesa este producto?</p>
+                  <div class="specs-ctas">
+                    <button type="button" class="btn-cotizar-hero" (click)="cotizar()">
+                      <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>Solicitar Cotización
+                    </button>
+                    <a href="https://wa.me/5215518120191" target="_blank" rel="noopener noreferrer" class="btn-wa-hero">
+                      <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
+                    </a>
+                  </div>
+                  <div class="cta-card-trust">
+                    <span><i class="bi bi-clock-fill" aria-hidden="true"></i>Respuesta en menos de 24 horas</span>
+                    <span><i class="bi bi-patch-check-fill" aria-hidden="true"></i>Producto certificado ISO</span>
+                    <span><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Fabricación 100% nacional</span>
+                    <span><i class="bi bi-headset" aria-hidden="true"></i>Asesoría técnica sin costo</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ TABS DE CONTENIDO ══ -->
+    <section class="specs-tabs-section" id="especificaciones"
+             [ngClass]="'tabs-' + getSerieClass(producto.serie)">
+
+      <!-- Barra de tabs -->
+      <div class="tabs-header-bar">
+        <div class="container-fluid px-4">
+          <div class="tabs-header-inner">
+            <button *ngFor="let tab of tabs"
+                    type="button" class="tab-btn"
+                    [class.tab-active]="tabActivo === tab"
+                    (click)="setTab(tab)">
+              <i class="bi bi-list-check me-2" aria-hidden="true"></i>{{ getNombreTab(tab) }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── TAB: INFORMACIÓN GENERAL ──────────────────────────── -->
+      <div *ngIf="tabActivo === 'informacion-general'" class="tab-pane">
+        <div class="tp-header tp-header--dark">
+          <div class="container-fluid px-4">
+            <div class="tp-header-inner">
+              <div class="tp-icon"><i class="bi bi-list-check" aria-hidden="true"></i></div>
+              <div>
+                <p class="tp-header-tag">{{ producto.categoriaNombre }}</p>
+                <h3 class="tp-header-title">Información General</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid px-4 py-5">
+          <!-- Descripción intro -->
+          <p *ngIf="producto.informacionGeneral.descripcionIntro"
+             class="specs-intro-text">
+            {{ producto.informacionGeneral.descripcionIntro }}
+          </p>
+
+          <div class="info-general-grid">
+
+            <!-- Columna izquierda -->
+            <div class="ig-col-left">
+
+              <!-- Características Especiales -->
+              <div *ngIf="producto.informacionGeneral.caracteristicasEspeciales.length > 0" class="ig-block">
+                <h4 class="ig-subtitle">Características Especiales</h4>
+                <ul class="ig-bullets">
+                  <li *ngFor="let item of producto.informacionGeneral.caracteristicasEspeciales">
+                    {{ item }}
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Descripción -->
+              <div *ngIf="producto.informacionGeneral.descripcion" class="ig-block">
+                <h4 class="ig-subtitle">Descripción</h4>
+                <p class="ig-text">{{ producto.informacionGeneral.descripcion }}</p>
+              </div>
+
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="ig-col-right">
+
+              <!-- Características Técnicas -->
+              <div *ngIf="(producto.informacionGeneral.caracteristicasTecnicas | keyvalue).length > 0" class="ig-block">
+                <h4 class="ig-subtitle">Características Técnicas</h4>
+                <table class="ig-table">
+                  <tbody>
+                    <tr *ngFor="let spec of producto.informacionGeneral.caracteristicasTecnicas | keyvalue">
+                      <td class="ig-table-key">{{ spec.key }}</td>
+                      <td class="ig-table-val">{{ spec.value }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Aplicaciones -->
+              <div *ngIf="producto.informacionGeneral.aplicaciones" class="ig-block">
+                <h4 class="ig-subtitle">Aplicaciones</h4>
+                <p class="ig-text">{{ producto.informacionGeneral.aplicaciones }}</p>
+              </div>
+
+              <!-- Funcionamiento -->
+              <div *ngIf="producto.informacionGeneral.funcionamiento" class="ig-block">
+                <h4 class="ig-subtitle">Funcionamiento</h4>
+                <p class="ig-text">{{ producto.informacionGeneral.funcionamiento }}</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── TAB: VENTAJAS DE NUESTRA MARCA ──────────────────── -->
+      <div *ngIf="tabActivo === 'ventajas-de-nuestra-marca'" class="tab-pane">
+        <div class="tp-header tp-header--dark">
+          <div class="container-fluid px-4">
+            <div class="tp-header-inner">
+              <div class="tp-icon"><i class="bi bi-trophy-fill" aria-hidden="true"></i></div>
+              <div>
+                <p class="tp-header-tag">{{ producto.categoriaNombre }}</p>
+                <h3 class="tp-header-title">Ventajas de Nuestra Marca</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid px-4 py-5">
+          <div class="ig-text ventajas-texto">{{ producto.ventajasMarca }}</div>
+        </div>
+      </div>
+
+      <!-- ── TAB: ACCESORIOS ────────────────────────────────── -->
+      <div *ngIf="tabActivo === 'accesorios'" class="tab-pane">
+        <div class="tp-header tp-header--dark">
+          <div class="container-fluid px-4">
+            <div class="tp-header-inner">
+              <div class="tp-icon"><i class="bi bi-puzzle-fill" aria-hidden="true"></i></div>
+              <div>
+                <p class="tp-header-tag">{{ producto.categoriaNombre }}</p>
+                <h3 class="tp-header-title">Accesorios</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid px-4 py-5">
+          <div class="ig-text accesorios-texto">{{ producto.accesorios }}</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CTA COTIZACIÓN -->
+    <section class="cta-cotizacion" aria-label="Solicitar cotización">
+      <div class="container-fluid px-4">
+        <div class="cta-cotizacion-inner">
+          <div class="cta-icon-col" aria-hidden="true">
+            <i class="bi bi-envelope-paper-fill"></i>
+          </div>
+          <div class="cta-text-col">
+            <h2 class="cta-titulo">¿Listo para cotizar?</h2>
+            <p class="cta-sub">Nuestros ingenieros te asesoran en la selección del tamaño, material y configuración correcta. Respuesta en menos de 24 horas.</p>
+          </div>
+          <div class="cta-btn-col">
+            <button type="button" class="cta-btn-primary" (click)="cotizar()">
+              <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>Solicitar Cotización
+            </button>
+            <a href="https://wa.me/5215518120191" target="_blank" rel="noopener noreferrer" class="cta-btn-wa">
+              <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS RELACIONADOS -->
+    <section class="relacionados-section" *ngIf="productosRelacionados.length > 0" aria-label="Productos relacionados">
+      <div class="container-fluid px-4">
+        <div class="relacionados-header">
+          <div class="relacionados-titulo-wrap">
+            <span class="relacionados-eyebrow">De la misma categoría</span>
+            <h2 class="relacionados-titulo">Productos Relacionados</h2>
+          </div>
+          <a routerLink="/productos" class="ver-todos-link">
+            Ver catálogo <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="rel-grid">
+          <div *ngFor="let rel of productosRelacionados" class="rel-card shadow-sm border">
+            <div class="rel-img-wrapper">
+              <img [src]="rel.imagen" [alt]="rel.titulo"
+                   width="220" height="220" loading="lazy" decoding="async"
+                   (error)="onImageError($event)">
+              <a [routerLink]="'/productos/' + rel.slug" class="rel-img-overlay"
+                 [attr.aria-label]="'Ver ' + rel.titulo">
+                <span class="rel-overlay-label"><i class="bi bi-eye me-1"></i>Ver</span>
+              </a>
+            </div>
+            <div class="rel-info">
+              <span class="rel-serie-tag" [ngClass]="getSerieClass(rel.serie)">Serie {{ rel.serie }}</span>
+              <h4 class="rel-nombre">{{ rel.titulo }}</h4>
+              <div class="rel-actions">
+                <a [routerLink]="'/productos/' + rel.slug" class="rel-btn-detalle">
+                  <i class="bi bi-eye me-1"></i>Ver
+                </a>
+                <button type="button" class="rel-btn-cotizar" (click)="cotizarRelacionado(rel)">
+                  <i class="bi bi-envelope me-1"></i>Cotizar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </ng-container>
+
+</main>
